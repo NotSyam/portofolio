@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning Hub Modul Orientasi ASN — Pusbangkom MKMB Kementerian Agama RI</title>
+  <meta name="description" content="Portal Pembelajaran Interaktif Mandiri Orientasi ASN & PPPK Kementerian Agama RI. Dikembangkan oleh Abdullah Syamsidar." />
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          colors: {
+            algae: {
+              dark: '#13714C',      /* Deep Green */
+              deep: '#0D4E34',      /* Darkest Forest */
+              base: '#3AB67D',      /* Medium Vibrant Green */
+              light: '#A2E494',     /* Light Pastel Green */
+              surface: '#E9EBED',   /* Clean Gray Surface */
+              canvas: '#F5F8F6',    /* Tinted Canvas */
+              card: '#FFFFFF'
+            },
+            brand: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .hero-glow {
+      background: radial-gradient(circle at 50% 30%, rgba(58, 182, 125, 0.15) 0%, rgba(19, 113, 76, 0.05) 50%, transparent 80%);
+    }
+  </style>
+</head>
+
+<body class="bg-algae-canvas text-slate-800 antialiased min-h-screen flex flex-col selection:bg-algae-light selection:text-algae-deep">
+
+  <!-- ========================================================================== -->
+  <!-- 01. TOP NAVIGATION BAR                                                     -->
+  <!-- ========================================================================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand & Entity -->
+      <div class="flex items-center gap-3.5 min-w-0">
+        <a href="../index.html" class="flex items-center gap-3 group" title="Kembali ke Portofolio Utama">
+          <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-algae-dark to-algae-base flex items-center justify-center text-white shadow-md shadow-algae-dark/20 group-hover:scale-105 transition-transform shrink-0">
+            <i data-lucide="book-marked" class="w-5 h-5 text-algae-light"></i>
+          </div>
+          <div class="min-w-0">
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] font-extrabold uppercase tracking-wider text-algae-dark px-2.5 py-0.5 rounded-full bg-algae-light/40 border border-algae-base/30">
+                Pusbangkom MKMB
+              </span>
+              <span class="text-xs text-slate-400 hidden sm:inline">•</span>
+              <span class="text-xs text-slate-500 hidden sm:inline">Kementerian Agama RI</span>
+            </div>
+            <h1 class="text-sm sm:text-base font-extrabold text-algae-deep truncate">
+              Learning Hub Orientasi ASN & PPPK
+            </h1>
+          </div>
+        </a>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="../index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-700 hover:text-algae-dark bg-white hover:bg-slate-100 border border-slate-300 transition-all shadow-sm">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span>Portofolio Utama</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================== -->
+  <!-- 02. HERO / HUB INTRO                                                       -->
+  <!-- ========================================================================== -->
+  <section class="relative py-12 sm:py-16 overflow-hidden hero-glow border-b border-slate-200/80 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-algae-light/40 border border-algae-base/40 text-algae-dark text-xs sm:text-sm font-bold shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-algae-base animate-pulse"></span>
+          Portal Mandiri Microlearning 3 Modul E-Learning
+        </div>
+
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-algae-deep tracking-tight leading-tight">
+          Pusat Pembelajaran Digital <br />
+          <span class="text-algae-dark">Orientasi Terpadu ASN Kemenag</span>
+        </h2>
+
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+          Silakan pilih materi yang ingin Anda pelajari di bawah ini. Seluruh modul dirancang secara interaktif, dilengkapi audio narasi suara per unit, simulasi studi kasus nyata, evaluasi kuis terenkripsi SHA-256, dan lembar ikrar komitmen aparatur.
+        </p>
+
+        <!-- Stats Counter Pill -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 max-w-2xl mx-auto text-left">
+          <div class="p-3.5 rounded-2xl bg-algae-canvas border border-slate-200 shadow-sm">
+            <span class="block text-2xl font-extrabold text-algae-dark font-mono">3</span>
+            <span class="text-xs text-slate-500 font-semibold">Modul Interaktif</span>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-algae-canvas border border-slate-200 shadow-sm">
+            <span class="block text-2xl font-extrabold text-algae-base font-mono">39</span>
+            <span class="text-xs text-slate-500 font-semibold">Unit Pembelajaran</span>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-algae-canvas border border-slate-200 shadow-sm">
+            <span class="block text-2xl font-extrabold text-algae-dark font-mono">26</span>
+            <span class="text-xs text-slate-500 font-semibold">Soal Post-Test</span>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-algae-canvas border border-slate-200 shadow-sm">
+            <span class="block text-2xl font-extrabold text-algae-deep font-mono">100%</span>
+            <span class="text-xs text-slate-500 font-semibold">Narasi Suara & TTS</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================== -->
+  <!-- 03. MODULE SELECTION CARDS (3 INTERACTIVE COURSES)                         -->
+  <!-- ========================================================================== -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 flex-1 w-full">
+    
+    <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-8 gap-4 pb-4 border-b border-slate-200">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-wider text-algae-dark block mb-1">Pilihan Pembelajaran</span>
+        <h3 class="text-2xl font-extrabold text-algae-deep tracking-tight">Katalog Modul Orientasi ASN & PPPK</h3>
+      </div>
+      <span class="text-xs text-slate-500">Klik tombol <strong>"Buka Modul Pembelajaran"</strong> untuk mulai belajar</span>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+      
+      <!-- ========================================================= -->
+      <!-- CARD 1: Penerapan Tugas dan Fungsi ASN (Orientasi BerAKHLAK) -->
+      <!-- ========================================================= -->
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:border-algae-base transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+        <div>
+          <!-- Header Banner -->
+          <div class="h-44 bg-gradient-to-tr from-teal-800 via-emerald-850 to-slate-900 p-6 flex flex-col justify-between text-white relative overflow-hidden">
+            <div class="absolute -right-6 -bottom-6 opacity-15 group-hover:scale-110 transition-transform">
+              <i data-lucide="shield" class="w-32 h-32"></i>
+            </div>
+            <div class="flex items-center justify-between z-10">
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-teal-400 text-slate-950 font-mono shadow-sm flex items-center gap-1">
+                <i data-lucide="sparkles" class="w-3 h-3"></i> 12 Unit Interaktif
+              </span>
+              <span class="text-xs text-teal-200 font-medium">Modul 01</span>
+            </div>
+            <div class="z-10">
+              <h4 class="text-lg font-extrabold text-white leading-snug">Penerapan Tugas & Fungsi ASN</h4>
+              <p class="text-xs text-teal-100/80 mt-0.5">Orientasi BerAKHLAK Kementerian Agama</p>
+            </div>
+          </div>
+
+          <!-- Body Content -->
+          <div class="p-6 space-y-4">
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Materi orientasi untuk menginternalisasi nilai dasar <em>"Bangga Melayani Bangsa"</em>, penguasaan 5 ekosistem digital Kemenag, kesiapan adopsi umat, dan integritas penolakan gratifikasi.
+            </p>
+
+            <!-- Key Highlights Checklist -->
+            <div class="space-y-2 pt-2 border-t border-slate-100 text-xs text-slate-700">
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-algae-base shrink-0"></i>
+                <span>7 Core Values BerAKHLAK & 5 Prinsip Etika</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-algae-base shrink-0"></i>
+                <span>5 Ekosistem Digital: Pusaka, EMIS, SIMBA, AI, Sihalal</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-algae-base shrink-0"></i>
+                <span>Simulator Kesiapan Adopsi Umat & Daerah 3T</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-algae-base shrink-0"></i>
+                <span>Studi Kasus Dilema Etika Meja Pelayanan</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-algae-base shrink-0"></i>
+                <span>Post-Test 8 Butir Soal & Ikrar Komitmen</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Action -->
+        <div class="p-6 pt-0 space-y-2">
+          <a href="./tugas-fungsi-asn/index.html" class="w-full py-3 px-4 rounded-2xl bg-algae-dark hover:bg-algae-deep text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-algae-dark/20 hover:scale-[1.02] transition-all">
+            <span>Buka Modul Pembelajaran</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- ========================================================= -->
+      <!-- CARD 2: Pengenalan Jabatan ASN Kementerian Agama          -->
+      <!-- ========================================================= -->
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:border-algae-base transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+        <div>
+          <!-- Header Banner -->
+          <div class="h-44 bg-gradient-to-tr from-emerald-800 via-teal-900 to-slate-900 p-6 flex flex-col justify-between text-white relative overflow-hidden">
+            <div class="absolute -right-6 -bottom-6 opacity-15 group-hover:scale-110 transition-transform">
+              <i data-lucide="network" class="w-32 h-32"></i>
+            </div>
+            <div class="flex items-center justify-between z-10">
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-emerald-400 text-slate-950 font-mono shadow-sm flex items-center gap-1">
+                <i data-lucide="sparkles" class="w-3 h-3"></i> 11 Unit Interaktif
+              </span>
+              <span class="text-xs text-emerald-200 font-medium">Modul 02</span>
+            </div>
+            <div class="z-10">
+              <h4 class="text-lg font-extrabold text-white leading-snug">Pengenalan Jabatan ASN</h4>
+              <p class="text-xs text-emerald-100/80 mt-0.5">Struktur Kepegawaian & Rumpun Jabatan</p>
+            </div>
+          </div>
+
+          <!-- Body Content -->
+          <div class="p-6 space-y-4">
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Membedah peta kelembagaan 10.562 satuan kerja, perbandingan komprehensif PNS vs PPPK, taksonomi 55 Jabatan Fungsional (86% aparatur), dan simulasi mobilitas karir.
+            </p>
+
+            <!-- Key Highlights Checklist -->
+            <div class="space-y-2 pt-2 border-t border-slate-100 text-xs text-slate-700">
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-algae-base shrink-0"></i>
+                <span>Skala Lembaga: 10.562 Satker & 387k Pegawai</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-algae-base shrink-0"></i>
+                <span>Tabel Interaktif Komparasi PNS vs PPPK</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-algae-base shrink-0"></i>
+                <span>5 Dimensi Jabatan: FTTWH (Fungsi, Tugas, Wewenang)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-algae-base shrink-0"></i>
+                <span>Visualisasi Donat 86% JF & Katalog 55 Jabatan</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-algae-base shrink-0"></i>
+                <span>Simulator Batas Usia Pensiun & Mobilitas Karir</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Action -->
+        <div class="p-6 pt-0 space-y-2">
+          <a href="./pengenalan-jabatan/index.html" class="w-full py-3 px-4 rounded-2xl bg-algae-dark hover:bg-algae-deep text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-algae-dark/20 hover:scale-[1.02] transition-all">
+            <span>Buka Modul Pembelajaran</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- ========================================================= -->
+      <!-- CARD 3: Pengenalan Manajemen Kinerja Pegawai ASN (MOOC P3K) -->
+      <!-- ========================================================= -->
+      <div class="rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:border-algae-base transition-all duration-300 flex flex-col justify-between overflow-hidden group">
+        <div>
+          <!-- Header Banner -->
+          <div class="h-44 bg-gradient-to-tr from-blue-700 via-indigo-850 to-slate-900 p-6 flex flex-col justify-between text-white relative overflow-hidden">
+            <div class="absolute -right-6 -bottom-6 opacity-15 group-hover:scale-110 transition-transform">
+              <i data-lucide="layout" class="w-32 h-32"></i>
+            </div>
+            <div class="flex items-center justify-between z-10">
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-blue-400 text-slate-950 font-mono shadow-sm flex items-center gap-1">
+                <i data-lucide="sparkles" class="w-3 h-3"></i> 16 Unit Interaktif
+              </span>
+              <span class="text-xs text-blue-200 font-medium">Modul 03</span>
+            </div>
+            <div class="z-10">
+              <h4 class="text-lg font-extrabold text-white leading-snug">Manajemen Kinerja Pegawai</h4>
+              <p class="text-xs text-blue-100/80 mt-0.5">MOOC Orientasi P3K Kementerian Agama</p>
+            </div>
+          </div>
+
+          <!-- Body Content -->
+          <div class="p-6 space-y-4">
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Transformasi pengelolaan kinerja PermenPANRB 6/2022: Penyelarasan pohon kinerja (cascading RPJPN ke RHK), audit kesalahan e-Kinerja BKN, dan matriks 9-Box talent pool.
+            </p>
+
+            <!-- Key Highlights Checklist -->
+            <div class="space-y-2 pt-2 border-t border-slate-100 text-xs text-slate-700">
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-algae-base shrink-0"></i>
+                <span>Simulator Pohon Kinerja (Cascading 5 Tingkat)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-algae-base shrink-0"></i>
+                <span>Audit Investigatif e-Kinerja BKN (Spot the Mistake)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-algae-base shrink-0"></i>
+                <span>Kalkulator Distribusi Predikat SE MenpanRB 3/2023</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-algae-base shrink-0"></i>
+                <span>Bedah Dokumen Format D.1.1 & Matriks 9-Box Talenta</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-algae-base shrink-0"></i>
+                <span>Alur Statuter Keberatan & Evaluasi 10 Butir Soal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Action -->
+        <div class="p-6 pt-0 space-y-2">
+          <a href="./manajemen-kinerja/index.html" class="w-full py-3 px-4 rounded-2xl bg-algae-dark hover:bg-algae-deep text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md shadow-algae-dark/20 hover:scale-[1.02] transition-all">
+            <span>Buka Modul Pembelajaran</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Learning Pathway Info Banner -->
+    <div class="mt-12 p-6 rounded-3xl bg-white border border-slate-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-algae-light/50 text-algae-dark flex items-center justify-center shrink-0">
+          <i data-lucide="compass" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h4 class="text-sm sm:text-base font-extrabold text-algae-deep">Saran Urutan Pembelajaran (Learning Path)</h4>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed max-w-2xl">
+            Untuk pemahaman maksimal, disarankan mempelajari secara berurutan: <strong>Modul 01 (Nilai & Etika)</strong> &rarr; <strong>Modul 02 (Pemahaman Jabatan)</strong> &rarr; <strong>Modul 03 (Pengelolaan Target Kinerja)</strong>.
+          </p>
+        </div>
+      </div>
+
+      <a href="../index.html#contact" class="px-5 py-2.5 rounded-xl border border-slate-300 hover:bg-slate-50 text-xs font-bold text-slate-700 shrink-0 transition-all">
+        Konsultasi Desain Modul
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ========================================================================== -->
+  <!-- 04. FOOTER                                                                 -->
+  <!-- ========================================================================== -->
+  <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 space-y-2">
+      <p class="font-semibold text-slate-700">
+        Pusat Pengembangan Kompetensi Manajemen, Kepemimpinan, dan Moderasi Beragama (Pusbangkom MKMB)
+      </p>
+      <p class="text-slate-500">
+        Badan Moderasi Beragama dan Pengembangan SDM • Kementerian Agama Republik Indonesia
+      </p>
+      <p class="text-slate-400 pt-2 border-t border-slate-100 max-w-md mx-auto">
+        Karya Perancangan Desain Instruksional & Multimedia oleh <strong>Abdullah Syamsidar</strong> (Teknologi Pendidikan UNJ).
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>

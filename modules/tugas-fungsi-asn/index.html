@@ -1,0 +1,2487 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Penerapan Tugas dan Fungsi ASN — Orientasi BerAKHLAK Kementerian Agama</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          colors: {
+            algae: {
+              dark: '#13714C',      /* Deep Green */
+              deep: '#0D4E34',      /* Darkest Forest */
+              base: '#3AB67D',      /* Medium Vibrant Green */
+              light: '#A2E494',     /* Light Pastel Green */
+              surface: '#E9EBED',   /* Clean Gray Surface */
+              canvas: '#F5F8F6',    /* Tinted Canvas */
+              card: '#FFFFFF'
+            }
+          },
+          animation: {
+            'fade-enter': 'fadeInOut 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+          },
+          keyframes: {
+            fadeInOut: {
+              '0%': { opacity: '0', transform: 'scale(0.98) translateY(8px)' },
+              '100%': { opacity: '1', transform: 'scale(1) translateY(0)' }
+            }
+          },
+          boxShadow: {
+            'algae-soft': '0 8px 30px -4px rgba(19, 113, 76, 0.08), 0 2px 6px -1px rgba(19, 113, 76, 0.04)',
+            'algae-card': '0 14px 35px -5px rgba(19, 113, 76, 0.12), 0 4px 10px -2px rgba(19, 113, 76, 0.06)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    /* 3D Flip Card */
+    .perspective-1000 { perspective: 1000px; }
+    .transform-style-3d { transform-style: preserve-3d; }
+    .backface-hidden { backface-visibility: hidden; }
+    .rotate-y-180 { transform: rotateY(180deg); }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #E9EBED; }
+    ::-webkit-scrollbar-thumb { background: #3AB67D; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #13714C; }
+
+    /* Transitions */
+    .smooth-chart-fill {
+      transition: stroke-dashoffset 2.0s cubic-bezier(0.22, 1, 0.36, 1), stroke 0.5s ease;
+    }
+    .smooth-bar-fill {
+      transition: width 2.0s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .icon-anim {
+      transition: all 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  </style>
+</head>
+
+<body class="bg-algae-canvas font-sans text-slate-800 antialiased min-h-screen flex flex-col selection:bg-algae-light/50 selection:text-algae-deep">
+
+  <!-- TOP HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-algae-surface shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      
+      <!-- Brand & Title -->
+      <div class="flex items-center gap-3.5 min-w-0">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-algae-dark to-algae-base flex items-center justify-center text-algae-light shadow-md shrink-0 ring-2 ring-algae-light/50">
+          <svg class="w-5 h-5 icon-anim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="m9 9.5 2 2 4-4"/></svg>
+        </div>
+        <div class="min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-algae-dark px-2.5 py-0.5 rounded-full bg-algae-light/40 border border-algae-base/30">Pusbangkom MKMB</span>
+            <span class="text-xs text-slate-400 hidden sm:inline">•</span>
+            <span class="text-xs text-slate-500 hidden sm:inline">pta.kemenag.go.id</span>
+          </div>
+          <h1 class="text-sm sm:text-base font-extrabold text-algae-deep truncate">Penerapan Tugas & Fungsi ASN Kemenag</h1>
+        </div>
+      </div>
+
+      <!-- Audio & Progress Controls -->
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <!-- Back to Hub Navigation Button -->
+        <a href="../index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-algae-surface/80 hover:bg-algae-surface text-algae-deep hover:text-algae-dark text-xs font-bold transition-all border border-slate-200 shadow-sm" title="Kembali ke Learning Hub Pusbangkom">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          <span class="hidden md:inline">Hub Modul</span>
+        </a>
+
+        <!-- Audio Narration Controls -->
+        <div class="flex items-center gap-1.5 bg-algae-surface/60 p-1 rounded-2xl border border-slate-200 shadow-sm">
+          <button id="toggleAudioBtn" type="button" class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white hover:bg-algae-surface text-slate-700 transition-all text-xs font-bold shadow-sm" title="Nyalakan/Matikan Audio Narasi">
+            <span id="audioIconContainer" class="w-4 h-4 flex items-center justify-center text-slate-500"></span>
+            <span id="audioStatusText" class="hidden sm:inline text-[11px] font-extrabold text-slate-700">Narasi: Nonaktif</span>
+          </button>
+          <button id="replayAudioBtn" type="button" class="p-1.5 rounded-xl bg-white hover:bg-algae-surface text-slate-600 transition-all hidden" title="Putar Ulang Narasi">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+          </button>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="hidden sm:flex flex-col items-end gap-1">
+          <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
+            <span>Progres Belajar</span>
+            <span id="pctLabel" class="font-mono text-algae-dark font-extrabold">0%</span>
+          </div>
+          <div class="w-36 lg:w-48 h-2.5 bg-algae-surface rounded-full overflow-hidden p-0.5 border border-slate-200">
+            <div id="progressFill" class="h-full bg-gradient-to-r from-algae-base to-algae-dark rounded-full transition-all duration-[2000ms] ease-out" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- Mobile Drawer Toggle -->
+        <button id="mobileNavToggle" type="button" class="lg:hidden p-2 rounded-xl text-slate-600 hover:text-algae-dark hover:bg-algae-surface transition-colors" aria-label="Buka navigasi unit">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN APP WRAPPER -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    
+    <!-- SIDEBAR NAVIGATION (Desktop) -->
+    <aside class="hidden lg:block lg:col-span-4 xl:col-span-3 sticky top-24 space-y-4">
+      <div class="bg-white rounded-3xl border border-algae-surface p-4 shadow-algae-soft">
+        <div class="flex items-center justify-between pb-3 border-b border-algae-surface mb-3 px-1">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Alur Pembelajaran</span>
+          <span class="text-[11px] font-mono font-bold text-algae-dark px-2 py-0.5 bg-algae-light/30 rounded-full" id="unitCountBadge">12 Unit</span>
+        </div>
+        
+        <nav id="desktopNav" class="space-y-1.5" aria-label="Navigasi materi"></nav>
+      </div>
+
+      <!-- Quick Nav Info Card -->
+      <div class="bg-gradient-to-br from-algae-dark to-algae-deep rounded-3xl p-5 text-white shadow-algae-card relative overflow-hidden">
+        <div class="flex items-center gap-2.5 mb-2 relative z-10">
+          <svg class="w-4 h-4 text-algae-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          <h4 class="text-xs font-bold tracking-wide uppercase text-algae-light">Aturan Kelulusan Unit</h4>
+        </div>
+        <p class="text-xs text-emerald-100/90 leading-relaxed relative z-10">
+          Selesaikan tugas interaktif pada unit materi dan baca minimal 10 detik agar tombol lanjut terbuka.
+        </p>
+      </div>
+    </aside>
+
+    <!-- MOBILE DRAWER -->
+    <div id="mobileDrawer" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden lg:hidden transition-opacity">
+      <div class="fixed inset-y-0 right-0 max-w-xs w-full bg-white shadow-2xl p-5 flex flex-col gap-4 overflow-y-auto">
+        <div class="flex items-center justify-between pb-3 border-b border-algae-surface">
+          <h3 class="font-bold text-algae-deep text-sm uppercase tracking-wider">Pilih Unit Modul</h3>
+          <button id="closeDrawer" class="p-1.5 rounded-xl text-slate-500 hover:bg-algae-surface" aria-label="Tutup navigasi">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+        <nav id="mobileNav" class="space-y-1.5 flex-1"></nav>
+      </div>
+    </div>
+
+    <!-- MAIN STAGE -->
+    <main class="lg:col-span-8 xl:col-span-9 bg-white border border-algae-surface rounded-3xl shadow-algae-soft p-6 sm:p-8 lg:p-10 min-h-[580px] flex flex-col justify-between" id="stage">
+      <!-- Dynamic Stage Content -->
+    </main>
+
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3.5 rounded-2xl shadow-2xl text-sm font-semibold transition-all duration-500 transform translate-y-24 opacity-0 pointer-events-none" role="status"></div>
+
+  <!-- NARRATOR AUDIO PLAYER -->
+  <audio id="narratorAudio" preload="auto"></audio>
+
+  <!-- APP ENGINE JAVASCRIPT -->
+  <script>
+    (() => {
+      "use strict";
+
+      /* =========================================================
+         CRYPTOGRAPHIC & SECURITY VAULT (Anti-Tamper & Anti-Cheat)
+         ========================================================= */
+      const CRYPTO_SALT = "kemenag_berakhlak_2026_mkmb";
+
+      // Lightweight, standalone Pure JS SHA-256 (RFC 6234 compliant, zero dependencies)
+      function sha256(ascii) {
+        function rightRotate(value, amount) {
+          return (value >>> amount) | (value << (32 - amount));
+        }
+        var mathPow = Math.pow;
+        var maxWord = mathPow(2, 32);
+        var lengthProperty = 'length';
+        var i, j;
+        var result = '';
+        var words = [];
+        var asciiBitLength = ascii[lengthProperty] * 8;
+        var hash = [];
+        var k = [];
+        var primeCounter = 0;
+        var isComposite = {};
+        for (var candidate = 2; primeCounter < 64; candidate++) {
+          if (!isComposite[candidate]) {
+            for (i = 0; i < 313; i += candidate) {
+              isComposite[i] = candidate;
+            }
+            hash[primeCounter] = (mathPow(candidate, .5) * maxWord) | 0;
+            k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+          }
+        }
+        ascii += '\x80';
+        while (ascii[lengthProperty] % 64 - 56) ascii += '\x00';
+        for (i = 0; i < ascii[lengthProperty]; i++) {
+          j = ascii.charCodeAt(i);
+          if (j >> 8) return;
+          words[i >> 2] |= j << ((3 - i) % 4) * 8;
+        }
+        words[words[lengthProperty]] = ((asciiBitLength / maxWord) | 0);
+        words[words[lengthProperty]] = (asciiBitLength | 0);
+        for (j = 0; j < words[lengthProperty];) {
+          var w = words.slice(j, j += 16);
+          var oldHash = hash;
+          hash = hash.slice(0, 8);
+          for (i = 0; i < 64; i++) {
+            var w15 = w[i - 15], w2 = w[i - 2];
+            var s0 = rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3);
+            var s1 = rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10);
+            var ch = (hash[4] & hash[5]) ^ (~hash[4] & hash[6]);
+            var temp1 = hash[7] + (rightRotate(hash[4], 6) ^ rightRotate(hash[4], 11) ^ rightRotate(hash[4], 25)) + ch + k[i] + (w[i] = (i < 16) ? w[i] : (w[i - 16] + s0 + w[i - 7] + s1) | 0);
+            var maj = (hash[0] & hash[1]) ^ (hash[0] & hash[2]) ^ (hash[1] & hash[2]);
+            var temp2 = (rightRotate(hash[0], 2) ^ rightRotate(hash[0], 13) ^ rightRotate(hash[0], 22)) + maj;
+            hash = [(temp1 + temp2) | 0].concat(hash);
+            hash[4] = (hash[4] + temp1) | 0;
+          }
+          for (i = 0; i < 8; i++) {
+            hash[i] = (hash[i] + oldHash[i]) | 0;
+          }
+        }
+        for (i = 0; i < 8; i++) {
+          for (j = 3; j >= 0; j--) {
+            var b = (hash[i] >> (8 * j)) & 255;
+            result += ((b < 16) ? '0' : '') + b.toString(16);
+          }
+        }
+        return result;
+      }
+
+      // Decrypt hex ciphertext using matching SHA-256 key
+      function decryptHex(hexStr, keyHash) {
+        try {
+          const bytes = new Uint8Array(hexStr.length / 2);
+          for (let i = 0; i < hexStr.length; i += 2) {
+            const b = parseInt(hexStr.substr(i, 2), 16);
+            const k = keyHash.charCodeAt((i / 2) % keyHash.length);
+            bytes[i / 2] = b ^ k;
+          }
+          return new TextDecoder().decode(bytes);
+        } catch (e) {
+          return "";
+        }
+      }
+
+      /* =========================================================
+         TACTILE SOUND SYNTHESIZER (Web Audio API)
+         ========================================================= */
+      let audioCtx = null;
+      function playTone(type) {
+        try {
+          if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          }
+          if (audioCtx.state === "suspended") {
+            audioCtx.resume();
+          }
+          const now = audioCtx.currentTime;
+          if (type === 'click') {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(650, now);
+            osc.frequency.exponentialRampToValueAtTime(320, now + 0.04);
+            gain.gain.setValueAtTime(0.06, now);
+            gain.gain.linearRampToValueAtTime(0.001, now + 0.04);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now);
+            osc.stop(now + 0.04);
+          } else if (type === 'success') {
+            [523.25, 659.25, 783.99].forEach((freq, i) => {
+              const osc = audioCtx.createOscillator();
+              const gain = audioCtx.createGain();
+              osc.type = 'triangle';
+              osc.frequency.setValueAtTime(freq, now + i * 0.07);
+              gain.gain.setValueAtTime(0.09, now + i * 0.07);
+              gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.07 + 0.22);
+              osc.connect(gain);
+              gain.connect(audioCtx.destination);
+              osc.start(now + i * 0.07);
+              osc.stop(now + i * 0.07 + 0.22);
+            });
+          } else if (type === 'error') {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(190, now);
+            osc.frequency.linearRampToValueAtTime(130, now + 0.14);
+            gain.gain.setValueAtTime(0.08, now);
+            gain.gain.linearRampToValueAtTime(0.001, now + 0.14);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now);
+            osc.stop(now + 0.14);
+          } else if (type === 'fanfare') {
+            [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+              const osc = audioCtx.createOscillator();
+              const gain = audioCtx.createGain();
+              osc.type = 'sine';
+              osc.frequency.setValueAtTime(freq, now + i * 0.09);
+              gain.gain.setValueAtTime(0.12, now + i * 0.09);
+              gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.09 + 0.32);
+              osc.connect(gain);
+              gain.connect(audioCtx.destination);
+              osc.start(now + i * 0.09);
+              osc.stop(now + i * 0.09 + 0.32);
+            });
+          }
+        } catch (e) {}
+      }
+
+      /* =========================================================
+         STATIC SVG ICONS (Lucide Icons Library Standards)
+         ========================================================= */
+      const SVG_ICONS = {
+        compass: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>`,
+        map: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg>`,
+        building: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg>`,
+        users: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+        briefcase: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
+        award: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>`,
+        checkCircle: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>`,
+        play: `<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>`,
+        arrowRight: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`,
+        arrowLeft: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>`,
+        rotate: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>`,
+        shield: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+        layers: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>`,
+        lock: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
+        clock: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+        volume2: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>`,
+        volumeX: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="22" x2="16" y1="9" y2="15"/><line x1="16" x2="22" y1="9" y2="15"/></svg>`,
+        check: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`,
+        sparkles: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>`,
+        heart: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>`,
+        zap: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+        grid: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>`,
+        fileText: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>`
+      };
+
+      function renderSvg(name, cls = "w-4 h-4") {
+        return `<span class="inline-flex items-center justify-center shrink-0 ${cls} icon-anim">${SVG_ICONS[name] || ''}</span>`;
+      }
+
+      /* =========================================================
+         DATA REGISTRY
+         ========================================================= */
+      const UNITS = [
+        { id: 0, key: "cover", title: "Cover & Orientasi", nav: "Orientasi", icon: "compass", reqTask: false },
+        { id: 1, key: "map", title: "Peta Modul", nav: "Peta Belajar", icon: "map", reqTask: false },
+        { id: 2, key: "berakhlak", title: "Core Values BerAKHLAK", nav: "Nilai BerAKHLAK", icon: "sparkles", reqTask: true },
+        { id: 3, key: "pelayanan", title: "Layanan & Akuntabilitas", nav: "Pelayanan & Akuntabel", icon: "shield", reqTask: true },
+        { id: 4, key: "dimensi", title: "5 Dimensi Inti Lanjutan", nav: "Dimensi Lanjutan", icon: "layers", reqTask: true },
+        { id: 5, key: "ekosistem", title: "5 Ekosistem Digital", nav: "Ekosistem Digital", icon: "building", reqTask: true },
+        { id: 6, key: "adopsi", title: "Adopsi Digital Umat", nav: "Adopsi Umat", icon: "users", reqTask: true },
+        { id: 7, key: "hambatan", title: "5 Hambatan Transformasi", nav: "Hambatan Lapangan", icon: "zap", reqTask: true },
+        { id: 8, key: "solusi", title: "Solusi & Tata Kelola Inklusif", nav: "Solusi Inklusif", icon: "grid", reqTask: true },
+        { id: 9, key: "dilema", title: "Studi Kasus Dilema Etika", nav: "Dilema Etika", icon: "briefcase", reqTask: true },
+        { id: 10, key: "kuis", title: "Kuis Post-Test", nav: "Kuis Post-Test", icon: "award", reqTask: true },
+        { id: 11, key: "penutup", title: "Rangkuman & Ikrar", nav: "Ikrar Komitmen", icon: "checkCircle", reqTask: false }
+      ];
+
+      const QUIZ_ITEMS = [
+        {
+          q: "Semboyan pengabdian aparatur sipil negara yang menyertai peluncuran Core Values BerAKHLAK adalah...",
+          options: ["Mengabdi untuk Negeri", "Bangga Melayani Bangsa", "Bekerja Cepat dan Tanggap", "Ikhlas Beramal Sepenuh Hati"],
+          hash: "8ea298b684723a53bab06de4fed52a6530635df86608d68e60e6616c9f167357",
+          encExplain: "6b000c5056410358184652415e0815700d1307106005094103164474612f1677564277787d282773165754590857504574510b515150162e5c0a504f565d5c177a040f554a594c"
+        },
+        {
+          q: "Menolak segala bentuk gratifikasi saat memproses izin operasional pesantren digital merupakan wujud pengamalan nilai...",
+          options: ["Harmonis", "Akuntabel", "Adaptif", "Kolaboratif"],
+          hash: "1835974efb120d51ab4deecc916ff7fe312faa57a4f3de0ec1858d9ebda01f11",
+          encExplain: "7f515f545017750e130c4553520159110c075a110b111617195a530c135d1317525f1e46080f415206460f47051610110a5f5f5251481901030a414443075f424159415457445d4512035f42514445440f05580d450417024c11511407430f035a5a5315084f"
+        },
+        {
+          q: "Salah satu implementasi nilai Berorientasi Pelayanan berbasis teknologi terkini di Kementerian Agama adalah...",
+          options: [
+            "Mewajibkan seluruh pendaftaran haji dilakukan manual di kantor pusat",
+            "Penyediaan chatbot konsultasi keagamaan berbasis AI dan SIMPONI",
+            "Pembatasan informasi sertifikasi halal hanya untuk kalangan tertentu",
+            "Menghapus kanal pengaduan publik"
+          ],
+          hash: "f45499fe0af7cd39f6dce5e095aa602053ec310edf52363ebc3217386e5e8849",
+          encExplain: "255c54405b56124571284653020a1349094410020915367974652e2f7f105f55584300115e4454040c465459405340450e024a535f565d185d00540259555558081446515a581404100203470210135d075844110046155f5746080718"
+        },
+        {
+          q: "Pengembangan aplikasi e-learning madrasah dan sistem informasi zakat digital (SIMBA) mencerminkan nilai...",
+          options: ["Loyal", "Adaptif", "Harmonis", "Akuntabel"],
+          hash: "c94c6a0e5c2e74a71c52482828ae2c275755d826f67eb4ffd896ce5e3c5aee7a",
+          encExplain: "225d5513420856455706400445400817450647474718505d40510f0a4402415e1553545b44595c4213455e0411140207085954160e005b02540647000e0e560f4358400243415d005b045a045355115e11135040415a53505356411f530e53591b"
+        },
+        {
+          q: "Kemenag bekerja sama dengan Bank Syariah dan Kementerian Kominfo dalam integrasi sistem zakat dan internet pelosok. Hal ini mengamalkan nilai...",
+          options: ["Kolaboratif", "Kompeten", "Loyal", "Berorientasi Pelayanan"],
+          hash: "032df6b252173462eb4b0c4c45a1974133d57662e6b97f40e64cc16b1187130d",
+          encExplain: "7b5c5e0504591053415b57175250575e040a140f550e56025a52145f195c514359524446565b57121c570c5e17155d5e0044530a101152075f56595911515516525255050f16125b5d535a17565f454600105a035c4d"
+        },
+        {
+          q: "Mengapa kolaborasi dengan tokoh agama dan dai sangat penting dalam sosialisasi layanan digital Kemenag?",
+          options: [
+            "Agar tokoh agama mengambil alih tugas teknis server",
+            "Karena tokoh agama memiliki pengaruh kultural dan legitimasi sosial yang kuat di masyarakat",
+            "Untuk menggantikan fungsi aplikasi di lapangan",
+            "Karena aplikasi tidak dapat diakses tanpa izin tokoh agama"
+          ],
+          hash: "7a3aea17572316cfc7d9a6c211043bec8150dbd6f78fe371df3a5d072bb88c0e",
+          encExplain: "630e580e0d415050545a53135353111606450557414506505056515d1308000e5a5041510a420f430a434d14045f1748050854415002555c460b04185c025c045a415e040803505952425c135a5313031154054000570d125c50434d521004085945154401100c570256484611565c5f0b0a5c065c4a"
+        },
+        {
+          q: "Salah satu hambatan utama implementasi digitalisasi di wilayah KUA dan madrasah pelosok adalah...",
+          options: [
+            "Biaya internet yang terlalu murah",
+            "Keterbatasan infrastruktur jaringan dan kesenjangan aksesibilitas di daerah 3T",
+            "Tidak adanya regulasi dari kementerian",
+            "Minat belajar pegawai yang terlalu berlebihan"
+          ],
+          hash: "fdd20a0019bb54a5533b0a2955e0b40465f751cdf034b5da72850e0f269bbd3c",
+          encExplain: "220d174251135944504a420b5b521354464741175b15474b1551045e425e51465f5b01565b110a0a1255415a074144055e125c545517510e12056d420f01411616050f535e415b555f5d030e5414075c465a58424515535454150159055d44555a5c155646584d"
+        },
+        {
+          q: "Prinsip utama dalam pendekatan tata kelola keagamaan digital di Kementerian Agama adalah menjamin bahwa...",
+          options: [
+            "Layanan hanya difokuskan pada pemeluk agama mayoritas",
+            "Layanan digital bersifat inklusif dan mengayomi seluruh umat beragama secara adil",
+            "Seluruh layanan manual harus langsung ditutup seketika",
+            "Sistem tidak perlu diawasi oleh undang-undang"
+          ],
+          hash: "66aebdf0dc8bbe3ab8e1537dd366bd804a96b0017cf889a28bd8751b38448f33",
+          encExplain: "62571504420f035c0b0f5942060c5408165909117e565a010a52511600014a405d0b585d424051555643074b594a415b5609084d445c470b475947145c075d135b59050010051559440159050b4540040e4d17445d1342090547165407165957550c581606591078590709565d4a085316"
+        }
+      ];
+
+      /* =========================================================
+         STATE & LOCK GATE MANAGEMENT
+         ========================================================= */
+      const STORAGE_KEY = "kemenag_berakhlak_lock_v1";
+      let state = loadState();
+
+      let unitTimerInterval = null;
+      let unitTimeRemaining = 10;
+
+      function computeStateSignature(data) {
+        const payload = `${data.current}::${(data.done || []).join(',')}::${JSON.stringify(data.tasksDone || {})}`;
+        return sha256(`${CRYPTO_SALT}::sig::${payload}`);
+      }
+
+      function loadState() {
+        const defaults = { 
+          current: 0, 
+          done: [0], 
+          tasksDone: { 0: true, 1: true }, 
+          u2_flips: [],
+          u4_tabs: [0],
+          u5_cards: [],
+          u6_sliderTouched: false,
+          u7_flips: [],
+          u8_pillars: [],
+          u9_choice: null,
+          audioEnabled: false,
+          userName: "",
+          userSatker: "",
+          pledgeSigned: false
+        };
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (parsed) {
+              if (parsed.sig) {
+                const expectedSig = computeStateSignature(parsed);
+                if (parsed.sig === expectedSig) {
+                  return Object.assign(defaults, parsed);
+                } else {
+                  console.warn("Manipulasi progres terdeteksi. Mengatur ulang ke status aman.");
+                }
+              } else {
+                parsed.sig = computeStateSignature(parsed);
+                return Object.assign(defaults, parsed);
+              }
+            }
+          }
+        } catch (e) {}
+        defaults.sig = computeStateSignature(defaults);
+        return defaults;
+      }
+
+      function saveState() {
+        try {
+          state.sig = computeStateSignature(state);
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (e) {}
+      }
+
+      function isDone(id) {
+        return state.done.includes(id);
+      }
+
+      function isTaskDone(id) {
+        if (!UNITS[id].reqTask) return true;
+        if (isDone(id)) return true;
+        return !!(state.tasksDone && state.tasksDone[id]);
+      }
+
+      function setTaskCompleted(id) {
+        if (!state.tasksDone) state.tasksDone = {};
+        state.tasksDone[id] = true;
+        saveState();
+        playTone('success');
+        updateGateUI();
+        showToast("Tugas interaksi selesai!", "success");
+      }
+
+      function canAccess(id) {
+        if (id === 0 || id === 1) return true;
+        return isDone(id - 1) || isDone(id) || id <= Math.max(...state.done) + 1;
+      }
+
+      function markDone(id) {
+        if (!state.done.includes(id)) state.done.push(id);
+        saveState();
+        renderNavigation();
+        updateProgressBar();
+      }
+
+      function updateProgressBar() {
+        const pct = Math.round((state.done.length / UNITS.length) * 100);
+        const fill = document.getElementById("progressFill");
+        const label = document.getElementById("pctLabel");
+        if (fill) fill.style.width = pct + "%";
+        if (label) label.textContent = pct + "%";
+      }
+
+      function showToast(msg, type = "info") {
+        const el = document.getElementById("toast");
+        if (!el) return;
+
+        const styles = {
+          success: "bg-algae-dark text-white ring-2 ring-algae-light",
+          error: "bg-rose-700 text-white ring-2 ring-rose-300",
+          info: "bg-algae-deep text-white ring-2 ring-algae-base"
+        }[type] || "bg-algae-dark text-white";
+
+        el.className = `fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3.5 rounded-2xl shadow-2xl text-sm font-semibold transition-all duration-500 transform ${styles}`;
+        el.innerHTML = `
+          <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold shrink-0">
+            ${type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ'}
+          </span>
+          <span>${msg}</span>
+        `;
+
+        el.classList.remove("translate-y-24", "opacity-0", "pointer-events-none");
+        clearTimeout(showToast._t);
+        showToast._t = setTimeout(() => {
+          el.classList.add("translate-y-24", "opacity-0", "pointer-events-none");
+        }, 2500);
+      }
+
+      /* =========================================================
+         GATE TIMER & STATUS CONTROLLER
+         ========================================================= */
+      function initUnitGateTimer(unitId) {
+        if (unitTimerInterval) {
+          clearInterval(unitTimerInterval);
+          unitTimerInterval = null;
+        }
+
+        // If unit is already completed or it is the penutup stage, allow instant navigation
+        if (isDone(unitId) || unitId === UNITS.length - 1) {
+          unitTimeRemaining = 0;
+        } else {
+          unitTimeRemaining = 10;
+        }
+
+        updateGateUI();
+
+        if (unitTimeRemaining > 0) {
+          unitTimerInterval = setInterval(() => {
+            unitTimeRemaining--;
+            updateGateUI();
+            if (unitTimeRemaining <= 0) {
+              clearInterval(unitTimerInterval);
+              unitTimerInterval = null;
+            }
+          }, 1000);
+        }
+      }
+
+      function updateGateUI() {
+        const nextBtn = document.querySelector('[data-action="next"]');
+        const gateStatus = document.getElementById("gateStatus");
+        if (!nextBtn) return;
+
+        const currentId = state.current;
+        const taskCompleted = isTaskDone(currentId);
+        const timeCompleted = unitTimeRemaining <= 0;
+
+        // Condition 1 (Priority): Task Completion
+        if (!taskCompleted) {
+          nextBtn.disabled = true;
+          if (gateStatus) {
+            gateStatus.innerHTML = `
+              <div class="flex items-center gap-2 text-rose-700 bg-rose-50 border border-rose-200 px-3.5 py-1.5 rounded-2xl text-xs font-bold shadow-sm">
+                ${renderSvg("lock", "w-4 h-4 text-rose-600")}
+                <span>Kerjakan aktivitas wajib di unit ini</span>
+                ${unitTimeRemaining > 0 ? `<span class="text-[10px] text-slate-400 font-mono">(${unitTimeRemaining}s)</span>` : ''}
+              </div>
+            `;
+          }
+        } 
+        // Condition 2: 10-Second Time Gate
+        else if (!timeCompleted) {
+          nextBtn.disabled = true;
+          if (gateStatus) {
+            gateStatus.innerHTML = `
+              <div class="flex items-center gap-2 text-algae-deep bg-algae-light/30 border border-algae-base px-3.5 py-1.5 rounded-2xl text-xs font-bold shadow-sm">
+                ${renderSvg("clock", "w-4 h-4 text-algae-dark")}
+                <span>Membaca modul: <strong class="font-mono text-algae-dark text-sm">${unitTimeRemaining}</strong> detik lagi</span>
+              </div>
+            `;
+          }
+        } 
+        // Both Conditions Satisfied
+        else {
+          nextBtn.disabled = false;
+          if (gateStatus) {
+            gateStatus.innerHTML = `
+              <div class="flex items-center gap-2 text-algae-dark bg-algae-light/40 border border-algae-base px-3.5 py-1.5 rounded-2xl text-xs font-extrabold shadow-sm animate-pulse">
+                ${renderSvg("checkCircle", "w-4 h-4 text-algae-dark")}
+                <span>Syarat terpenuhi, silakan lanjut!</span>
+              </div>
+            `;
+          }
+        }
+      }
+
+      /* =========================================================
+         NAVIGATION SYSTEM
+         ========================================================= */
+      function renderNavigation() {
+        const desktopNav = document.getElementById("desktopNav");
+        const mobileNav = document.getElementById("mobileNav");
+        if (!desktopNav || !mobileNav) return;
+
+        const itemHtml = (u) => {
+          const active = state.current === u.id;
+          const completed = isDone(u.id);
+          const accessible = canAccess(u.id);
+
+          let badgeCls = "bg-algae-surface text-slate-500";
+          if (active) badgeCls = "bg-algae-dark text-white font-bold";
+          else if (completed) badgeCls = "bg-algae-base text-white";
+
+          return `
+            <button type="button" 
+                    data-unit="${u.id}" 
+                    ${accessible ? "" : "disabled"}
+                    class="w-full group flex items-center justify-between p-2.5 rounded-2xl text-left transition-all duration-500 border ${
+                      active 
+                        ? "bg-algae-light/30 border-algae-base text-algae-deep shadow-sm font-extrabold" 
+                        : completed 
+                          ? "bg-white hover:bg-algae-canvas border-algae-surface text-slate-700 font-semibold" 
+                          : accessible 
+                            ? "bg-white hover:bg-algae-canvas border-transparent text-slate-500 font-semibold" 
+                            : "opacity-40 cursor-not-allowed border-transparent text-slate-400 font-semibold"
+                    }">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <span class="w-6 h-6 rounded-xl text-[11px] font-mono flex items-center justify-center shrink-0 ${badgeCls} transition-colors">
+                  ${completed && !active ? "✓" : String(u.id).padStart(2, "0")}
+                </span>
+                <span class="text-xs truncate ${active ? "font-extrabold text-algae-deep" : "text-slate-700"}">
+                  ${u.nav}
+                </span>
+              </div>
+              
+              <div class="shrink-0 text-slate-400 group-hover:text-algae-dark group-hover:scale-110 transition-transform">
+                ${renderSvg(u.icon, "w-4 h-4")}
+              </div>
+            </button>
+          `;
+        };
+
+        const html = UNITS.map(itemHtml).join("");
+        desktopNav.innerHTML = html;
+        mobileNav.innerHTML = html;
+
+        const clickHandler = (e) => {
+          const btn = e.target.closest("[data-unit]");
+          if (!btn || btn.hasAttribute("disabled")) return;
+          playTone('click');
+          navigateTo(Number(btn.dataset.unit));
+          document.getElementById("mobileDrawer").classList.add("hidden");
+        };
+
+        desktopNav.onclick = clickHandler;
+        mobileNav.onclick = clickHandler;
+      }
+
+      function navigateTo(id) {
+        if (id < 0 || id >= UNITS.length) return;
+        state.current = id;
+        saveState();
+        renderNavigation();
+        renderStage();
+        updateProgressBar();
+        initUnitGateTimer(id);
+        playUnitNarration(id);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      /* =========================================================
+         STAGE BUILDERS & RENDERERS
+         ========================================================= */
+      function renderHeaderPill(unitId, source) {
+        return `
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-algae-surface">
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-algae-light/40 text-algae-deep border border-algae-base/40">
+                Unit ${String(unitId).padStart(2, "0")}
+              </span>
+              ${source ? `<span class="text-xs font-medium text-slate-500 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-algae-base"></span> ${source}</span>` : ""}
+            </div>
+            <div class="flex items-center gap-2.5">
+              <button type="button" id="stageAudioToggleBtn" class="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full border transition-all cursor-pointer shadow-sm">
+                <span id="stageAudioDot" class="w-2 h-2 rounded-full"></span>
+                <span id="stageAudioText">Audio Narasi</span>
+              </button>
+              <div class="hidden sm:flex items-center gap-1.5 text-xs font-bold text-algae-dark">
+                ${renderSvg("shield", "w-3.5 h-3.5 text-algae-base")}
+                <span>Orientasi Resmi Kemenag</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      function renderStageFooter(opts = {}) {
+        const showPrev = opts.prev !== false && state.current > 0;
+        const nextLabel = opts.nextLabel || (state.current === UNITS.length - 1 ? "Selesai" : "Lanjut Unit");
+
+        return `
+          <div class="pt-8 mt-auto border-t border-algae-surface flex flex-col sm:flex-row items-center justify-between gap-4">
+            <!-- Live Gate Status Indicator -->
+            <div id="gateStatus" class="w-full sm:w-auto flex items-center">
+              <!-- Rendered by Gate UI -->
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+              ${showPrev ? `
+                <button type="button" data-action="prev" class="px-5 py-2.5 rounded-2xl border border-slate-300 text-slate-700 hover:bg-algae-surface font-bold text-xs transition-all active:scale-95 flex items-center gap-1.5">
+                  ${renderSvg("arrowLeft", "w-3.5 h-3.5")}
+                  <span>Kembali</span>
+                </button>
+              ` : ""}
+              <button type="button" data-action="next" disabled class="px-6 py-2.5 rounded-2xl bg-algae-dark hover:bg-algae-deep text-white font-bold text-xs shadow-md shadow-algae-dark/20 hover:shadow-lg transition-all active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+                <span>${nextLabel}</span>
+                ${renderSvg("arrowRight", "w-3.5 h-3.5")}
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      const UNIT_RENDERERS = {
+        // UNIT 0: COVER
+        cover: () => `
+          <div class="animate-fade-enter flex flex-col justify-between flex-1">
+            <div class="text-center max-w-2xl mx-auto space-y-6 my-auto py-6">
+              
+              <div class="inline-flex items-center justify-center p-4 bg-gradient-to-br from-algae-light/50 to-algae-surface rounded-3xl ring-8 ring-algae-light/30 border border-algae-base/40 shadow-sm">
+                ${renderSvg("award", "w-12 h-12 text-algae-dark")}
+              </div>
+
+              <div class="space-y-3">
+                <span class="inline-block text-xs font-extrabold uppercase tracking-widest text-algae-dark px-3.5 py-1 rounded-full bg-algae-light/40 border border-algae-base/40">
+                  Pusbangkom MKMB • Kementerian Agama RI
+                </span>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-algae-deep tracking-tight leading-tight">
+                  Penerapan Tugas dan Fungsi ASN di Tempat Kerja: <br class="hidden sm:inline" />
+                  <span class="text-algae-dark">Implementasi BerAKHLAK</span> pada Tata Kelola di Kemenag
+                </h1>
+                <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto">
+                  Modul interaktif mandiri untuk menginternalisasi Core Values BerAKHLAK ke dalam tugas harian, pelayanan keagamaan digital inklusif, dan integritas birokrasi Kementerian Agama.
+                </p>
+              </div>
+
+              <div class="grid grid-cols-3 gap-3 max-w-md mx-auto pt-2">
+                <div class="p-3.5 bg-algae-surface/50 border border-algae-surface rounded-2xl text-center">
+                  <span class="block text-xl font-extrabold text-algae-dark font-mono">12</span>
+                  <span class="text-[11px] text-slate-500 font-semibold">Unit Modul</span>
+                </div>
+                <div class="p-3.5 bg-algae-surface/50 border border-algae-surface rounded-2xl text-center">
+                  <span class="block text-xl font-extrabold text-algae-base font-mono">8 Soal</span>
+                  <span class="text-[11px] text-slate-500 font-semibold">Kuis Post-Test</span>
+                </div>
+                <div class="p-3.5 bg-algae-surface/50 border border-algae-surface rounded-2xl text-center">
+                  <span class="block text-xl font-extrabold text-algae-deep font-mono">±30m</span>
+                  <span class="text-[11px] text-slate-500 font-semibold">Estimasi Waktu</span>
+                </div>
+              </div>
+
+              <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <button type="button" data-action="start" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-algae-dark hover:bg-algae-deep text-white font-extrabold text-sm shadow-xl shadow-algae-dark/25 hover:shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-2.5">
+                  <span>Mulai Pembelajaran</span>
+                  ${renderSvg("play", "w-4 h-4 text-algae-light")}
+                </button>
+                <button type="button" id="coverAudioBtn" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl border-2 border-algae-base/50 bg-white hover:bg-algae-light/30 text-algae-deep font-extrabold text-sm transition-all active:scale-95 flex items-center justify-center gap-2">
+                  ${renderSvg("volume2", "w-4 h-4 text-algae-dark")}
+                  <span id="coverAudioBtnLabel">Dengarkan Pengantar</span>
+                </button>
+              </div>
+
+              <div class="pt-2 text-xs text-slate-400">
+                Materi resmi Pusbangkom MKMB • Rujukan: <a href="https://pta.kemenag.go.id" target="_blank" rel="noopener" class="text-algae-dark font-bold underline hover:text-algae-base">pta.kemenag.go.id</a>
+              </div>
+
+            </div>
+          </div>
+        `,
+
+        // UNIT 1: LEARNING MAP
+        map: () => {
+          const cards = UNITS.filter(u => u.id > 1).map(u => {
+            const done = isDone(u.id);
+            const accessible = canAccess(u.id);
+            return `
+              <button type="button" 
+                      data-jump="${u.id}" 
+                      ${accessible ? "" : "disabled"}
+                      class="group relative text-left p-4 rounded-3xl border transition-all duration-500 ${
+                        done 
+                          ? "bg-algae-light/20 border-algae-base/40 hover:border-algae-dark shadow-sm" 
+                          : accessible 
+                            ? "bg-white hover:bg-algae-canvas border-algae-surface hover:border-algae-base shadow-algae-soft" 
+                            : "bg-algae-surface/40 border-algae-surface opacity-40 cursor-not-allowed"
+                      }">
+                <div class="flex items-start justify-between gap-3 mb-2.5">
+                  <span class="w-7 h-7 rounded-xl font-mono text-xs font-bold flex items-center justify-center ${done ? "bg-algae-base text-white" : "bg-algae-dark text-white"}">
+                    ${done ? "✓" : String(u.id).padStart(2, "0")}
+                  </span>
+                  <div class="p-2 rounded-xl ${done ? "bg-algae-base/20 text-algae-dark" : "bg-algae-surface text-slate-600"} group-hover:scale-110 transition-transform">
+                    ${renderSvg(u.icon, "w-4 h-4")}
+                  </div>
+                </div>
+                <h4 class="text-xs sm:text-sm font-extrabold text-algae-deep group-hover:text-algae-dark mb-1">${u.title}</h4>
+                <span class="inline-block text-[10px] font-bold px-2 py-0.5 rounded-full ${done ? "bg-algae-base text-white" : accessible ? "bg-algae-surface text-slate-600" : "bg-slate-200 text-slate-400"}">
+                  ${done ? "Tuntas" : accessible ? "Siap Dibuka" : "Terkunci"}
+                </span>
+              </button>
+            `;
+          }).join("");
+
+          return `
+            <div class="animate-fade-enter flex flex-col flex-1">
+              ${renderHeaderPill(1, "Struktur Modul BerAKHLAK")}
+              <div class="mb-6">
+                <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">Peta Alur Pembelajaran</h2>
+                <p class="text-sm text-slate-600 mt-1">Selesaikan unit secara berurutan untuk membuka evaluasi akhir dan ikrar komitmen.</p>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mb-6">
+                ${cards}
+              </div>
+
+              ${renderStageFooter({ nextLabel: "Buka Unit 02" })}
+            </div>
+          `;
+        },
+
+        // UNIT 2: CORE VALUES BERAKHLAK
+        berakhlak: () => {
+          const CORE_VALUES = [
+            { key: "berorientasi", title: "Berorientasi Pelayanan", desc: "Komitmen memberikan pelayanan prima demi kepuasan masyarakat.", keywords: "Responsif, Kualitas, Kepuasan", guide: "Memahami dan memenuhi kebutuhan masyarakat, ramah, cekatan, solutif, serta melakukan perbaikan tiada henti." },
+            { key: "akuntabel", title: "Akuntabel", desc: "Bertanggung jawab atas kepercayaan yang diberikan dengan jujur dan disiplin.", keywords: "Integritas, Konsisten, Transparan", guide: "Melaksanakan tugas jujur, bertanggung jawab, cermat, disiplin, tidak menyalahgunakan wewenang, dan menolak gratifikasi." },
+            { key: "kompeten", title: "Kompeten", desc: "Terus belajar dan mengembangkan kapabilitas diri secara berkelanjutan.", keywords: "Kinerja Terbaik, Sukses, Ahli", guide: "Meningkatkan kompetensi diri untuk menjawab tantangan dinamis, membantu orang lain belajar, dan kerja berkualitas." },
+            { key: "harmonis", title: "Harmonis", desc: "Saling peduli dan menghargai setiap perbedaan latar belakang.", keywords: "Peduli (Caring), Perbedaan (Diversity)", guide: "Menghargai setiap orang apa pun agamanya, suka menolong, dan membangun lingkungan kerja yang inklusif kondusif." },
+            { key: "loyal", title: "Loyal", desc: "Berdedikasi dan mengutamakan kepentingan bangsa dan negara.", keywords: "Komitmen, Dedikasi, Kontribusi", guide: "Memegang teguh ideologi Pancasila & UUD 1945, setia pada NKRI, serta menjaga rahasia jabatan dan negara." },
+            { key: "adaptif", title: "Adaptif", desc: "Terus berinovasi dan antusias menghadapi perubahan zaman.", keywords: "Inovasi, Antusias, Proaktif", guide: "Cepat menyesuaikan diri menghadapi perubahan teknologi digital, mengasah kreativitas, dan bertindak proaktif." },
+            { key: "kolaboratif", title: "Kolaboratif", desc: "Membangun kerja sama yang sinergis dan produktif dengan berbagai pihak.", keywords: "Kesediaan Sinergi, Nilai Tambah", guide: "Memberi kesempatan berbagai pihak berkontribusi, terbuka dalam bekerja sama, dan menggerakkan sumber daya bersama." }
+          ];
+
+          return `
+            <div class="animate-fade-enter flex flex-col flex-1">
+              ${renderHeaderPill(2, "Slide 3 Pusbangkom")}
+              <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">Core Values BerAKHLAK & 5 Prinsip Dasar ASN</h2>
+                  <p class="text-sm text-slate-600 mt-1">Semboyan resmi: <strong>Bangga Melayani Bangsa</strong>. Fondasi moral dan budaya kerja seluruh ASN Kemenag.</p>
+                </div>
+                <span class="text-xs font-bold text-algae-dark px-3 py-1 rounded-full bg-algae-light/40 border border-algae-base/40" id="u2CounterLabel">Balik 4 Kartu (0/7)</span>
+              </div>
+
+              <!-- 7 Flip Cards -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mb-6">
+                ${CORE_VALUES.map((item, idx) => `
+                  <div class="flip-card min-h-[250px] h-64 perspective-1000 cursor-pointer" data-val="${item.key}" data-flipped="false">
+                    <div class="flip-inner relative w-full h-full duration-700 transform-style-3d transition-transform rounded-3xl shadow-sm border border-algae-surface">
+                      <div class="flip-front absolute inset-0 backface-hidden bg-white p-4 rounded-3xl flex flex-col justify-between hover:border-algae-base transition-colors overflow-y-auto">
+                        <div>
+                          <div class="flex items-center justify-between mb-2">
+                            <span class="w-6 h-6 rounded-lg bg-algae-light/40 text-algae-dark font-mono text-[11px] font-bold flex items-center justify-center">${idx + 1}</span>
+                            <span class="text-[10px] uppercase font-bold text-slate-400">Core Value</span>
+                          </div>
+                          <h4 class="text-xs sm:text-sm font-extrabold text-algae-deep mb-1">${item.title}</h4>
+                          <p class="text-[11px] text-slate-600 leading-relaxed">${item.desc}</p>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-algae-dark font-bold">
+                          <span>Klik membalik</span>
+                          ${renderSvg("rotate", "w-3.5 h-3.5")}
+                        </div>
+                      </div>
+                      <div class="flip-back absolute inset-0 backface-hidden rotate-y-180 bg-algae-dark text-white p-4 rounded-3xl flex flex-col justify-between text-left overflow-y-auto">
+                        <div>
+                          <span class="text-[10px] uppercase font-extrabold text-algae-light">Kata Kunci:</span>
+                          <div class="text-[11px] font-bold text-white mb-2">${item.keywords}</div>
+                          <span class="text-[10px] uppercase font-extrabold text-algae-light">Panduan Perilaku:</span>
+                          <p class="text-[11px] text-slate-100 leading-relaxed mt-0.5">${item.guide}</p>
+                        </div>
+                        <div class="text-right text-[10px] text-algae-light font-bold">✓ Terpelajari</div>
+                      </div>
+                    </div>
+                  </div>
+                `).join("")}
+              </div>
+
+              <!-- 5 Prinsip Checklist -->
+              <div class="p-5 rounded-3xl bg-algae-surface/40 border border-algae-surface mb-4">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-algae-deep mb-3 flex items-center gap-2">
+                  ${renderSvg("shield", "w-4 h-4 text-algae-dark")}
+                  5 Prinsip Dasar Penopang Etika & Tata Kelola ASN Kemenag
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
+                  <div class="p-3 bg-white rounded-2xl border border-algae-surface">
+                    <strong class="text-algae-deep block mb-1">1. Layanan Publik Prima</strong>
+                    <span class="text-slate-600 text-[11px]">Birokrasi cepat, tepat, ramah, dan bebas dari pungutan liar.</span>
+                  </div>
+                  <div class="p-3 bg-white rounded-2xl border border-algae-surface">
+                    <strong class="text-algae-deep block mb-1">2. Integritas Tanpa Kompromi</strong>
+                    <span class="text-slate-600 text-[11px]">Menolak tegas segala bentuk gratifikasi, suap, dan konflik kepentingan.</span>
+                  </div>
+                  <div class="p-3 bg-white rounded-2xl border border-algae-surface">
+                    <strong class="text-algae-deep block mb-1">3. Profesionalisme Teruji</strong>
+                    <span class="text-slate-600 text-[11px]">Kompetensi teknis teruji dan sertifikasi keahlian berkala.</span>
+                  </div>
+                  <div class="p-3 bg-white rounded-2xl border border-algae-surface">
+                    <strong class="text-algae-deep block mb-1">4. Moderasi Beragama</strong>
+                    <span class="text-slate-600 text-[11px]">Menjaga toleransi, inklusivitas, dan kerukunan antarumat beragama.</span>
+                  </div>
+                  <div class="p-3 bg-white rounded-2xl border border-algae-surface sm:col-span-2 lg:col-span-2">
+                    <strong class="text-algae-deep block mb-1">5. Inovasi & Transformasi Adaptif</strong>
+                    <span class="text-slate-600 text-[11px]">Pemanfaatan teknologi digital secara etis dan efisien demi kemudahan akses umat.</span>
+                  </div>
+                </div>
+              </div>
+
+              ${renderStageFooter({ nextLabel: "Lanjut ke Layanan & Akuntabilitas" })}
+            </div>
+          `;
+        },
+
+        // UNIT 3: PELAYANAN & AKUNTABILITAS
+        pelayanan: () => `
+          <div class="animate-fade-enter flex flex-col flex-1">
+            ${renderHeaderPill(3, "Slide 4 Pusbangkom")}
+            <div class="mb-6">
+              <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">Pelayanan Prima & Akuntabilitas Teruji</h2>
+              <p class="text-sm text-slate-600 mt-1">Dua pilar pertama BerAKHLAK yang menjadi tolok ukur utama integritas birokrasi Kementerian Agama.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <div class="p-5 rounded-3xl bg-algae-light/25 border border-algae-base/40 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="w-8 h-8 rounded-xl bg-algae-dark text-white flex items-center justify-center font-bold">
+                      ${renderSvg("heart", "w-4 h-4")}
+                    </span>
+                    <div>
+                      <h3 class="text-sm font-extrabold text-algae-deep">Pilar Berorientasi Pelayanan</h3>
+                      <span class="text-[11px] text-algae-dark font-semibold">Memberikan kemudahan nyata bagi umat</span>
+                    </div>
+                  </div>
+                  <div class="space-y-2 text-xs text-slate-700">
+                    <div class="p-2.5 bg-white/90 rounded-2xl border border-algae-surface">
+                      <strong class="text-algae-deep block">1. SISKOHAT Digital</strong>
+                      <span>Pendaftaran porsi haji online tanpa antrean manual di bank/kantor.</span>
+                    </div>
+                    <div class="p-2.5 bg-white/90 rounded-2xl border border-algae-surface">
+                      <strong class="text-algae-deep block">2. Sihalal BPJPH</strong>
+                      <span>Sertifikasi halal self-declare terotomasi bagi jutaan UMKM.</span>
+                    </div>
+                    <div class="p-2.5 bg-white/90 rounded-2xl border border-algae-surface">
+                      <strong class="text-algae-deep block">3. SIMKAH Web & Kartu Nikah Digital</strong>
+                      <span>Pencatatan nikah terintegrasi Dukcapil dan kartu digital via barcode.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-5 rounded-3xl bg-algae-surface/40 border border-algae-surface flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center gap-2 mb-3">
+                    <span class="w-8 h-8 rounded-xl bg-algae-deep text-white flex items-center justify-center font-bold">
+                      ${renderSvg("shield", "w-4 h-4")}
+                    </span>
+                    <div>
+                      <h3 class="text-sm font-extrabold text-algae-deep">Pilar Akuntabilitas Teruji</h3>
+                      <span class="text-[11px] text-slate-500 font-semibold">Menjaga kepercayaan dan integritas tugas</span>
+                    </div>
+                  </div>
+                  <div class="space-y-2 text-xs text-slate-700">
+                    <div class="p-2.5 bg-white rounded-2xl border border-algae-surface">
+                      <strong class="text-algae-deep block">1. Tracking Berkas Online</strong>
+                      <span>Pelacakan status izin operasional pesantren secara real-time.</span>
+                    </div>
+                    <div class="p-2.5 bg-white rounded-2xl border border-algae-surface">
+                      <strong class="text-algae-deep block">2. Transparansi Dana BOS & Bantuan</strong>
+                      <span>Penyaluran dana madrasah terpantau perbankan CMS terintegrasi.</span>
+                    </div>
+                    <div class="p-2.5 bg-white rounded-2xl border border-algae-surface">
+                      <strong class="text-algae-deep block">3. Whistleblowing & Tolak Amplop</strong>
+                      <span>Kanal pengaduan rahasia (WBS) dan zona integritas zero gratifikasi.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mandatory Micro-Quiz Unit 3 -->
+            <div class="bg-white border-2 border-algae-surface rounded-3xl p-5 mb-4 shadow-sm">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-[10px] font-extrabold uppercase tracking-wider text-algae-dark px-2.5 py-1 rounded-full bg-algae-light/40 border border-algae-base/40">Aktivitas Wajib</span>
+                <span class="text-xs font-bold text-slate-700">Seorang pengurus madrasah menyelipkan amplop uang saku saat verifikasi berkas izin. Sikap Anda?</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="microQuizUnit3">
+                <button type="button" data-idx="0" class="p-3 bg-algae-surface/60 hover:bg-algae-surface border border-slate-200 rounded-2xl text-xs font-bold text-slate-700 text-left transition-all">
+                  A. Menerima karena diberikan secara sukarela tanpa paksaan.
+                </button>
+                <button type="button" data-idx="1" class="p-3 bg-algae-surface/60 hover:bg-algae-surface border border-slate-200 rounded-2xl text-xs font-bold text-slate-700 text-left transition-all">
+                  B. Menolak santun, tegaskan zona integritas, dan proses berkas sesuai SOP.
+                </button>
+                <button type="button" data-idx="2" class="p-3 bg-algae-surface/60 hover:bg-algae-surface border border-slate-200 rounded-2xl text-xs font-bold text-slate-700 text-left transition-all">
+                  C. Menerima uang lalu menyumbangkannya ke kas masjid kantor.
+                </button>
+                <button type="button" data-idx="3" class="p-3 bg-algae-surface/60 hover:bg-algae-surface border border-slate-200 rounded-2xl text-xs font-bold text-slate-700 text-left transition-all">
+                  D. Memarahi pemohon dan membatalkan pengajuan izinnya.
+                </button>
+              </div>
+              <div id="feedbackUnit3" class="text-xs mt-3 hidden font-bold"></div>
+            </div>
+
+            ${renderStageFooter({ nextLabel: "Lanjut: 5 Dimensi Lanjutan" })}
+          </div>
+        `
+      };
+
+      Object.assign(UNIT_RENDERERS, {
+        // UNIT 4: 5 DIMENSI INTI LANJUTAN
+        dimensi: () => {
+          const TABS = [
+            {
+              title: "Kompeten",
+              badge: "Pilar 3",
+              sub: "Kapabilitas Digital & Profesionalisme Berkelanjutan",
+              points: [
+                "Wajib menguasai sistem digital kepegawaian (SIMPEG 5.0 Kemenag), kearsipan elektronik SRIKANDI, dan e-Kinerja BKN.",
+                "Aktif mengikuti pelatihan mandiri berbasis MOOC melalui platform resmi PINTAR Kemenag.",
+                "Membimbing rekan sejawat dalam pengoperasian aplikasi layanan baru dan menyelesaikan tugas dengan mutu terbaik."
+              ]
+            },
+            {
+              title: "Harmonis",
+              badge: "Pilar 4",
+              sub: "Moderasi Beragama Siber & Ruang Kerja Inklusif",
+              points: [
+                "Menjaga netralitas dan mengayomi seluruh pemeluk agama tanpa diskriminasi dalam pergaulan kantor maupun pelayanan.",
+                "Menjadi duta moderasi beragama di media sosial: aktif menyebarkan pesan kerukunan serta menolak hoaks keagamaan.",
+                "Membangun suasana kerja kondusif, saling tolong-menolong, dan menghormati hak ibadah sesama rekan kerja."
+              ]
+            },
+            {
+              title: "Loyal",
+              badge: "Pilar 5",
+              sub: "Komitmen Kebangsaan & Integritas Kedinasan",
+              points: [
+                "Memegang teguh ideologi Pancasila, UUD 1945, NKRI, serta kepatuhan pada arahan pimpinan kementerian yang sah.",
+                "Mengamankan kerahasiaan data jabatan, dokumen strategis negara, serta privasi data keagamaan umat dari kebocoran.",
+                "Mendukung dan menyukseskan program prioritas reformasi birokrasi yang digariskan Kementerian Agama."
+              ]
+            },
+            {
+              title: "Adaptif",
+              badge: "Pilar 6",
+              sub: "Inovasi Cerdas & Ketangkasan Perubahan",
+              points: [
+                "Mengembangkan inovasi 'Smart Madrasah' melalui kurikulum digital, ujian terkomputerisasi, dan e-learning interaktif.",
+                "Menerapkan fleksibilitas kerja (Smart Office) dengan kolaborasi cloud dan Tanda Tangan Elektronik (TTE) BSrE.",
+                "Tidak pasif terhadap dinamika baru: proaktif mencari solusi digital ketika prosedur manual mengalami hambatan."
+              ]
+            },
+            {
+              title: "Kolaboratif",
+              badge: "Pilar 7",
+              sub: "Sinergi Multipihak (Pentahelix)",
+              points: [
+                "Bekerja sama dengan Kementerian Kominfo dan operator telekomunikasi untuk percepatan jaringan internet di KUA 3T.",
+                "Menggandeng Bank Syariah untuk integrasi pembayaran zakat, wakaf, dan pencatatan nikah secara nontunai.",
+                "Sinergi erat dengan ormas keagamaan dan tokoh agama dalam menyosialisasikan program digital Kemenag."
+              ]
+            }
+          ];
+
+          return `
+            <div class="animate-fade-enter flex flex-col flex-1">
+              ${renderHeaderPill(4, "Slide 5 Pusbangkom")}
+              <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">5 Dimensi Inti Lanjutan Tata Kelola Kemenag</h2>
+                  <p class="text-sm text-slate-600 mt-1">Sinergi kompetensi digital, harmoni sosial, loyalitas kebangsaan, inovasi adaptif, dan kolaborasi.</p>
+                </div>
+                <span class="text-xs font-mono font-bold text-algae-dark px-3 py-1 bg-algae-light/30 border border-algae-base/40 rounded-full" id="u4TabCounter">Eksplorasi Tab (1/5)</span>
+              </div>
+
+              <!-- Tab Nav -->
+              <div class="flex flex-wrap gap-2 p-1.5 bg-algae-surface/60 rounded-2xl border border-slate-200 mb-6" id="dimensiTabNav">
+                ${TABS.map((t, idx) => `
+                  <button type="button" data-tabidx="${idx}" class="flex-1 min-w-[120px] py-2 px-3 rounded-xl text-xs font-bold transition-all ${idx === 0 ? 'bg-white text-algae-dark shadow-sm' : 'text-slate-600 hover:text-algae-dark'}">
+                    ${t.title}
+                  </button>
+                `).join("")}
+              </div>
+
+              <!-- Tab Content Box -->
+              <div class="p-6 rounded-3xl bg-white border border-algae-base/30 shadow-sm mb-4" id="dimensiTabContent">
+                <div class="flex items-center justify-between pb-3 border-b border-algae-surface mb-4">
+                  <span class="text-[10px] font-extrabold uppercase tracking-wider text-algae-dark px-2.5 py-0.5 rounded-full bg-algae-light/40" id="dimensiBadge">Pilar 3</span>
+                  <h3 class="text-sm sm:text-base font-extrabold text-algae-deep" id="dimensiTitle">Kompeten: Kapabilitas Digital & Profesionalisme</h3>
+                </div>
+                <div class="space-y-3" id="dimensiPoints">
+                  ${TABS[0].points.map((pt, pidx) => `
+                    <div class="p-3.5 rounded-2xl bg-algae-surface/40 border border-algae-surface flex items-start gap-3">
+                      <span class="w-6 h-6 rounded-lg bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">${pidx + 1}</span>
+                      <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">${pt}</p>
+                    </div>
+                  `).join("")}
+                </div>
+              </div>
+
+              ${renderStageFooter({ nextLabel: "Lanjut: 5 Ekosistem Digital" })}
+            </div>
+          `;
+        },
+
+        // UNIT 5: 5 EKOSISTEM DIGITAL
+        ekosistem: () => {
+          const EKOSISTEM_DATA = [
+            { id: "pusaka", badge: "Pilar A", title: "Pusaka SuperApp", sub: "Satu Pintu Layanan Umat", desc: "Aplikasi terpadu yang memadukan layanan haji, pendaftaran nikah, sertifikasi halal, rumah ibadah terdekat, doa harian, hingga presensi ASN dalam satu antarmuka mobile modern." },
+            { id: "emis", badge: "Pilar B", title: "EMIS 4.0 & Madrasah Digital", sub: "Pusat Data Pendidikan Islam", desc: "Education Management Information System mengintegrasikan data real-time 80.000+ madrasah, pesantren, dan PTKN untuk penyaluran BOS serta evaluasi mutu guru secara transparan." },
+            { id: "simba", badge: "Pilar C", title: "SIMBA (Zakat & Wakaf Digital)", sub: "Akuntabilitas Filantropi Umat", desc: "Sistem Informasi Manajemen BAZNAS dan Tata Kelola Wakaf Uang yang menghubungkan lembaga amil zakat di seluruh nusantara secara transparan dan terstandar perbankan syariah." },
+            { id: "ai", badge: "Pilar D", title: "Konsultasi Keagamaan Digital & AI", sub: "Bimbingan Moderat 24/7", desc: "Platform bimbingan pranikah, fatwa halal, dan tanya jawab keagamaan yang ditopang AI terverifikasi untuk mencegah penyebaran paham ekstrem di ruang siber." },
+            { id: "sihalal", badge: "Pilar E", title: "Sihalal & PTSP Online", sub: "Perizinan Cepat Tanpa Tatap Muka", desc: "Sistem sertifikasi halal otomatis BPJPH dan izin operasional pesantren/rumah ibadah secara daring tanpa kontak fisik demi mengikis potensi suap dan pungli." }
+          ];
+
+          return `
+            <div class="animate-fade-enter flex flex-col flex-1">
+              ${renderHeaderPill(5, "Slide 6 Pusbangkom")}
+              <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">5 Ekosistem Digitalisasi Layanan Kementerian Agama</h2>
+                  <p class="text-sm text-slate-600 mt-1">Transformasi digital holistik yang menghubungkan tata kelola internal dengan kemudahan layanan masyarakat.</p>
+                </div>
+                <span class="text-xs font-mono font-bold text-algae-dark px-3 py-1 bg-algae-light/30 border border-algae-base/40 rounded-full" id="u5CounterLabel">Buka 5 Ekosistem (0/5)</span>
+              </div>
+
+              <!-- 5 Interactive Cards -->
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+                ${EKOSISTEM_DATA.map(item => `
+                  <div class="p-5 rounded-3xl bg-white border border-algae-surface hover:border-algae-base cursor-pointer transition-all ekosistem-card flex flex-col justify-between" data-ekoid="${item.id}">
+                    <div>
+                      <div class="flex items-center justify-between mb-2">
+                        <span class="text-[10px] font-extrabold uppercase tracking-wider text-algae-dark px-2.5 py-0.5 rounded-full bg-algae-light/40">
+                          ${item.badge}
+                        </span>
+                        <span class="text-xs text-slate-400 eko-status">Klik telaah</span>
+                      </div>
+                      <h4 class="text-sm font-extrabold text-algae-deep mt-1">${item.title}</h4>
+                      <span class="text-[11px] font-bold text-algae-base block mb-2">${item.sub}</span>
+                      <p class="text-xs text-slate-600 leading-relaxed mb-2">${item.desc}</p>
+                    </div>
+                  </div>
+                `).join("")}
+              </div>
+
+              ${renderStageFooter({ nextLabel: "Lanjut: Adopsi Digital Umat" })}
+            </div>
+          `;
+        },
+
+        // UNIT 6: ADOPSI DIGITAL UMAT (SLIDER SIMULATOR)
+        adopsi: () => `
+          <div class="animate-fade-enter flex flex-col flex-1">
+            ${renderHeaderPill(6, "Slide 7 Pusbangkom")}
+            <div class="mb-6">
+              <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">Mendorong Adopsi & Partisipasi Digital Umat</h2>
+              <p class="text-sm text-slate-600 mt-1">Akselerasi penerimaan teknologi keagamaan melalui 4 tangga strategi edukasi kultural dan simulasi kesiapan.</p>
+            </div>
+
+            <!-- 4 Strategy Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mb-6">
+              <div class="p-4 rounded-3xl bg-algae-surface/40 border border-algae-surface">
+                <span class="w-7 h-7 rounded-xl bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center mb-2">01</span>
+                <h4 class="text-xs font-bold text-algae-deep mb-1">Edukasi Kultural & Dai</h4>
+                <p class="text-[11px] text-slate-600 leading-relaxed">Merangkul penyuluh agama dan kiai untuk menyosialisasikan aplikasi Pusaka di majelis taklim.</p>
+              </div>
+              <div class="p-4 rounded-3xl bg-algae-surface/40 border border-algae-surface">
+                <span class="w-7 h-7 rounded-xl bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center mb-2">02</span>
+                <h4 class="text-xs font-bold text-algae-deep mb-1">Desain Ramah Lansia</h4>
+                <p class="text-[11px] text-slate-600 leading-relaxed">Menyederhanakan antarmuka aplikasi dengan huruf besar dan navigasi mudah bagi jemaah haji sepuh.</p>
+              </div>
+              <div class="p-4 rounded-3xl bg-algae-surface/40 border border-algae-surface">
+                <span class="w-7 h-7 rounded-xl bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center mb-2">03</span>
+                <h4 class="text-xs font-bold text-algae-deep mb-1">Omnichannel WhatsApp</h4>
+                <p class="text-[11px] text-slate-600 leading-relaxed">Bot percakapan resmi untuk pengecekan porsi haji, jadwal salat, dan status sertifikat halal.</p>
+              </div>
+              <div class="p-4 rounded-3xl bg-algae-surface/40 border border-algae-surface">
+                <span class="w-7 h-7 rounded-xl bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center mb-2">04</span>
+                <h4 class="text-xs font-bold text-algae-deep mb-1">Pojok Digital KUA</h4>
+                <p class="text-[11px] text-slate-600 leading-relaxed">Pendampingan fisik langsung oleh staf KUA bagi warga yang belum memiliki gawai pintar.</p>
+              </div>
+            </div>
+
+            <!-- Interactive Range Simulator -->
+            <div class="p-6 rounded-3xl bg-white border border-algae-base/40 shadow-sm mb-4">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <span class="text-xs font-extrabold uppercase tracking-wider text-algae-deep">Simulasi Kesiapan Adopsi Digital Umat</span>
+                <span id="sliderValueBadge" class="text-xs font-mono font-extrabold text-algae-dark px-3 py-1 bg-algae-light/30 border border-algae-base/40 rounded-xl">Adopsi: 70%</span>
+              </div>
+              <input type="range" id="adopsiSlider" min="10" max="100" value="70" step="5" class="w-full accent-algae-dark cursor-pointer mb-4" />
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+                <div class="p-3 bg-algae-surface/40 rounded-2xl border border-algae-surface">
+                  <span class="text-[10px] uppercase font-bold text-slate-500 block mb-1">Waktu Tunggu Layanan</span>
+                  <span id="metricTime" class="text-sm sm:text-base font-extrabold text-algae-deep font-mono">15-30 Menit</span>
+                </div>
+                <div class="p-3 bg-algae-surface/40 rounded-2xl border border-algae-surface">
+                  <span class="text-[10px] uppercase font-bold text-slate-500 block mb-1">Indeks Kepuasan (IKP)</span>
+                  <span id="metricSat" class="text-sm sm:text-base font-extrabold text-algae-dark font-mono">87.5 / 100</span>
+                </div>
+                <div class="p-3 bg-algae-surface/40 rounded-2xl border border-algae-surface">
+                  <span class="text-[10px] uppercase font-bold text-slate-500 block mb-1">Risiko Pungli / Calo</span>
+                  <span id="metricRisk" class="text-sm sm:text-base font-extrabold text-emerald-600 font-mono">Sangat Rendah (3%)</span>
+                </div>
+              </div>
+            </div>
+
+            ${renderStageFooter({ nextLabel: "Lanjut: 5 Hambatan Digital" })}
+          </div>
+        `,
+
+        // UNIT 7: 5 HAMBATAN TRANSFORMASI DIGITAL
+        hambatan: () => {
+          const OBSTACLES = [
+            { id: "3t", title: "Kesenjangan Infrastruktur 3T", sub: "Blank Spot & Listrik Tak Stabil", front: "KUA dan madrasah kepulauan terluar menghadapi listrik bergilir dan blank spot internet.", back: "Dampak: Sinkronisasi EMIS dan Simkah Web tertunda. ASN harus mencari sinyal ke pusat kota." },
+            { id: "budaya", title: "Resistensi Budaya Kerja", sub: "Keterikatan Dokumen Kertas", front: "Sebagian aparatur senior lebih nyaman mencatat manual di buku fisik besar.", back: "Dampak: Duplikasi pekerjaan (mencatat manual lalu menginput ulang ke aplikasi) memboroskan jam kerja." },
+            { id: "literasi", title: "Kesenjangan Literasi Pengguna", sub: "Ketergantungan pada Calo", front: "Masyarakat pedesaan belum terbiasa verifikasi akun mandiri atau unggah berkas PDF.", back: "Dampak: Menjamurnya jasa calo liar yang memungut biaya ilegal di luar ketentuan resmi." },
+            { id: "keamanan", title: "Ancaman Keamanan Siber", sub: "Perlindungan Data Pribadi Umat", front: "Lonjakan serangan siber, phishing berkas haji, dan kerentanan server lokal.", back: "Dampak: Risiko kebocoran data sensitif jemaah dan pernikahan yang dapat menurunkan kepercayaan publik." },
+            { id: "fragmentasi", title: "Fragmentasi Aplikasi (Silo)", sub: "Sistem Terkotak-kotak", front: "Ratusan aplikasi lama dibuat independen tanpa standardisasi API penghubung.", back: "Dampak: Pegawai dan warga harus memiliki belasan akun terpisah dengan data tidak sinkron." }
+          ];
+
+          return `
+            <div class="animate-fade-enter flex flex-col flex-1">
+              ${renderHeaderPill(7, "Slide 8 Pusbangkom")}
+              <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">5 Hambatan Utama Transformasi Digital di Kemenag</h2>
+                  <p class="text-sm text-slate-600 mt-1">Diagnostik objektif terhadap kendala struktural, kultural, dan teknologis di lapangan.</p>
+                </div>
+                <span class="text-xs font-mono font-bold text-algae-dark px-3 py-1 bg-algae-light/30 border border-algae-base/40 rounded-full" id="u7CounterLabel">Balik 5 Kartu (0/5)</span>
+              </div>
+
+              <!-- 5 Diagnostic Flip Cards -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+                ${OBSTACLES.map((obs, idx) => `
+                  <div class="flip-card min-h-[250px] h-64 perspective-1000 cursor-pointer" data-obsid="${obs.id}" data-flipped="false">
+                    <div class="flip-inner relative w-full h-full duration-700 transform-style-3d transition-transform rounded-3xl shadow-sm border border-algae-surface">
+                      <div class="flip-front absolute inset-0 backface-hidden bg-white p-5 rounded-3xl flex flex-col justify-between hover:border-algae-base transition-colors overflow-y-auto">
+                        <div>
+                          <div class="flex items-center justify-between mb-2">
+                            <span class="w-6 h-6 rounded-lg bg-rose-50 text-rose-700 font-mono text-[11px] font-bold flex items-center justify-center">${idx + 1}</span>
+                            <span class="text-[10px] uppercase font-bold text-rose-500">Tantangan</span>
+                          </div>
+                          <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 mb-1">${obs.title}</h4>
+                          <span class="text-[11px] font-semibold text-rose-600 block mb-2">${obs.sub}</span>
+                          <p class="text-[11px] text-slate-600 leading-relaxed">${obs.front}</p>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-algae-dark font-bold">
+                          <span>Klik membalik</span>
+                          ${renderSvg("rotate", "w-3.5 h-3.5")}
+                        </div>
+                      </div>
+                      <div class="flip-back absolute inset-0 backface-hidden rotate-y-180 bg-slate-900 text-white p-5 rounded-3xl flex flex-col justify-between text-left overflow-y-auto">
+                        <div>
+                          <span class="text-[10px] uppercase font-bold text-algae-light mb-1 block">Analisis Dampak Nyata:</span>
+                          <p class="text-xs text-slate-200 leading-relaxed mt-1">${obs.back}</p>
+                        </div>
+                        <div class="text-right text-[10px] text-algae-base font-bold">✓ Terdiagnosa</div>
+                      </div>
+                    </div>
+                  </div>
+                `).join("")}
+              </div>
+
+              ${renderStageFooter({ nextLabel: "Lanjut: Solusi Inklusif" })}
+            </div>
+          `;
+        }
+      });
+
+      Object.assign(UNIT_RENDERERS, {
+        // UNIT 8: SOLUSI KOMPREHENSIF & TATA KELOLA INKLUSIF
+        solusi: () => {
+          const PILLARS = [
+            { id: "infra", title: "Akselerasi Infrastruktur KUA 3T", desc: "Kerja sama strategis dengan BAKTI Kominfo untuk instalasi BTS satelit dan pengadaan genset solar cell di 1.200+ KUA wilayah terpencil.", solution: "Memastikan seluruh KUA dapat mengoperasikan Simkah Web dan sinkronisasi data online tanpa hambatan sinyal." },
+            { id: "sdm", title: "Akademi Literasi Digital ASN", desc: "Kewajiban diklat digital berkelanjutan melalui platform MOOC Pintar Kemenag dan jejaring Sahabat Digital sebagai mentor sebaya.", solution: "Menghapus kesenjangan generasi aparatur dan mengubah budaya kerja manual menuju tata kelola paperless modern." },
+            { id: "satu_data", title: "Satu Data & Tim Siber (CSIRT)", desc: "Konsolidasi database tunggal Kementerian Agama berbasis Single Sign-On (SSO) dan proteksi data umat oleh Kemenag-CSIRT tersertifikasi BSSN.", solution: "Menjamin keamanan data pribadi jemaah haji serta memutus fragmentasi antar aplikasi eselon I." },
+            { id: "mitra", title: "Kemitraan Multisektoral & Dai", desc: "Menggandeng ormas keagamaan, perbankan syariah, serta majelis taklim sebagai jembatan sosialisasi aplikasi resmi Kemenag.", solution: "Memangkas ruang gerak calo liar dan mendekatkan layanan digital ke akar rumput masyarakat." }
+          ];
+
+          return `
+            <div class="animate-fade-enter flex flex-col flex-1">
+              ${renderHeaderPill(8, "Slide 9 Pusbangkom")}
+              <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">Solusi Komprehensif & Tata Kelola Keagamaan Inklusif</h2>
+                  <p class="text-sm text-slate-600 mt-1">Pendekatan terpadu antara penguatan infrastruktur teknologi dengan penghayatan nilai spiritual yang inklusif.</p>
+                </div>
+                <span class="text-xs font-mono font-bold text-algae-dark px-3 py-1 bg-algae-light/30 border border-algae-base/40 rounded-full" id="u8CounterLabel">Pelajari 4 Pilar (0/4)</span>
+              </div>
+
+              <!-- 4 Pillars Grid -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                ${PILLARS.map((pil, idx) => `
+                  <div class="p-5 rounded-3xl bg-white border border-algae-surface hover:border-algae-base cursor-pointer transition-all pillar-card flex flex-col justify-between" data-pilid="${pil.id}">
+                    <div>
+                      <div class="flex items-center justify-between mb-2">
+                        <span class="text-[10px] font-extrabold uppercase tracking-wider text-algae-dark px-2.5 py-0.5 rounded-full bg-algae-light/40">
+                          Pilar Solusi 0${idx + 1}
+                        </span>
+                        <span class="text-xs text-slate-400 pil-status">Klik telaah</span>
+                      </div>
+                      <h4 class="text-sm font-extrabold text-algae-deep mt-1">${pil.title}</h4>
+                      <p class="text-xs text-slate-600 leading-relaxed my-2">${pil.desc}</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-100 text-[11px] text-slate-700 bg-algae-surface/30 p-2.5 rounded-xl">
+                      <strong class="text-algae-deep">Target Hasil:</strong> ${pil.solution}
+                    </div>
+                  </div>
+                `).join("")}
+              </div>
+
+              <!-- Universal Inclusivity Banner -->
+              <div class="p-5 rounded-3xl bg-gradient-to-br from-algae-deep to-algae-dark text-white shadow-algae-card mb-4">
+                <div class="flex items-start gap-3.5">
+                  <div class="w-10 h-10 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 text-algae-light">
+                    ${renderSvg("shield", "w-5 h-5")}
+                  </div>
+                  <div>
+                    <h3 class="text-sm font-extrabold text-white">Prinsip Mutlak: Tata Kelola Keagamaan Inklusif</h3>
+                    <p class="text-xs text-emerald-100 leading-relaxed mt-1">
+                      Kementerian Agama adalah rumah bersama seluruh umat. Transformasi digital menjamin bahwa seluruh pemeluk agama resmi (Islam, Kristen, Katolik, Hindu, Buddha, Khonghucu) dan penghayat kepercayaan terayomi secara adil, setara, dan tanpa diskriminasi dalam sistem pelayanan publik negara.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              ${renderStageFooter({ nextLabel: "Lanjut: Studi Kasus Etika" })}
+            </div>
+          `;
+        },
+
+        // UNIT 9: SIMULASI DILEMA ETIKA
+        dilema: () => `
+          <div class="animate-fade-enter flex flex-col flex-1">
+            ${renderHeaderPill(9, "Studi Kasus Percabangan")}
+            <div class="mb-5">
+              <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">Simulasi Kasus Nyata: Dilema Etika di Meja Pelayanan</h2>
+              <p class="text-sm text-slate-600 mt-1">Uji kepekaan moral dan kepatuhan kode etik ASN saat menghadapi benturan kepentingan di dunia kerja riil.</p>
+            </div>
+
+            <!-- Case Scenario Box -->
+            <div class="p-5 rounded-3xl bg-algae-surface/50 border border-algae-surface mb-5">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-[10px] font-extrabold uppercase tracking-wider text-algae-dark px-2.5 py-0.5 rounded-full bg-algae-light/40">
+                  Skenario Lapangan
+                </span>
+                <span class="text-xs font-bold text-slate-700">Verifikasi Izin Pesantren & Dana Bantuan</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-700 leading-relaxed mb-2">
+                Anda bertugas sebagai staf verifikator berkas perizinan pesantren digital di Kantor Kemenag. Seorang perwakilan yayasan datang membawa dokumen fisik yang di sistem online masih bertatus <em>'Belum Lengkap'</em> (kurang SK Kemenkumham terbaru dan bukti tanah). Batas verifikasi pencairan bantuan renovasi gedung senilai ratusan juta rupiah berakhir hari ini pukul 17.00 WIB.
+              </p>
+              <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                Ia memohon agar Anda meloloskan status verifikasi sistem sambil menyodorkan amplop cokelat berisi uang Rp 5.000.000 seraya berkata: <em>"Tolong dibantu Pak/Bu, ini demi kelangsungan madrasah anak-anak santri. Uang lelah ini tanda terima kasih ikhlas dari kami, hanya kita berdua yang tahu."</em>
+              </p>
+            </div>
+
+            <!-- Choices -->
+            <div class="space-y-2.5 mb-4" id="dilemaOptions">
+              <button type="button" data-didx="0" class="w-full text-left p-3.5 bg-white hover:bg-algae-canvas border border-slate-200 rounded-2xl text-xs font-bold text-slate-700 transition-all">
+                A. Menerima amplop tersebut secara diam-diam dan meloloskan izin di sistem demi santri agar bantuan tidak hangus.
+              </button>
+              <button type="button" data-didx="1" class="w-full text-left p-3.5 bg-white hover:bg-algae-canvas border border-slate-200 rounded-2xl text-xs font-bold text-slate-700 transition-all">
+                B. Memarahi pemohon di depan umum dengan nada tinggi dan mengancam mencabut izin lembaganya selamanya.
+              </button>
+              <button type="button" data-didx="2" class="w-full text-left p-3.5 bg-white hover:bg-algae-canvas border border-slate-200 rounded-2xl text-xs font-bold text-slate-700 transition-all">
+                C. Menolak amplop dengan tegas santun, jelaskan zona integritas BerAKHLAK, dan bimbing melengkapi berkas online sesuai SOP.
+              </button>
+            </div>
+
+            <div id="dilemaFeedback" class="text-xs mt-2 hidden font-bold p-3.5 rounded-2xl"></div>
+
+            ${renderStageFooter({ nextLabel: "Lanjut: Kuis Post-Test" })}
+          </div>
+        `,
+
+        // UNIT 10: KUIS POST-TEST
+        kuis: () => `
+          <div class="animate-fade-enter flex flex-col flex-1">
+            ${renderHeaderPill(10, "Evaluasi Post-Test")}
+            <div class="mb-4">
+              <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">Kuis Post-Test Pemahaman BerAKHLAK</h2>
+              <p class="text-sm text-slate-600 mt-1">8 butir soal evaluasi orientasi tugas & fungsi ASN. Standar kelulusan: <strong>75% (minimal 6 benar)</strong>.</p>
+            </div>
+
+            <div id="quizContainer" class="flex-1 flex flex-col justify-between"></div>
+          </div>
+        `,
+
+        // UNIT 11: PENUTUP & IKRAR
+        penutup: () => `
+          <div class="animate-fade-enter flex flex-col flex-1">
+            ${renderHeaderPill(11, "Pusbangkom MKMB")}
+            
+            <div class="text-center max-w-xl mx-auto space-y-3 mb-6">
+              <div class="inline-flex p-4 bg-algae-light/30 rounded-3xl text-algae-dark ring-8 ring-algae-light/20">
+                ${renderSvg("checkCircle", "w-12 h-12 text-algae-base")}
+              </div>
+              <h2 class="text-3xl font-extrabold text-algae-deep tracking-tight">Selamat! Modul Tuntas</h2>
+              <p class="text-xs sm:text-sm text-slate-600">
+                Anda telah menyelesaikan seluruh materi dan evaluasi Penerapan Tugas dan Fungsi ASN di Tempat Kerja: Implementasi BerAKHLAK pada Tata Kelola di Kementerian Agama.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
+              <div class="p-4 rounded-3xl bg-algae-surface/40 border border-algae-surface">
+                <span class="w-6 h-6 rounded-xl bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center mb-2">01</span>
+                <h4 class="text-xs font-bold text-algae-deep">Bangga Melayani Bangsa</h4>
+                <p class="text-[11px] text-slate-600 mt-0.5">Semboyan pengabdian aparatur sipil negara di seluruh Indonesia.</p>
+              </div>
+              <div class="p-4 rounded-3xl bg-algae-surface/40 border border-algae-surface">
+                <span class="w-6 h-6 rounded-xl bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center mb-2">02</span>
+                <h4 class="text-xs font-bold text-algae-deep">Zero Gratifikasi</h4>
+                <p class="text-[11px] text-slate-600 mt-0.5">Integritas harga mati dalam perizinan dan tata kelola anggaran.</p>
+              </div>
+              <div class="p-4 rounded-3xl bg-algae-surface/40 border border-algae-surface">
+                <span class="w-6 h-6 rounded-xl bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center mb-2">03</span>
+                <h4 class="text-xs font-bold text-algae-deep">5 Ekosistem Modern</h4>
+                <p class="text-[11px] text-slate-600 mt-0.5">Pusaka SuperApp, EMIS 4.0, SIMBA, AI Konsultasi, dan Sihalal PTSP.</p>
+              </div>
+              <div class="p-4 rounded-3xl bg-algae-surface/40 border border-algae-surface">
+                <span class="w-6 h-6 rounded-xl bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center mb-2">04</span>
+                <h4 class="text-xs font-bold text-algae-deep">Mitigasi Daerah 3T</h4>
+                <p class="text-[11px] text-slate-600 mt-0.5">Solusi internet satelit dan peningkatan literasi aparatur pedesaan.</p>
+              </div>
+              <div class="p-4 rounded-3xl bg-algae-surface/40 border border-algae-surface">
+                <span class="w-6 h-6 rounded-xl bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center mb-2">05</span>
+                <h4 class="text-xs font-bold text-algae-deep">Layanan Universal Inklusif</h4>
+                <p class="text-[11px] text-slate-600 mt-0.5">Mengayomi seluruh agama dan keyakinan secara adil dan setara.</p>
+              </div>
+              <div class="p-4 rounded-3xl bg-algae-surface/40 border border-algae-surface">
+                <span class="w-6 h-6 rounded-xl bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center mb-2">06</span>
+                <h4 class="text-xs font-bold text-algae-deep">Kolaborasi Multipihak</h4>
+                <p class="text-[11px] text-slate-600 mt-0.5">Merangkul dai, ormas, dan kementerian demi adopsi digital umat.</p>
+              </div>
+            </div>
+
+            <!-- Digital Pledge Card -->
+            <div class="p-6 rounded-3xl bg-white border border-algae-base/40 shadow-sm mb-6">
+              <div class="flex items-center gap-2 mb-4 pb-2 border-b border-algae-surface">
+                ${renderSvg("award", "w-5 h-5 text-algae-dark")}
+                <h3 class="text-sm font-extrabold text-algae-deep uppercase tracking-wider">Lembar Ikrar Komitmen ASN BerAKHLAK</h3>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <label class="block text-xs font-bold text-slate-600 mb-1">Nama Lengkap Pegawai</label>
+                  <input type="text" id="pledgeNameInput" value="${state.userName || ''}" placeholder="Masukkan nama Anda..." class="w-full px-4 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-algae-base focus:outline-none" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-600 mb-1">Satuan Kerja / Unit Penempatan</label>
+                  <input type="text" id="pledgeSatkerInput" value="${state.userSatker || ''}" placeholder="Contoh: KUA Kec. Cibinong / MAN 1..." class="w-full px-4 py-2 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-algae-base focus:outline-none" />
+                </div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-algae-surface/40 border border-algae-surface space-y-2 mb-4 text-xs text-slate-700">
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" id="chkPledge1" checked disabled class="accent-algae-dark" />
+                  <label for="chkPledge1">Saya berkomitmen mengamalkan 7 nilai BerAKHLAK dalam setiap tugas kedinasan.</label>
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" id="chkPledge2" checked disabled class="accent-algae-dark" />
+                  <label for="chkPledge2">Saya menolak segala bentuk suap, gratifikasi, dan pungutan liar di lingkungan kerja.</label>
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" id="chkPledge3" checked disabled class="accent-algae-dark" />
+                  <label for="chkPledge3">Saya menjunjung tinggi moderasi beragama dan pelayanan inklusif tanpa diskriminasi.</label>
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="checkbox" id="chkPledge4" checked disabled class="accent-algae-dark" />
+                  <label for="chkPledge4">Saya siap meningkatkan literasi teknologi dan beradaptasi dengan sistem digital Kemenag.</label>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-3">
+                <button type="button" id="signPledgeBtn" class="px-6 py-2.5 rounded-xl bg-algae-dark hover:bg-algae-deep text-white text-xs font-bold shadow-md transition-all flex items-center gap-2">
+                  ${renderSvg("award", "w-4 h-4")}
+                  <span>${state.pledgeSigned ? "Ikrar Ditandatangani ✓" : "Tandatangani Ikrar Komitmen"}</span>
+                </button>
+                <button type="button" id="copyPledgeBtn" class="px-5 py-2.5 rounded-xl border border-slate-300 hover:bg-algae-surface text-slate-700 text-xs font-bold transition-all flex items-center gap-2">
+                  ${renderSvg("fileText", "w-4 h-4")}
+                  <span>Salin Teks Ikrar</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-3 pt-2 mb-4">
+              <a href="https://pta.kemenag.go.id" target="_blank" rel="noopener" class="px-6 py-3 rounded-2xl bg-algae-dark hover:bg-algae-deep text-white text-xs font-bold shadow-md transition-all flex items-center gap-2">
+                <span>Buka Portal Resmi PTA Kemenag</span>
+                ${renderSvg("arrowRight", "w-3.5 h-3.5")}
+              </a>
+              <button type="button" data-action="restart" class="px-6 py-3 rounded-2xl border border-slate-300 text-slate-700 hover:bg-algae-surface text-xs font-bold transition-all">
+                Ulangi Seluruh Modul
+              </button>
+            </div>
+
+            ${renderStageFooter({ prev: true, nextLabel: "Kembali ke Cover" })}
+          </div>
+        `
+      });
+
+      /* =========================================================
+         QUIZ ENGINE LOGIC
+         ========================================================= */
+      let quizState = {
+        index: 0,
+        userAnswers: [],
+        score: 0,
+        isFinished: false
+      };
+
+      function resetQuizState() {
+        quizState = {
+          index: 0,
+          userAnswers: [],
+          score: 0,
+          isFinished: false
+        };
+      }
+
+      function renderQuizStage() {
+        const container = document.getElementById("quizContainer");
+        if (!container) return;
+
+        if (quizState.isFinished) {
+          const pct = Math.round((quizState.score / QUIZ_ITEMS.length) * 100);
+          const passed = pct >= 75;
+
+          if (passed) {
+            markDone(10);
+            setTaskCompleted(10);
+            playTone('fanfare');
+            confetti({ particleCount: 90, spread: 70, origin: { y: 0.6 } });
+          } else {
+            playTone('error');
+          }
+
+          container.innerHTML = `
+            <div class="text-center py-6 space-y-4 max-w-md mx-auto my-auto animate-fade-enter">
+              <div class="w-24 h-24 mx-auto rounded-full ${passed ? "bg-algae-light/30 text-algae-dark border-4 border-algae-base" : "bg-rose-50 text-rose-600 border-4 border-rose-300"} flex items-center justify-center font-extrabold text-3xl font-mono shadow-sm">
+                ${pct}%
+              </div>
+              
+              <div>
+                <h3 class="text-xl font-extrabold text-algae-deep">${passed ? "Selamat, Anda Lulus Evaluasi!" : "Belum Mencapai Nilai Kelulusan"}</h3>
+                <p class="text-xs text-slate-600 mt-1">
+                  ${passed 
+                    ? `Skor Anda ${quizState.score} dari ${QUIZ_ITEMS.length} soal benar (${pct}%). Anda telah memenuhi standar kompetensi pemahaman BerAKHLAK.` 
+                    : `Skor Anda ${quizState.score} dari ${QUIZ_ITEMS.length} soal benar (${pct}%). Anda memerlukan minimal 6 jawaban benar (75%) untuk membuka penutup.`}
+                </p>
+              </div>
+
+              <div class="flex items-center justify-center gap-3 pt-2">
+                <button type="button" id="retryQuizBtn" class="px-5 py-2.5 rounded-2xl border border-slate-300 text-slate-700 hover:bg-algae-surface text-xs font-bold transition-all">
+                  Ulangi Kuis
+                </button>
+                ${passed ? `
+                  <button type="button" data-action="next" class="px-6 py-2.5 rounded-2xl bg-algae-dark text-white text-xs font-bold hover:bg-algae-deep shadow-md transition-all">
+                    Lanjut ke Penutup
+                  </button>
+                ` : ""}
+              </div>
+            </div>
+          `;
+
+          const retryBtn = document.getElementById("retryQuizBtn");
+          if (retryBtn) {
+            retryBtn.onclick = () => {
+              playTone('click');
+              resetQuizState();
+              renderQuizStage();
+            };
+          }
+
+          const nextToPenutupBtn = container.querySelector('[data-action="next"]');
+          if (nextToPenutupBtn) {
+            nextToPenutupBtn.onclick = () => {
+              playTone('click');
+              markDone(10);
+              navigateTo(11);
+            };
+          }
+          return;
+        }
+
+        const cur = QUIZ_ITEMS[quizState.index];
+        const isAnswered = quizState.userAnswers[quizState.index] !== undefined;
+        const userSelected = quizState.userAnswers[quizState.index];
+        const userAnsHash = isAnswered ? sha256(`${CRYPTO_SALT}::quiz_${quizState.index}::${userSelected}`) : null;
+        const isUserCorrect = isAnswered && (userAnsHash === cur.hash);
+        const decryptedExplain = isUserCorrect ? decryptHex(cur.encExplain, cur.hash) : "Jawaban kurang tepat. Cermati kembali materi orientasi pada unit sebelumnya sebelum melanjutkan.";
+
+        const dots = QUIZ_ITEMS.map((item, i) => {
+          let cls = "bg-algae-surface text-slate-600";
+          if (i === quizState.index) {
+            cls = "bg-algae-base text-white ring-2 ring-algae-light font-bold";
+          } else if (quizState.userAnswers[i] !== undefined) {
+            const ansHash = sha256(`${CRYPTO_SALT}::quiz_${i}::${quizState.userAnswers[i]}`);
+            cls = (ansHash === item.hash) ? "bg-algae-dark text-white" : "bg-rose-500 text-white";
+          }
+          return `<span class="w-6 h-6 rounded-lg text-[11px] font-mono flex items-center justify-center ${cls}">${i + 1}</span>`;
+        }).join("");
+
+        container.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-algae-surface mb-4">
+              <span class="text-xs font-extrabold text-algae-deep uppercase tracking-wider">Soal ${quizState.index + 1} dari ${QUIZ_ITEMS.length}</span>
+              <div class="flex items-center gap-1.5">${dots}</div>
+            </div>
+
+            <div class="p-5 rounded-3xl bg-algae-surface/50 border border-algae-surface mb-4">
+              <h3 class="text-sm sm:text-base font-extrabold text-algae-deep leading-snug">${cur.q}</h3>
+            </div>
+
+            <div class="space-y-2.5 mb-4" id="quizOptions">
+              ${cur.options.map((opt, optIdx) => {
+                let optStyle = "bg-white hover:bg-algae-canvas border-slate-200 text-slate-700";
+                const optHash = sha256(`${CRYPTO_SALT}::quiz_${quizState.index}::${optIdx}`);
+                const isThisOptCorrect = (optHash === cur.hash);
+
+                if (isAnswered) {
+                  if (isThisOptCorrect) {
+                    optStyle = "bg-algae-light/40 border-algae-base text-algae-deep font-extrabold";
+                  } else if (optIdx === userSelected && !isUserCorrect) {
+                    optStyle = "bg-rose-50 border-rose-300 text-rose-800 font-extrabold";
+                  } else {
+                    optStyle = "bg-white opacity-40 border-slate-200 text-slate-400";
+                  }
+                }
+                return `
+                  <button type="button" 
+                          data-opt="${optIdx}" 
+                          ${isAnswered ? "disabled" : ""}
+                          class="w-full text-left p-3.5 rounded-2xl border text-xs sm:text-sm font-medium transition-all flex items-center justify-between ${optStyle}">
+                    <span>${opt}</span>
+                    ${isAnswered && isThisOptCorrect ? `<span class="font-bold text-algae-dark text-xs">✓ Benar</span>` : ""}
+                    ${isAnswered && optIdx === userSelected && !isUserCorrect ? `<span class="font-bold text-rose-600 text-xs">✕ Salah</span>` : ""}
+                  </button>
+                `;
+              }).join("")}
+            </div>
+
+            ${isAnswered ? `
+              <div class="p-4 rounded-2xl ${isUserCorrect ? "bg-algae-light/30 border border-algae-base/40 text-algae-deep" : "bg-rose-50 border border-rose-200 text-rose-900"} text-xs leading-relaxed mb-4 font-medium">
+                <strong>Pembahasan:</strong> ${decryptedExplain}
+              </div>
+            ` : ""}
+          </div>
+
+          <div class="pt-4 border-t border-algae-surface flex items-center justify-between">
+            <button type="button" id="prevQuizBtn" ${quizState.index === 0 ? "disabled" : ""} class="px-4 py-2 rounded-2xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-algae-surface disabled:opacity-30 disabled:cursor-not-allowed">
+              ← Soal Sebelumnya
+            </button>
+            
+            ${isAnswered ? `
+              <button type="button" id="nextQuizBtn" class="px-6 py-2.5 rounded-2xl bg-algae-dark text-white text-xs font-bold hover:bg-algae-deep shadow-md transition-all">
+                ${quizState.index === QUIZ_ITEMS.length - 1 ? "Lihat Hasil Kuis" : "Soal Selanjutnya →"}
+              </button>
+            ` : `<span class="text-[11px] text-slate-400 italic">Pilih satu opsi jawaban</span>`}
+          </div>
+        `;
+
+        const options = container.querySelectorAll("[data-opt]");
+        options.forEach(btn => {
+          btn.onclick = () => {
+            const picked = Number(btn.dataset.opt);
+            quizState.userAnswers[quizState.index] = picked;
+            const candidateHash = sha256(`${CRYPTO_SALT}::quiz_${quizState.index}::${picked}`);
+            if (candidateHash === cur.hash) {
+              quizState.score++;
+              playTone('success');
+              showToast("Jawaban Benar!", "success");
+            } else {
+              playTone('error');
+              showToast("Jawaban Kurang Tepat", "error");
+            }
+            renderQuizStage();
+          };
+        });
+
+        const nextBtn = document.getElementById("nextQuizBtn");
+        if (nextBtn) {
+          nextBtn.onclick = () => {
+            playTone('click');
+            if (quizState.index < QUIZ_ITEMS.length - 1) {
+              quizState.index++;
+              renderQuizStage();
+            } else {
+              quizState.isFinished = true;
+              renderQuizStage();
+            }
+          };
+        }
+
+        const prevBtn = document.getElementById("prevQuizBtn");
+        if (prevBtn) {
+          prevBtn.onclick = () => {
+            playTone('click');
+            if (quizState.index > 0) {
+              quizState.index--;
+              renderQuizStage();
+            }
+          };
+        }
+      }
+
+      /* =========================================================
+         STAGE EVENT HANDLERS & ANIMATIONS
+         ========================================================= */
+      function renderStage() {
+        const stage = document.getElementById("stage");
+        const unit = UNITS[state.current];
+        if (!stage || !unit) return;
+
+        const renderer = UNIT_RENDERERS[unit.key];
+        stage.innerHTML = renderer ? renderer() : `<p class="text-sm text-slate-500">Unit belum tersedia.</p>`;
+
+        bindStageEvents(unit.key);
+        updateAudioUI();
+      }
+
+      function bindStageEvents(key) {
+        const stage = document.getElementById("stage");
+
+        // Global Navigation Triggers
+        stage.querySelectorAll('[data-action="start"]').forEach(b => {
+          b.onclick = () => { 
+            playTone('click');
+            markDone(0); 
+            setTaskCompleted(0);
+            state.audioEnabled = true;
+            saveState();
+            updateAudioUI();
+            navigateTo(1); 
+          };
+        });
+
+        // Cover Audio Preview Button
+        const coverAudioBtn = stage.querySelector("#coverAudioBtn");
+        if (coverAudioBtn) {
+          coverAudioBtn.onclick = () => {
+            playTone('click');
+            state.audioEnabled = true;
+            saveState();
+            updateAudioUI();
+            playUnitNarration(0, true);
+            showToast("Memutar narasi pengantar...", "info");
+          };
+        }
+
+        // Stage Header Audio Pill Toggle
+        const stageAudioBtn = stage.querySelector("#stageAudioToggleBtn");
+        if (stageAudioBtn) {
+          stageAudioBtn.onclick = () => {
+            playTone('click');
+            state.audioEnabled = !state.audioEnabled;
+            saveState();
+            updateAudioUI();
+            if (state.audioEnabled) {
+              playUnitNarration(state.current, true);
+              showToast("Audio narasi aktif", "success");
+            } else {
+              if (audioPlayer) audioPlayer.pause();
+              showToast("Audio narasi dimatikan", "info");
+            }
+          };
+        }
+
+        stage.querySelectorAll('[data-action="next"]').forEach(b => {
+          b.onclick = () => {
+            if (state.current === UNITS.length - 1) {
+              playTone('success');
+              markDone(state.current);
+              navigateTo(0);
+              return;
+            }
+            if (isTaskDone(state.current) && unitTimeRemaining <= 0) {
+              playTone('click');
+              markDone(state.current);
+              navigateTo(state.current + 1);
+            }
+          };
+        });
+        stage.querySelectorAll('[data-action="prev"]').forEach(b => {
+          b.onclick = () => {
+            playTone('click');
+            navigateTo(state.current - 1);
+          };
+        });
+        stage.querySelectorAll('[data-action="restart"]').forEach(b => {
+          b.onclick = () => {
+            playTone('click');
+            state = { 
+              current: 0, 
+              done: [0], 
+              tasksDone: { 0: true, 1: true }, 
+              u2_flips: [],
+              u4_tabs: [0],
+              u5_cards: [],
+              u6_sliderTouched: false,
+              u7_flips: [],
+              u8_pillars: [],
+              u9_choice: null,
+              audioEnabled: false,
+              userName: "",
+              userSatker: "",
+              pledgeSigned: false
+            };
+            resetQuizState();
+            saveState();
+            navigateTo(0);
+            showToast("Progres diatur ulang", "info");
+          };
+        });
+        stage.querySelectorAll('[data-jump]').forEach(b => {
+          b.onclick = () => {
+            playTone('click');
+            navigateTo(Number(b.dataset.jump));
+          };
+        });
+
+        // UNIT 2: Core Values Flip Cards
+        if (key === "berakhlak") {
+          if (!state.u2_flips) state.u2_flips = [];
+          const counterLabel = document.getElementById("u2CounterLabel");
+
+          stage.querySelectorAll(".flip-card").forEach(card => {
+            card.onclick = () => {
+              playTone('click');
+              const inner = card.querySelector(".flip-inner");
+              const val = card.dataset.val;
+              const isFlipped = card.dataset.flipped === "true";
+              if (isFlipped) {
+                inner.classList.remove("rotate-y-180");
+                card.dataset.flipped = "false";
+              } else {
+                inner.classList.add("rotate-y-180");
+                card.dataset.flipped = "true";
+                if (!state.u2_flips.includes(val)) {
+                  state.u2_flips.push(val);
+                  saveState();
+                }
+                if (counterLabel) {
+                  counterLabel.textContent = `Balik 4 Kartu (${state.u2_flips.length}/7)`;
+                }
+                if (state.u2_flips.length >= 4) {
+                  setTaskCompleted(2);
+                }
+              }
+            };
+          });
+        }
+
+        // UNIT 3: Micro-Quiz Unit 3
+        if (key === "pelayanan") {
+          const quizBtns = stage.querySelectorAll("#microQuizUnit3 button");
+          const fb = document.getElementById("feedbackUnit3");
+          const expectedU3Hash = "63e0d4c7a8c06f72a3075f0457a8ff2dd79afe22f0ec0880ef0680e87730c676";
+
+          quizBtns.forEach(btn => {
+            btn.onclick = () => {
+              const pickedIdx = btn.dataset.idx;
+              const isCorrect = sha256(`${CRYPTO_SALT}::unit_3::${pickedIdx}`) === expectedU3Hash;
+              quizBtns.forEach(b => {
+                b.disabled = true;
+                const isThisCorrect = sha256(`${CRYPTO_SALT}::unit_3::${b.dataset.idx}`) === expectedU3Hash;
+                if (isThisCorrect) {
+                  b.className = "p-3 bg-algae-light/40 border border-algae-base text-algae-deep rounded-2xl text-xs font-extrabold text-left";
+                } else {
+                  b.className = "p-3 bg-algae-surface/40 border border-slate-200 text-slate-400 rounded-2xl text-xs text-left";
+                }
+              });
+              fb.classList.remove("hidden");
+              if (isCorrect) {
+                playTone('success');
+                fb.className = "text-xs mt-3 font-bold text-algae-dark";
+                fb.textContent = "✓ Tepat! Menolak gratifikasi dengan santun dan memproses berkas sesuai SOP adalah bukti pengamalan Akuntabel dan Berorientasi Pelayanan.";
+                showToast("Jawaban Tepat!", "success");
+              } else {
+                playTone('error');
+                fb.className = "text-xs mt-3 font-bold text-rose-600";
+                fb.textContent = "✕ Kurang tepat. Penolakan gratifikasi harus tegas santun tanpa kompromi.";
+                showToast("Kurang tepat", "error");
+              }
+              setTaskCompleted(3);
+            };
+          });
+        }
+
+        // UNIT 4: 5 Dimensi Tabs
+        if (key === "dimensi") {
+          const tabData = [
+            { badge: "Pilar 3", title: "Kompeten: Kapabilitas Digital & Profesionalisme", points: [
+              "Wajib menguasai sistem digital kepegawaian (SIMPEG 5.0 Kemenag), kearsipan elektronik SRIKANDI, dan e-Kinerja BKN.",
+              "Aktif mengikuti pelatihan mandiri berbasis MOOC melalui platform resmi PINTAR Kemenag.",
+              "Membimbing rekan sejawat dalam pengoperasian aplikasi layanan baru dan menyelesaikan tugas dengan mutu terbaik."
+            ]},
+            { badge: "Pilar 4", title: "Harmonis: Moderasi Beragama Siber & Ruang Kerja Inklusif", points: [
+              "Menjaga netralitas dan mengayomi seluruh pemeluk agama tanpa diskriminasi dalam pergaulan kantor maupun pelayanan.",
+              "Menjadi duta moderasi beragama di media sosial: aktif menyebarkan pesan kerukunan serta menolak hoaks keagamaan.",
+              "Membangun suasana kerja kondusif, saling tolong-menolong, dan menghormati hak ibadah sesama rekan kerja."
+            ]},
+            { badge: "Pilar 5", title: "Loyal: Komitmen Kebangsaan & Integritas Kedinasan", points: [
+              "Memegang teguh ideologi Pancasila, UUD 1945, NKRI, serta kepatuhan pada arahan pimpinan kementerian yang sah.",
+              "Mengamankan kerahasiaan data jabatan, dokumen strategis negara, serta privasi data keagamaan umat dari kebocoran.",
+              "Mendukung dan menyukseskan program prioritas reformasi birokrasi yang digariskan Kementerian Agama."
+            ]},
+            { badge: "Pilar 6", title: "Adaptif: Inovasi Cerdas & Ketangkasan Perubahan", points: [
+              "Mengembangkan inovasi 'Smart Madrasah' melalui kurikulum digital, ujian terkomputerisasi, dan e-learning interaktif.",
+              "Menerapkan fleksibilitas kerja (Smart Office) dengan kolaborasi cloud dan Tanda Tangan Elektronik (TTE) BSrE.",
+              "Tidak pasif terhadap dinamika baru: proaktif mencari solusi digital ketika prosedur manual mengalami hambatan."
+            ]},
+            { badge: "Pilar 7", title: "Kolaboratif: Sinergi Multipihak (Pentahelix)", points: [
+              "Bekerja sama dengan Kementerian Kominfo dan operator telekomunikasi untuk percepatan jaringan internet di KUA 3T.",
+              "Menggandeng Bank Syariah untuk integrasi pembayaran zakat, wakaf, dan pencatatan nikah secara nontunai.",
+              "Sinergi erat dengan ormas keagamaan dan tokoh agama dalam menyosialisasikan program digital Kemenag."
+            ]}
+          ];
+
+          if (!state.u4_tabs) state.u4_tabs = [0];
+          const badgeEl = document.getElementById("dimensiBadge");
+          const titleEl = document.getElementById("dimensiTitle");
+          const pointsEl = document.getElementById("dimensiPoints");
+          const counterEl = document.getElementById("u4TabCounter");
+
+          stage.querySelectorAll("#dimensiTabNav button").forEach(btn => {
+            btn.onclick = () => {
+              playTone('click');
+              const idx = Number(btn.dataset.tabidx);
+              stage.querySelectorAll("#dimensiTabNav button").forEach(b => {
+                b.className = "flex-1 min-w-[120px] py-2 px-3 rounded-xl text-xs font-bold transition-all text-slate-600 hover:text-algae-dark";
+              });
+              btn.className = "flex-1 min-w-[120px] py-2 px-3 rounded-xl text-xs font-bold transition-all bg-white text-algae-dark shadow-sm";
+
+              const cur = tabData[idx];
+              if (badgeEl) badgeEl.textContent = cur.badge;
+              if (titleEl) titleEl.textContent = cur.title;
+              if (pointsEl) {
+                pointsEl.innerHTML = cur.points.map((pt, pidx) => `
+                  <div class="p-3.5 rounded-2xl bg-algae-surface/40 border border-algae-surface flex items-start gap-3">
+                    <span class="w-6 h-6 rounded-lg bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5">${pidx + 1}</span>
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">${pt}</p>
+                  </div>
+                `).join("");
+              }
+
+              if (!state.u4_tabs.includes(idx)) {
+                state.u4_tabs.push(idx);
+                saveState();
+              }
+              if (counterEl) {
+                counterEl.textContent = `Eksplorasi Tab (${state.u4_tabs.length}/5)`;
+              }
+              if (state.u4_tabs.length >= 5) {
+                setTaskCompleted(4);
+              }
+            };
+          });
+        }
+
+        // UNIT 5: Ekosistem Cards
+        if (key === "ekosistem") {
+          if (!state.u5_cards) state.u5_cards = [];
+          const counterEl = document.getElementById("u5CounterLabel");
+
+          stage.querySelectorAll(".ekosistem-card").forEach(card => {
+            card.onclick = () => {
+              playTone('click');
+              const id = card.dataset.ekoid;
+              card.classList.add("border-algae-base", "bg-algae-light/10");
+              const status = card.querySelector(".eko-status");
+              if (status) {
+                status.className = "text-xs font-bold text-algae-dark flex items-center gap-1";
+                status.innerHTML = `${renderSvg("check", "w-3 h-3 text-algae-base")} Dibuka`;
+              }
+              if (!state.u5_cards.includes(id)) {
+                state.u5_cards.push(id);
+                saveState();
+              }
+              if (counterEl) {
+                counterEl.textContent = `Buka 5 Ekosistem (${state.u5_cards.length}/5)`;
+              }
+              if (state.u5_cards.length >= 5) {
+                setTaskCompleted(5);
+              }
+            };
+          });
+        }
+
+        // UNIT 6: Simulator Adopsi Slider
+        if (key === "adopsi") {
+          const slider = document.getElementById("adopsiSlider");
+          const badge = document.getElementById("sliderValueBadge");
+          const metricTime = document.getElementById("metricTime");
+          const metricSat = document.getElementById("metricSat");
+          const metricRisk = document.getElementById("metricRisk");
+
+          if (slider) {
+            slider.oninput = (e) => {
+              const val = Number(e.target.value);
+              if (badge) badge.textContent = `Adopsi: ${val}%`;
+
+              if (val <= 30) {
+                if (metricTime) metricTime.textContent = "3-5 Hari";
+                if (metricSat) metricSat.textContent = "54.2 / 100";
+                if (metricRisk) {
+                  metricRisk.textContent = "Tinggi (38%)";
+                  metricRisk.className = "text-sm sm:text-base font-extrabold text-rose-600 font-mono";
+                }
+              } else if (val <= 70) {
+                if (metricTime) metricTime.textContent = "15-30 Menit";
+                if (metricSat) metricSat.textContent = "87.5 / 100";
+                if (metricRisk) {
+                  metricRisk.textContent = "Sangat Rendah (3%)";
+                  metricRisk.className = "text-sm sm:text-base font-extrabold text-emerald-600 font-mono";
+                }
+              } else {
+                if (metricTime) metricTime.textContent = "Instan (< 5 Menit)";
+                if (metricSat) metricSat.textContent = "96.8 / 100";
+                if (metricRisk) {
+                  metricRisk.textContent = "Hampir Nol (< 1%)";
+                  metricRisk.className = "text-sm sm:text-base font-extrabold text-emerald-600 font-mono";
+                }
+              }
+              setTaskCompleted(6);
+            };
+          }
+        }
+
+        // UNIT 7: Diagnostic Flip Cards
+        if (key === "hambatan") {
+          if (!state.u7_flips) state.u7_flips = [];
+          const counterLabel = document.getElementById("u7CounterLabel");
+
+          stage.querySelectorAll(".flip-card").forEach(card => {
+            card.onclick = () => {
+              playTone('click');
+              const inner = card.querySelector(".flip-inner");
+              const obsid = card.dataset.obsid;
+              const isFlipped = card.dataset.flipped === "true";
+              if (isFlipped) {
+                inner.classList.remove("rotate-y-180");
+                card.dataset.flipped = "false";
+              } else {
+                inner.classList.add("rotate-y-180");
+                card.dataset.flipped = "true";
+                if (!state.u7_flips.includes(obsid)) {
+                  state.u7_flips.push(obsid);
+                  saveState();
+                }
+                if (counterLabel) {
+                  counterLabel.textContent = `Balik 5 Kartu (${state.u7_flips.length}/5)`;
+                }
+                if (state.u7_flips.length >= 5) {
+                  setTaskCompleted(7);
+                }
+              }
+            };
+          });
+        }
+
+        // UNIT 8: Pillar Cards
+        if (key === "solusi") {
+          if (!state.u8_pillars) state.u8_pillars = [];
+          const counterLabel = document.getElementById("u8CounterLabel");
+
+          stage.querySelectorAll(".pillar-card").forEach(card => {
+            card.onclick = () => {
+              playTone('click');
+              const id = card.dataset.pilid;
+              card.classList.add("border-algae-base", "bg-algae-light/10");
+              const status = card.querySelector(".pil-status");
+              if (status) {
+                status.className = "text-xs font-bold text-algae-dark flex items-center gap-1";
+                status.innerHTML = `${renderSvg("check", "w-3 h-3 text-algae-base")} Dipelajari`;
+              }
+              if (!state.u8_pillars.includes(id)) {
+                state.u8_pillars.push(id);
+                saveState();
+              }
+              if (counterLabel) {
+                counterLabel.textContent = `Pelajari 4 Pilar (${state.u8_pillars.length}/4)`;
+              }
+              if (state.u8_pillars.length >= 4) {
+                setTaskCompleted(8);
+              }
+            };
+          });
+        }
+
+        // UNIT 9: Dilema Options
+        if (key === "dilema") {
+          const dilemaBtns = stage.querySelectorAll("#dilemaOptions button");
+          const fb = document.getElementById("dilemaFeedback");
+          const expectedU9Hash = "ba14ee27067eae6d89002146cc1b993b8f4008a97ad01eebe9d48a479981ec42";
+
+          dilemaBtns.forEach(btn => {
+            btn.onclick = () => {
+              const didx = btn.dataset.didx;
+              const isCorrect = sha256(`${CRYPTO_SALT}::unit_9::${didx}`) === expectedU9Hash;
+              dilemaBtns.forEach(b => {
+                b.disabled = true;
+                const isThisCorrect = sha256(`${CRYPTO_SALT}::unit_9::${b.dataset.didx}`) === expectedU9Hash;
+                if (isThisCorrect) {
+                  b.className = "w-full text-left p-3.5 bg-algae-light/40 border border-algae-base text-algae-deep rounded-2xl text-xs font-extrabold";
+                } else {
+                  b.className = "w-full text-left p-3.5 bg-algae-surface/40 border border-slate-200 text-slate-400 rounded-2xl text-xs";
+                }
+              });
+              fb.classList.remove("hidden");
+              if (isCorrect) {
+                playTone('success');
+                fb.className = "text-xs mt-2 font-bold p-3.5 rounded-2xl bg-algae-light/30 border border-algae-base text-algae-deep";
+                fb.textContent = "✓ Pilihan Tepat & Berintegritas! Menolak amplop dengan santun, menegakkan zona integritas BerAKHLAK, dan membimbing pemohon melengkapi berkas online sesuai SOP adalah tindakan profesional terpuji.";
+                showToast("Keputusan Tepat!", "success");
+              } else {
+                playTone('error');
+                fb.className = "text-xs mt-2 font-bold p-3.5 rounded-2xl bg-rose-50 border border-rose-300 text-rose-800";
+                fb.textContent = "✕ Keputusan Kurang Tepat. Menerima suap adalah pelanggaran berat, sedangkan memarahi pemohon di depan umum bertentangan dengan nilai Harmonis.";
+                showToast("Kurang tepat", "error");
+              }
+              setTaskCompleted(9);
+            };
+          });
+        }
+
+        // UNIT 10: Quiz Evaluasi
+        if (key === "kuis") {
+          renderQuizStage();
+        }
+
+        // UNIT 11: Commitment Pledge Card
+        if (key === "penutup") {
+          const nameInput = stage.querySelector("#pledgeNameInput");
+          const satkerInput = stage.querySelector("#pledgeSatkerInput");
+          const signBtn = stage.querySelector("#signPledgeBtn");
+          const copyBtn = stage.querySelector("#copyPledgeBtn");
+
+          if (nameInput) {
+            nameInput.oninput = (e) => {
+              state.userName = e.target.value;
+              saveState();
+            };
+          }
+          if (satkerInput) {
+            satkerInput.oninput = (e) => {
+              state.userSatker = e.target.value;
+              saveState();
+            };
+          }
+          if (signBtn) {
+            signBtn.onclick = () => {
+              const name = state.userName.trim() || "Aparatur Sipil Negara";
+              state.pledgeSigned = true;
+              saveState();
+              playTone('fanfare');
+              confetti({ particleCount: 90, spread: 70, origin: { y: 0.6 } });
+              signBtn.innerHTML = `${renderSvg("award", "w-4 h-4")} <span>Ikrar Ditandatangani oleh ${name} ✓</span>`;
+              signBtn.className = "px-6 py-2.5 rounded-xl bg-algae-deep text-algae-light font-extrabold shadow-md flex items-center gap-2";
+              showToast("Ikrar Komitmen BerAKHLAK berhasil ditandatangani!", "success");
+            };
+          }
+          if (copyBtn) {
+            copyBtn.onclick = () => {
+              const name = state.userName.trim() || "ASN Kemenag";
+              const satker = state.userSatker.trim() || "Kementerian Agama RI";
+              const pledgeText = `IKRAR KOMITMEN BERAKHLAK KEMENTERIAN AGAMA RI\n` +
+                `Nama: ${name}\n` +
+                `Satker: ${satker}\n\n` +
+                `1. Berkomitmen mengamalkan 7 nilai BerAKHLAK dalam setiap tugas kedinasan.\n` +
+                `2. Menolak segala bentuk suap, gratifikasi, dan pungli di lingkungan kerja.\n` +
+                `3. Menjunjung tinggi moderasi beragama dan pelayanan inklusif tanpa diskriminasi.\n` +
+                `4. Meningkatkan literasi teknologi dan beradaptasi dengan sistem digital Kemenag.\n` +
+                `5. Menjaga integritas institusi: Bangga Melayani Bangsa!`;
+              
+              navigator.clipboard.writeText(pledgeText).then(() => {
+                playTone('success');
+                showToast("Teks ikrar disalin ke clipboard", "success");
+              }).catch(() => {
+                showToast("Gagal menyalin teks", "error");
+              });
+            };
+          }
+        }
+      }
+
+      /* =========================================================
+         GLOBAL KEYBOARD & UI LISTENERS
+         ========================================================= */
+      document.addEventListener("keydown", (e) => {
+        if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+        if (e.key === "ArrowRight") {
+          if (state.current < UNITS.length - 1 && isTaskDone(state.current) && unitTimeRemaining <= 0) {
+            playTone('click');
+            markDone(state.current);
+            navigateTo(state.current + 1);
+          }
+        } else if (e.key === "ArrowLeft") {
+          if (state.current > 0) {
+            playTone('click');
+            navigateTo(state.current - 1);
+          }
+        }
+      });
+
+      const mobileToggle = document.getElementById("mobileNavToggle");
+      const closeDrawer = document.getElementById("closeDrawer");
+      const mobileDrawer = document.getElementById("mobileDrawer");
+
+      if (mobileToggle && mobileDrawer) {
+        mobileToggle.onclick = () => {
+          playTone('click');
+          mobileDrawer.classList.remove("hidden");
+        };
+      }
+      if (closeDrawer && mobileDrawer) {
+        closeDrawer.onclick = () => {
+          playTone('click');
+          mobileDrawer.classList.add("hidden");
+        };
+      }
+
+      /* =========================================================
+         AUDIO NARRATION SYSTEM
+         ========================================================= */
+      const audioPlayer = document.getElementById("narratorAudio");
+      let isAudioPlaying = false;
+
+      function initAudioSystem() {
+        if (!audioPlayer) return;
+
+        audioPlayer.onplay = () => {
+          isAudioPlaying = true;
+          updateAudioUI();
+        };
+
+        audioPlayer.onpause = () => {
+          isAudioPlaying = false;
+          updateAudioUI();
+        };
+
+        audioPlayer.onended = () => {
+          isAudioPlaying = false;
+          updateAudioUI();
+        };
+
+        audioPlayer.onerror = () => {
+          isAudioPlaying = false;
+          updateAudioUI();
+        };
+
+        const toggleBtn = document.getElementById("toggleAudioBtn");
+        const replayBtn = document.getElementById("replayAudioBtn");
+
+        if (toggleBtn) {
+          toggleBtn.onclick = () => {
+            playTone('click');
+            state.audioEnabled = !state.audioEnabled;
+            saveState();
+            updateAudioUI();
+
+            if (state.audioEnabled) {
+              playUnitNarration(state.current, true);
+              showToast("Audio narasi aktif", "success");
+            } else {
+              audioPlayer.pause();
+              showToast("Audio narasi dimatikan", "info");
+            }
+          };
+        }
+
+        if (replayBtn) {
+          replayBtn.onclick = () => {
+            playTone('click');
+            playUnitNarration(state.current, true);
+            showToast("Memutar ulang narasi...", "info");
+          };
+        }
+
+        updateAudioUI();
+      }
+
+      function playUnitNarration(unitId, forcePlay = false) {
+        if (!audioPlayer) return;
+        audioPlayer.pause();
+
+        const audioSrc = `audio/unit_${unitId}.mp3`;
+        audioPlayer.src = audioSrc;
+
+        if (state.audioEnabled || forcePlay) {
+          audioPlayer.currentTime = 0;
+          const playPromise = audioPlayer.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(err => {
+              console.log("Autoplay dicegah browser sebelum interaksi pengguna:", err);
+              isAudioPlaying = false;
+              updateAudioUI();
+            });
+          }
+        }
+      }
+
+      function updateAudioUI() {
+        const iconContainer = document.getElementById("audioIconContainer");
+        const statusText = document.getElementById("audioStatusText");
+        const replayBtn = document.getElementById("replayAudioBtn");
+        const toggleBtn = document.getElementById("toggleAudioBtn");
+
+        // Sticky Header Controls
+        if (iconContainer) {
+          if (state.audioEnabled) {
+            iconContainer.innerHTML = renderSvg("volume2", `w-4 h-4 text-algae-dark ${isAudioPlaying ? 'animate-bounce' : ''}`);
+          } else {
+            iconContainer.innerHTML = renderSvg("volumeX", "w-4 h-4 text-slate-400");
+          }
+        }
+
+        if (statusText) {
+          if (state.audioEnabled) {
+            statusText.textContent = isAudioPlaying ? "Narasi: Memutar..." : "Narasi: Aktif";
+            statusText.className = "hidden sm:inline text-[11px] font-extrabold text-algae-dark";
+          } else {
+            statusText.textContent = "Narasi: Nonaktif";
+            statusText.className = "hidden sm:inline text-[11px] font-extrabold text-slate-400";
+          }
+        }
+
+        if (toggleBtn) {
+          if (state.audioEnabled) {
+            toggleBtn.className = "flex items-center gap-2 px-3 py-1.5 rounded-xl bg-algae-light/40 border border-algae-base text-algae-deep transition-all text-xs font-bold shadow-sm";
+          } else {
+            toggleBtn.className = "flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white hover:bg-algae-surface border border-slate-200 text-slate-700 transition-all text-xs font-bold shadow-sm";
+          }
+        }
+
+        if (replayBtn) {
+          if (state.audioEnabled) {
+            replayBtn.classList.remove("hidden");
+          } else {
+            replayBtn.classList.add("hidden");
+          }
+        }
+
+        // Stage Card Audio Pill
+        const stageDot = document.getElementById("stageAudioDot");
+        const stageText = document.getElementById("stageAudioText");
+        const stageBtn = document.getElementById("stageAudioToggleBtn");
+        if (stageBtn && stageDot && stageText) {
+          if (state.audioEnabled) {
+            if (isAudioPlaying) {
+              stageBtn.className = "inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full bg-algae-light/50 text-algae-deep border border-algae-base shadow-sm animate-pulse";
+              stageDot.className = "w-2 h-2 rounded-full bg-algae-base animate-ping";
+              stageText.textContent = "Memutar Narasi";
+            } else {
+              stageBtn.className = "inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full bg-algae-surface/80 text-algae-dark border border-slate-200 hover:bg-algae-light/30 shadow-sm";
+              stageDot.className = "w-2 h-2 rounded-full bg-algae-base";
+              stageText.textContent = "Putar Narasi";
+            }
+          } else {
+            stageBtn.className = "inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-400 border border-slate-200 hover:text-slate-600 shadow-sm";
+            stageDot.className = "w-2 h-2 rounded-full bg-slate-300";
+            stageText.textContent = "Narasi Mati";
+          }
+        }
+
+        // Cover Audio Button text
+        const coverBtnLabel = document.getElementById("coverAudioBtnLabel");
+        if (coverBtnLabel) {
+          coverBtnLabel.textContent = (state.audioEnabled && isAudioPlaying) ? "Sedang Memutar..." : "Dengarkan Pengantar";
+        }
+      }
+
+      /* =========================================================
+         ANTI-CHEAT & INTEGRITY GUARDS
+         ========================================================= */
+      document.addEventListener("contextmenu", (e) => {
+        if (e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA") {
+          e.preventDefault();
+          showToast("Integritas Ujian: Klik kanan dinonaktifkan.", "info");
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        // Prevent F12, Ctrl+Shift+I/J/C, Ctrl+U
+        if (
+          e.key === "F12" ||
+          (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "i" || e.key === "J" || e.key === "j" || e.key === "C" || e.key === "c")) ||
+          (e.ctrlKey && (e.key === "u" || e.key === "U"))
+        ) {
+          e.preventDefault();
+          showToast("Integritas Ujian: Akses inspeksi dibatasi.", "info");
+        }
+      });
+
+      /* =========================================================
+         INITIALIZATION
+         ========================================================= */
+      renderNavigation();
+      renderStage();
+      updateProgressBar();
+      initUnitGateTimer(state.current);
+      initAudioSystem();
+    })();
+  </script>
+</body>
+</html>

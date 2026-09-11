@@ -1,0 +1,2514 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pengenalan Jabatan — Orientasi ASN Kementerian Agama</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          colors: {
+            algae: {
+              dark: '#13714C',      /* Deep Green */
+              deep: '#0D4E34',      /* Darkest Forest */
+              base: '#3AB67D',      /* Medium Vibrant Green */
+              light: '#A2E494',     /* Light Pastel Green */
+              surface: '#E9EBED',   /* Clean Gray Surface */
+              canvas: '#F5F8F6',    /* Tinted Canvas */
+              card: '#FFFFFF'
+            }
+          },
+          animation: {
+            'fade-enter': 'fadeInOut 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+          },
+          keyframes: {
+            fadeInOut: {
+              '0%': { opacity: '0', transform: 'scale(0.98) translateY(8px)' },
+              '100%': { opacity: '1', transform: 'scale(1) translateY(0)' }
+            }
+          },
+          boxShadow: {
+            'algae-soft': '0 8px 30px -4px rgba(19, 113, 76, 0.08), 0 2px 6px -1px rgba(19, 113, 76, 0.04)',
+            'algae-card': '0 14px 35px -5px rgba(19, 113, 76, 0.12), 0 4px 10px -2px rgba(19, 113, 76, 0.06)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    /* 3D Flip Card */
+    .perspective-1000 { perspective: 1000px; }
+    .transform-style-3d { transform-style: preserve-3d; }
+    .backface-hidden { backface-visibility: hidden; }
+    .rotate-y-180 { transform: rotateY(180deg); }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #E9EBED; }
+    ::-webkit-scrollbar-thumb { background: #3AB67D; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #13714C; }
+
+    /* Transitions */
+    .smooth-chart-fill {
+      transition: stroke-dashoffset 2.0s cubic-bezier(0.22, 1, 0.36, 1), stroke 0.5s ease;
+    }
+    .smooth-bar-fill {
+      transition: width 2.0s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .icon-anim {
+      transition: all 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  </style>
+</head>
+
+<body class="bg-algae-canvas font-sans text-slate-800 antialiased min-h-screen flex flex-col selection:bg-algae-light/50 selection:text-algae-deep">
+
+  <!-- TOP HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-algae-surface shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      
+      <!-- Brand & Title -->
+      <div class="flex items-center gap-3.5 min-w-0">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-algae-dark to-algae-base flex items-center justify-center text-algae-light shadow-md shrink-0 ring-2 ring-algae-light/50">
+          <svg class="w-5 h-5 icon-anim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="m9 9.5 2 2 4-4"/></svg>
+        </div>
+        <div class="min-w-0">
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-algae-dark px-2.5 py-0.5 rounded-full bg-algae-light/40 border border-algae-base/30">Pusbangkom MKMB</span>
+            <span class="text-xs text-slate-400 hidden sm:inline">•</span>
+            <span class="text-xs text-slate-500 hidden sm:inline">pta.kemenag.go.id</span>
+          </div>
+          <h1 class="text-sm sm:text-base font-extrabold text-algae-deep truncate">Pengenalan Jabatan ASN Kemenag</h1>
+        </div>
+      </div>
+
+      <!-- Audio & Progress Controls -->
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <!-- Back to Hub Navigation Button -->
+        <a href="../index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-algae-surface/80 hover:bg-algae-surface text-algae-deep hover:text-algae-dark text-xs font-bold transition-all border border-slate-200 shadow-sm" title="Kembali ke Learning Hub Pusbangkom">
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          <span class="hidden md:inline">Hub Modul</span>
+        </a>
+
+        <!-- Audio Narration Controls -->
+        <div class="flex items-center gap-1.5 bg-algae-surface/60 p-1 rounded-2xl border border-slate-200 shadow-sm">
+          <button id="toggleAudioBtn" type="button" class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white hover:bg-algae-surface text-slate-700 transition-all text-xs font-bold shadow-sm" title="Nyalakan/Matikan Audio Narasi">
+            <span id="audioIconContainer" class="w-4 h-4 flex items-center justify-center text-slate-500"></span>
+            <span id="audioStatusText" class="hidden sm:inline text-[11px] font-extrabold text-slate-700">Narasi: Nonaktif</span>
+          </button>
+          <button id="replayAudioBtn" type="button" class="p-1.5 rounded-xl bg-white hover:bg-algae-surface text-slate-600 transition-all hidden" title="Putar Ulang Narasi">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+          </button>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="hidden sm:flex flex-col items-end gap-1">
+          <div class="flex items-center gap-2 text-xs font-semibold text-slate-600">
+            <span>Progres Belajar</span>
+            <span id="pctLabel" class="font-mono text-algae-dark font-extrabold">0%</span>
+          </div>
+          <div class="w-36 lg:w-48 h-2.5 bg-algae-surface rounded-full overflow-hidden p-0.5 border border-slate-200">
+            <div id="progressFill" class="h-full bg-gradient-to-r from-algae-base to-algae-dark rounded-full transition-all duration-[2000ms] ease-out" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- Mobile Drawer Toggle -->
+        <button id="mobileNavToggle" type="button" class="lg:hidden p-2 rounded-xl text-slate-600 hover:text-algae-dark hover:bg-algae-surface transition-colors" aria-label="Buka navigasi unit">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN APP WRAPPER -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    
+    <!-- SIDEBAR NAVIGATION (Desktop) -->
+    <aside class="hidden lg:block lg:col-span-4 xl:col-span-3 sticky top-24 space-y-4">
+      <div class="bg-white rounded-3xl border border-algae-surface p-4 shadow-algae-soft">
+        <div class="flex items-center justify-between pb-3 border-b border-algae-surface mb-3 px-1">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Alur Pembelajaran</span>
+          <span class="text-[11px] font-mono font-bold text-algae-dark px-2 py-0.5 bg-algae-light/30 rounded-full" id="unitCountBadge">11 Unit</span>
+        </div>
+        
+        <nav id="desktopNav" class="space-y-1.5" aria-label="Navigasi materi"></nav>
+      </div>
+
+      <!-- Quick Nav Info Card -->
+      <div class="bg-gradient-to-br from-algae-dark to-algae-deep rounded-3xl p-5 text-white shadow-algae-card relative overflow-hidden">
+        <div class="flex items-center gap-2.5 mb-2 relative z-10">
+          <svg class="w-4 h-4 text-algae-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          <h4 class="text-xs font-bold tracking-wide uppercase text-algae-light">Aturan Kelulusan Unit</h4>
+        </div>
+        <p class="text-xs text-emerald-100/90 leading-relaxed relative z-10">
+          Selesaikan tugas interaktif pada unit materi dan baca minimal 10 detik agar tombol lanjut terbuka.
+        </p>
+      </div>
+    </aside>
+
+    <!-- MOBILE DRAWER -->
+    <div id="mobileDrawer" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden lg:hidden transition-opacity">
+      <div class="fixed inset-y-0 right-0 max-w-xs w-full bg-white shadow-2xl p-5 flex flex-col gap-4 overflow-y-auto">
+        <div class="flex items-center justify-between pb-3 border-b border-algae-surface">
+          <h3 class="font-bold text-algae-deep text-sm uppercase tracking-wider">Pilih Unit Modul</h3>
+          <button id="closeDrawer" class="p-1.5 rounded-xl text-slate-500 hover:bg-algae-surface" aria-label="Tutup navigasi">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+        <nav id="mobileNav" class="space-y-1.5 flex-1"></nav>
+      </div>
+    </div>
+
+    <!-- MAIN STAGE -->
+    <main class="lg:col-span-8 xl:col-span-9 bg-white border border-algae-surface rounded-3xl shadow-algae-soft p-6 sm:p-8 lg:p-10 min-h-[580px] flex flex-col justify-between" id="stage">
+      <!-- Dynamic Stage Content -->
+    </main>
+
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3.5 rounded-2xl shadow-2xl text-sm font-semibold transition-all duration-500 transform translate-y-24 opacity-0 pointer-events-none" role="status"></div>
+
+  <!-- NARRATOR AUDIO PLAYER -->
+  <audio id="narratorAudio" preload="auto"></audio>
+
+  <!-- APP ENGINE JAVASCRIPT -->
+  <script>
+    (() => {
+      "use strict";
+
+      /* =========================================================
+         CRYPTOGRAPHIC & SECURITY VAULT (Anti-Tamper & Anti-Cheat)
+         ========================================================= */
+      const CRYPTO_SALT = "kemenag_asn_2026_mkmb";
+
+      // Lightweight, standalone Pure JS SHA-256 (RFC 6234 compliant, zero dependencies)
+      function sha256(ascii) {
+        function rightRotate(value, amount) {
+          return (value >>> amount) | (value << (32 - amount));
+        }
+        var mathPow = Math.pow;
+        var maxWord = mathPow(2, 32);
+        var lengthProperty = 'length';
+        var i, j;
+        var result = '';
+        var words = [];
+        var asciiBitLength = ascii[lengthProperty] * 8;
+        var hash = [];
+        var k = [];
+        var primeCounter = 0;
+        var isComposite = {};
+        for (var candidate = 2; primeCounter < 64; candidate++) {
+          if (!isComposite[candidate]) {
+            for (i = 0; i < 313; i += candidate) {
+              isComposite[i] = candidate;
+            }
+            hash[primeCounter] = (mathPow(candidate, .5) * maxWord) | 0;
+            k[primeCounter++] = (mathPow(candidate, 1 / 3) * maxWord) | 0;
+          }
+        }
+        ascii += '\x80';
+        while (ascii[lengthProperty] % 64 - 56) ascii += '\x00';
+        for (i = 0; i < ascii[lengthProperty]; i++) {
+          j = ascii.charCodeAt(i);
+          if (j >> 8) return;
+          words[i >> 2] |= j << ((3 - i) % 4) * 8;
+        }
+        words[words[lengthProperty]] = ((asciiBitLength / maxWord) | 0);
+        words[words[lengthProperty]] = (asciiBitLength | 0);
+        for (j = 0; j < words[lengthProperty];) {
+          var w = words.slice(j, j += 16);
+          var oldHash = hash;
+          hash = hash.slice(0, 8);
+          for (i = 0; i < 64; i++) {
+            var w15 = w[i - 15], w2 = w[i - 2];
+            var s0 = rightRotate(w15, 7) ^ rightRotate(w15, 18) ^ (w15 >>> 3);
+            var s1 = rightRotate(w2, 17) ^ rightRotate(w2, 19) ^ (w2 >>> 10);
+            var ch = (hash[4] & hash[5]) ^ (~hash[4] & hash[6]);
+            var temp1 = hash[7] + (rightRotate(hash[4], 6) ^ rightRotate(hash[4], 11) ^ rightRotate(hash[4], 25)) + ch + k[i] + (w[i] = (i < 16) ? w[i] : (w[i - 16] + s0 + w[i - 7] + s1) | 0);
+            var maj = (hash[0] & hash[1]) ^ (hash[0] & hash[2]) ^ (hash[1] & hash[2]);
+            var temp2 = (rightRotate(hash[0], 2) ^ rightRotate(hash[0], 13) ^ rightRotate(hash[0], 22)) + maj;
+            hash = [(temp1 + temp2) | 0].concat(hash);
+            hash[4] = (hash[4] + temp1) | 0;
+          }
+          for (i = 0; i < 8; i++) {
+            hash[i] = (hash[i] + oldHash[i]) | 0;
+          }
+        }
+        for (i = 0; i < 8; i++) {
+          for (j = 3; j >= 0; j--) {
+            var b = (hash[i] >> (8 * j)) & 255;
+            result += ((b < 16) ? '0' : '') + b.toString(16);
+          }
+        }
+        return result;
+      }
+
+      // Decrypt hex ciphertext using matching SHA-256 key
+      function decryptHex(hexStr, keyHash) {
+        try {
+          const bytes = new Uint8Array(hexStr.length / 2);
+          for (let i = 0; i < hexStr.length; i += 2) {
+            const b = parseInt(hexStr.substr(i, 2), 16);
+            const k = keyHash.charCodeAt((i / 2) % keyHash.length);
+            bytes[i / 2] = b ^ k;
+          }
+          return new TextDecoder().decode(bytes);
+        } catch (e) {
+          return "";
+        }
+      }
+
+      /* =========================================================
+         STATIC SVG ICONS
+         ========================================================= */
+    const SVG_ICONS = {
+      compass: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>`,
+      map: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" x2="9" y1="3" y2="18"/><line x1="15" x2="15" y1="6" y2="21"/></svg>`,
+      building: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg>`,
+      users: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+      briefcase: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
+      network: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg>`,
+      pieChart: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>`,
+      clock: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+      gitBranch: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>`,
+      award: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>`,
+      checkCircle: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>`,
+      play: `<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>`,
+      arrowRight: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`,
+      arrowLeft: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>`,
+      search: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>`,
+      rotate: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>`,
+      shield: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+      crown: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>`,
+      layers: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>`,
+      lock: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
+      volume2: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>`,
+      volumeX: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="22" x2="16" y1="9" y2="15"/><line x1="16" x2="22" y1="9" y2="15"/></svg>`,
+      rotateCcw: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>`
+    };
+
+    function renderSvg(name, cls = "w-4 h-4") {
+      return `<span class="inline-flex items-center justify-center shrink-0 ${cls} icon-anim">${SVG_ICONS[name] || ''}</span>`;
+    }
+
+    /* =========================================================
+       DATA REGISTRY
+       ========================================================= */
+    const UNITS = [
+      { id: 0, key: "cover", title: "Cover & Orientasi", nav: "Orientasi", icon: "compass", reqTask: false },
+      { id: 1, key: "map", title: "Peta Modul", nav: "Peta Belajar", icon: "map", reqTask: false },
+      { id: 2, key: "skala", title: "Satuan Kerja & Pegawai", nav: "Skala Kemenag", icon: "building", reqTask: true },
+      { id: 3, key: "pnspppk", title: "PNS vs PPPK", nav: "PNS vs PPPK", icon: "users", reqTask: true },
+      { id: 4, key: "jabatan", title: "Definisi Jabatan (FTTWH)", nav: "Apa itu Jabatan?", icon: "briefcase", reqTask: true },
+      { id: 5, key: "jenis", title: "Klasifikasi Jabatan ASN", nav: "Manajerial / Non", icon: "network", reqTask: true },
+      { id: 6, key: "profil", title: "Profil ASN & 55 JF", nav: "Profil & 55 JF", icon: "pieChart", reqTask: true },
+      { id: 7, key: "pensiun", title: "Batas Usia Pensiun", nav: "Usia Pensiun", icon: "clock", reqTask: true },
+      { id: 8, key: "pindah", title: "Perpindahan Jabatan", nav: "Pola Perpindahan", icon: "gitBranch", reqTask: true },
+      { id: 9, key: "kuis", title: "Kuis Akhir", nav: "Kuis Akhir", icon: "award", reqTask: true },
+      { id: 10, key: "penutup", title: "Rangkuman & Selesai", nav: "Penutup", icon: "checkCircle", reqTask: false }
+    ];
+
+    const JF_DATA = [
+      { name: "Guru", count: 156873, pct: 70.32 },
+      { name: "Dosen", count: 19442, pct: 8.71 },
+      { name: "Penyuluh Agama", count: 14347, pct: 6.43 },
+      { name: "Penghulu", count: 9331, pct: 4.18 },
+      { name: "Pengawas", count: 6800, pct: 3.06 },
+      { name: "Lainnya", count: 6447, pct: 2.89 },
+      { name: "Arsiparis", count: 2912, pct: 1.31 },
+      { name: "Pranata Komputer", count: 2398, pct: 1.07 },
+      { name: "Perencana", count: 1827, pct: 0.82 },
+      { name: "Pranata Keuangan", count: 1549, pct: 0.69 },
+      { name: "Analis SDM", count: 1164, pct: 0.52 }
+    ];
+
+    const ALL_55_JF = [
+      "Penyuluh Agama", "Guru", "Dosen", "Penghulu", "Arsiparis", "Analis Kepegawaian",
+      "Pranata Komputer", "Perencana", "Auditor", "Pengelola Pengadaan Barang/Jasa",
+      "Analis Hukum", "Pranata Humas", "Analis Kebijakan", "Analis Anggaran", "Statistisi",
+      "Pranata Sumber Daya Manusia", "Asisten Pembina", "Peneliti", "Pustakawan", "Widyaiswara",
+      "Perekayasa", "Penyuluh Kehutanan", "Teknisi Litkayasa", "Teknisi Peralatan", "Analis Pasar",
+      "Pengendali Organisme Pengganggu Tumbuhan", "Pranata Laboratorium Pendidikan",
+      "Pengelola Keuangan", "Penata Laksana Barang", "Pemeriksa", "Pengelola Informasi",
+      "Penyuluh Pertanian", "Pranata SDM Aparatur", "Pranata Komunikasi", "Penerjemah",
+      "Pengembang Teknologi Pembelajaran", "Pendidik PAUD", "Pranata Catatan Sipil",
+      "Perancang Peraturan Perundang-undangan", "Pranata Administrasi", "Asisten Apoteker",
+      "Arsiparis Ahli", "Pranata Komputer Terampil", "Penyuluh Sosial", "Inspektur Tambang",
+      "Pranata Acara", "Penguji Kendaraan Bermotor", "Pemandu Museum", "Pengelola Penelitian",
+      "Pranata Nuklir", "Pengelola Akreditasi", "Juru Bahasa Isyarat", "Pranata Komunitas",
+      "Pengelola BMN", "Pengelola Data dan Informasi"
+    ];
+
+    const QUIZ_ITEMS = [
+      {
+        q: "Berapa total keseluruhan pegawai ASN Kementerian Agama berdasarkan data Pusbangkom?",
+        options: ["248.019 pegawai", "387.404 pegawai", "139.385 pegawai", "10.562 pegawai"],
+        hash: "076e611e4f993f874f8e1d62ff7212bee8a551a20b368d936be9e018b6315d6f",
+        encExplain: "645842045a1170367a46725c5e035656534655005f075742070f170109054c51550c415a47500f551c424a5756031947531001501759115c03445a1107500e4800060f45667f62455007571902550119075e0d456134667948"
+      },
+      {
+        q: "Prinsip utama yang membedakan masa status pengadaan PNS dan PPPK adalah...",
+        options: [
+          "PNS diangkat secara tetap; PPPK diangkat berdasarkan perjanjian kerja waktu tertentu",
+          "PPPK memiliki NIP nasional, sedangkan PNS menggunakan NIP daerah",
+          "PNS dapat melamar hingga usia 50 tahun, sedangkan PPPK maksimal 35 tahun",
+          "PPPK tidak berhak menduduki jabatan pemerintahan"
+        ],
+        hash: "da3acfc230600a11b35e9f2377538a4fba0a17da22504361490e0335794112db",
+        encExplain: "342f60410103114147514245434141540552420450464656435645134804590310085e15505f4841415751515a545d505a196035607813515e585a565a5310420604410502150240585158104004435b035d5f0c5808125852455f5218125115170059415a52061446475d515a135f5f474d510b435a1351565714415440110c00005d064e130d56525e51515e4f"
+      },
+      {
+        q: "Jabatan didefinisikan sebagai kedudukan yang memuat 5 dimensi 'FTTWH'. Apa kepanjangannya?",
+        options: [
+          "Fasilitas, Tugas, Tunjangan, Wewenang, Hak",
+          "Fungsi, Tugas, Tanggung Jawab, Wewenang, Hak",
+          "Formasi, Tindakan, Target, Wilayah, Hasil",
+          "Fungsi, Tata Kelola, Tingkatan, Waktu, Honorarium"
+        ],
+        hash: "05ce5105721531be201696059e96745f0615e399998827c87232a3d4e1a5fb9a",
+        encExplain: "766137327d115151565e505d135009175d5e585b19435e414c0e1970425a5215591a11611054584a15196c595c50044d595513780044055649113650110757005e524f4551505e157f535a1540540d17535e561678657e155d0455575a1446074443505b455c4b5e5857514b53440a16"
+      },
+      {
+        q: "Kelompok jabatan yang bertugas memimpin unit dan memiliki bawahan langsung disebut...",
+        options: ["Jabatan Fungsional", "Jabatan Pelaksana", "Jabatan Manajerial", "Jabatan Keahlian"],
+        hash: "8f8d21276cf84704211af3871c08e2ec3e84888d244341ac0cfea9063ebe967d",
+        encExplain: "72075a0546505c177b0208595e52425d535d110c035e515b58085918155717025d454b445d4b51025b5f145e515c080e400a084514575942130a100258585e175915514456505c175b06085f5545515c59505f4104524f5659025e18105c111658455551565b5914535d1447554306064443091706585e5f4004110c17"
+      },
+      {
+        q: "Jabatan Administrator dalam rumpun jabatan manajerial berada pada tingkatan...",
+        options: ["Tingkat Tinggi (JPT)", "Tingkat Menengah", "Tingkat Dasar", "Tingkat Pelaksana"],
+        hash: "f7726c67bf1ea117e478b4003d4bd104ae650c1367c06cceb59240c05703ed94",
+        encExplain: "325e59555d0242560c467c040f505b52175d565458147a6067441c360d5f5753084c1a1571075c5a585e10444402170a1015117f515e065e5256581a49445d5508176757580457400315114d25504256171d19"
+      },
+      {
+        q: "Berapa proporsi ASN Kementerian Agama yang menduduki Jabatan Fungsional (JF)?",
+        options: ["3%", "11%", "70,32%", "86%"],
+        hash: "56ca36f5b7e2d7519019f4f077bac7207ec89072f566f719e84ff78a0a836533",
+        encExplain: "78571a0e415f1254111724612a177e5454555f5801140b5559531705165c5b107d0401594d51591220405851155e5e57045418461f56511545414b565450405247165b5716164e0750044b025d0715415c57504e075d4f1e"
+      },
+      {
+        q: "Batas Usia Pensiun (BUP) bagi pejabat manajerial tingkat Administrator dan Pengawas adalah...",
+        options: ["56 Tahun", "58 Tahun", "60 Tahun", "65 Tahun"],
+        hash: "959f01679a58977a1e7e95c0e823fd98aed2cb7d36ce517efd634f7b256432de",
+        encExplain: "7b60694671555b5e5708464c4b56430e43455304571533550b5f534407171959050408530b42025c1342020d405f1b45150152525a015c035c157c64671205015859580e100706174d005d4d5719"
+      },
+      {
+        q: "Perpindahan pegawai ke posisi yang lebih tinggi antar kelompok jabatan (misal: Fungsional ke Manajerial) disebut perpindahan...",
+        options: ["Horizontal", "Vertikal", "Diagonal", "Rotasi Fungsional"],
+        hash: "3e91d850a76080c764dd650a1b63a8e8d5a0c958f59921ece37e241ef610c7b1",
+        encExplain: "63004b410d565151095658107c590250595a0508165454005d035e13114a0a550b460810085c15480946504a5b110906075a5f45465d5f02015f11510d430343130e5c5d0b55455f0a175c515a5117565814060144575505504c"
+      }
+    ];
+
+    /* =========================================================
+       STATE & LOCK GATE MANAGEMENT
+       ========================================================= */
+    const STORAGE_KEY = "kemenag_pj_lock_v5";
+    let state = loadState();
+
+    let unitTimerInterval = null;
+    let unitTimeRemaining = 10;
+
+    function computeStateSignature(data) {
+      const payload = `${data.current}::${(data.done || []).join(',')}::${JSON.stringify(data.tasksDone || {})}`;
+      return sha256(`kemenag_asn_2026_mkmb::sig::${payload}`);
+    }
+
+    function loadState() {
+      const defaults = { 
+        current: 0, 
+        done: [0], 
+        tasksDone: { 0: true, 1: true }, 
+        bookmarkedJF: [],
+        u4_kw: [],
+        u7_flips: [],
+        audioEnabled: false
+      };
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed) {
+            if (parsed.sig) {
+              const expectedSig = computeStateSignature(parsed);
+              if (parsed.sig === expectedSig) {
+                return Object.assign(defaults, parsed);
+              } else {
+                console.warn("Manipulasi progres terdeteksi. Mengatur ulang ke status aman.");
+              }
+            } else {
+              parsed.sig = computeStateSignature(parsed);
+              return Object.assign(defaults, parsed);
+            }
+          }
+        }
+      } catch (e) {}
+      defaults.sig = computeStateSignature(defaults);
+      return defaults;
+    }
+
+    function saveState() {
+      try {
+        state.sig = computeStateSignature(state);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (e) {}
+    }
+
+    function isDone(id) {
+      return state.done.includes(id);
+    }
+
+    function isTaskDone(id) {
+      if (!UNITS[id].reqTask) return true;
+      if (isDone(id)) return true;
+      return !!(state.tasksDone && state.tasksDone[id]);
+    }
+
+    function setTaskCompleted(id) {
+      if (!state.tasksDone) state.tasksDone = {};
+      state.tasksDone[id] = true;
+      saveState();
+      updateGateUI();
+      playTone('success');
+      showToast("Tugas interaksi selesai!", "success");
+    }
+
+    function canAccess(id) {
+      if (id === 0 || id === 1) return true;
+      return isDone(id - 1) || isDone(id) || id <= Math.max(...state.done) + 1;
+    }
+
+    function markDone(id) {
+      if (!state.done.includes(id)) state.done.push(id);
+      saveState();
+      renderNavigation();
+      updateProgressBar();
+    }
+
+    function updateProgressBar() {
+      const pct = Math.round((state.done.length / UNITS.length) * 100);
+      const fill = document.getElementById("progressFill");
+      const label = document.getElementById("pctLabel");
+      if (fill) fill.style.width = pct + "%";
+      if (label) label.textContent = pct + "%";
+    }
+
+    function showToast(msg, type = "info") {
+      const el = document.getElementById("toast");
+      if (!el) return;
+
+      const styles = {
+        success: "bg-algae-dark text-white ring-2 ring-algae-light",
+        error: "bg-rose-700 text-white ring-2 ring-rose-300",
+        info: "bg-algae-deep text-white ring-2 ring-algae-base"
+      }[type] || "bg-algae-dark text-white";
+
+      el.className = `fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3.5 rounded-2xl shadow-2xl text-sm font-semibold transition-all duration-500 transform ${styles}`;
+      el.innerHTML = `
+        <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold shrink-0">
+          ${type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ'}
+        </span>
+        <span>${msg}</span>
+      `;
+
+      el.classList.remove("translate-y-24", "opacity-0", "pointer-events-none");
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => {
+        el.classList.add("translate-y-24", "opacity-0", "pointer-events-none");
+      }, 2500);
+    }
+
+    function formatNumber(num) {
+      return num.toLocaleString("id-ID");
+    }
+
+    /* =========================================================
+       GATE TIMER & STATUS CONTROLLER
+       ========================================================= */
+    function initUnitGateTimer(unitId) {
+      if (unitTimerInterval) {
+        clearInterval(unitTimerInterval);
+        unitTimerInterval = null;
+      }
+
+      // If unit is already completed or it is the penutup stage, allow instant navigation
+      if (isDone(unitId) || unitId === UNITS.length - 1) {
+        unitTimeRemaining = 0;
+      } else {
+        unitTimeRemaining = 10;
+      }
+
+      updateGateUI();
+
+      if (unitTimeRemaining > 0) {
+        unitTimerInterval = setInterval(() => {
+          unitTimeRemaining--;
+          updateGateUI();
+          if (unitTimeRemaining <= 0) {
+            clearInterval(unitTimerInterval);
+            unitTimerInterval = null;
+          }
+        }, 1000);
+      }
+    }
+
+    function updateGateUI() {
+      const nextBtn = document.querySelector('[data-action="next"]');
+      const gateStatus = document.getElementById("gateStatus");
+      if (!nextBtn) return;
+
+      const currentId = state.current;
+      const taskCompleted = isTaskDone(currentId);
+      const timeCompleted = unitTimeRemaining <= 0;
+
+      // Condition 1 (Priority): Task Completion
+      if (!taskCompleted) {
+        nextBtn.disabled = true;
+        if (gateStatus) {
+          gateStatus.innerHTML = `
+            <div class="flex items-center gap-2 text-rose-700 bg-rose-50 border border-rose-200 px-3.5 py-1.5 rounded-2xl text-xs font-bold shadow-sm">
+              ${renderSvg("lock", "w-4 h-4 text-rose-600")}
+              <span>Kerjakan aktivitas wajib di unit ini</span>
+              ${unitTimeRemaining > 0 ? `<span class="text-[10px] text-slate-400 font-mono">(${unitTimeRemaining}s)</span>` : ''}
+            </div>
+          `;
+        }
+      } 
+      // Condition 2: 10-Second Time Gate
+      else if (!timeCompleted) {
+        nextBtn.disabled = true;
+        if (gateStatus) {
+          gateStatus.innerHTML = `
+            <div class="flex items-center gap-2 text-algae-deep bg-algae-light/30 border border-algae-base px-3.5 py-1.5 rounded-2xl text-xs font-bold shadow-sm">
+              ${renderSvg("clock", "w-4 h-4 text-algae-dark")}
+              <span>Membaca modul: <strong class="font-mono text-algae-dark text-sm">${unitTimeRemaining}</strong> detik lagi</span>
+            </div>
+          `;
+        }
+      } 
+      // Both Conditions Satisfied
+      else {
+        nextBtn.disabled = false;
+        if (gateStatus) {
+          gateStatus.innerHTML = `
+            <div class="flex items-center gap-2 text-algae-dark bg-algae-light/40 border border-algae-base px-3.5 py-1.5 rounded-2xl text-xs font-extrabold shadow-sm animate-pulse">
+              ${renderSvg("checkCircle", "w-4 h-4 text-algae-dark")}
+              <span>Syarat terpenuhi, silakan lanjut!</span>
+            </div>
+          `;
+        }
+      }
+    }
+
+    /* =========================================================
+       NAVIGATION SYSTEM
+       ========================================================= */
+    function renderNavigation() {
+      const desktopNav = document.getElementById("desktopNav");
+      const mobileNav = document.getElementById("mobileNav");
+      if (!desktopNav || !mobileNav) return;
+
+      const itemHtml = (u) => {
+        const active = state.current === u.id;
+        const completed = isDone(u.id);
+        const accessible = canAccess(u.id);
+
+        let badgeCls = "bg-algae-surface text-slate-500";
+        if (active) badgeCls = "bg-algae-dark text-white font-bold";
+        else if (completed) badgeCls = "bg-algae-base text-white";
+
+        return `
+          <button type="button" 
+                  data-unit="${u.id}" 
+                  ${accessible ? "" : "disabled"}
+                  class="w-full group flex items-center justify-between p-2.5 rounded-2xl text-left transition-all duration-500 border ${
+                    active 
+                      ? "bg-algae-light/30 border-algae-base text-algae-deep shadow-sm" 
+                      : completed 
+                        ? "bg-white hover:bg-algae-canvas border-algae-surface text-slate-700" 
+                        : accessible 
+                          ? "bg-white hover:bg-algae-canvas border-transparent text-slate-500" 
+                          : "opacity-40 cursor-not-allowed border-transparent text-slate-400"
+                  }">
+            <div class="flex items-center gap-2.5 min-w-0">
+              <span class="w-6 h-6 rounded-xl text-[11px] font-mono flex items-center justify-center shrink-0 ${badgeCls} transition-colors">
+                ${completed && !active ? "✓" : String(u.id).padStart(2, "0")}
+              </span>
+              <span class="text-xs font-semibold truncate ${active ? "font-extrabold text-algae-deep" : "text-slate-700"}">
+                ${u.nav}
+              </span>
+            </div>
+            
+            <div class="shrink-0 text-slate-400 group-hover:text-algae-dark group-hover:scale-110 transition-transform">
+              ${renderSvg(u.icon, "w-4 h-4")}
+            </div>
+          </button>
+        `;
+      };
+
+      const html = UNITS.map(itemHtml).join("");
+      desktopNav.innerHTML = html;
+      mobileNav.innerHTML = html;
+
+      const clickHandler = (e) => {
+        const btn = e.target.closest("[data-unit]");
+        if (!btn || btn.hasAttribute("disabled")) return;
+        playTone('click');
+        navigateTo(Number(btn.dataset.unit));
+        document.getElementById("mobileDrawer").classList.add("hidden");
+      };
+
+      desktopNav.onclick = clickHandler;
+      mobileNav.onclick = clickHandler;
+    }
+
+    function navigateTo(id) {
+      if (id < 0 || id >= UNITS.length) return;
+      state.current = id;
+      saveState();
+      renderNavigation();
+      renderStage();
+      updateProgressBar();
+      initUnitGateTimer(id);
+      playUnitNarration(id);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    /* =========================================================
+       STAGE BUILDERS & RENDERERS
+       ========================================================= */
+    function renderHeaderPill(unitId, source) {
+      return `
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-algae-surface">
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-algae-light/40 text-algae-deep border border-algae-base/40">
+              Unit ${String(unitId).padStart(2, "0")}
+            </span>
+            ${source ? `<span class="text-xs font-medium text-slate-500 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-algae-base"></span> ${source}</span>` : ""}
+          </div>
+          <div class="flex items-center gap-2.5">
+            <button type="button" id="stageAudioToggleBtn" class="inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full border transition-all cursor-pointer shadow-sm">
+              <span id="stageAudioDot" class="w-2 h-2 rounded-full"></span>
+              <span id="stageAudioText">Audio Narasi</span>
+            </button>
+            <div class="hidden sm:flex items-center gap-1.5 text-xs font-bold text-algae-dark">
+              ${renderSvg("shield", "w-3.5 h-3.5 text-algae-base")}
+              <span>Orientasi Resmi Kemenag</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderStageFooter(opts = {}) {
+      const showPrev = opts.prev !== false && state.current > 0;
+      const nextLabel = opts.nextLabel || (state.current === UNITS.length - 1 ? "Selesai" : "Lanjut Unit");
+
+      return `
+        <div class="pt-8 mt-auto border-t border-algae-surface flex flex-col sm:flex-row items-center justify-between gap-4">
+          <!-- Live Gate Status Indicator -->
+          <div id="gateStatus" class="w-full sm:w-auto flex items-center">
+            <!-- Rendered by Gate UI -->
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+            ${showPrev ? `
+              <button type="button" data-action="prev" class="px-5 py-2.5 rounded-2xl border border-slate-300 text-slate-700 hover:bg-algae-surface font-bold text-xs transition-all active:scale-95 flex items-center gap-1.5">
+                ${renderSvg("arrowLeft", "w-3.5 h-3.5")}
+                <span>Kembali</span>
+              </button>
+            ` : ""}
+            <button type="button" data-action="next" disabled class="px-6 py-2.5 rounded-2xl bg-algae-dark hover:bg-algae-deep text-white font-bold text-xs shadow-md shadow-algae-dark/20 hover:shadow-lg transition-all active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2">
+              <span>${nextLabel}</span>
+              ${renderSvg("arrowRight", "w-3.5 h-3.5")}
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    const UNIT_RENDERERS = {
+      // UNIT 0: COVER
+      cover: () => `
+        <div class="animate-fade-enter flex flex-col justify-between flex-1">
+          <div class="text-center max-w-2xl mx-auto space-y-6 my-auto py-6">
+            
+            <div class="inline-flex items-center justify-center p-4 bg-gradient-to-br from-algae-light/50 to-algae-surface rounded-3xl ring-8 ring-algae-light/30 border border-algae-base/40 shadow-sm">
+              ${renderSvg("award", "w-12 h-12 text-algae-dark")}
+            </div>
+
+            <div class="space-y-3">
+              <span class="inline-block text-xs font-extrabold uppercase tracking-widest text-algae-dark px-3.5 py-1 rounded-full bg-algae-light/40 border border-algae-base/40">
+                Orientasi Pegawai Baru & CPNS
+              </span>
+              <h1 class="text-3xl sm:text-4xl font-extrabold text-algae-deep tracking-tight leading-tight">
+                Pengenalan Jabatan ASN Kementerian Agama
+              </h1>
+              <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl mx-auto">
+                Modul interaktif mandiri untuk memahami skala organisasi, rumpun jabatan, profil kepegawaian, batas usia pensiun, serta arah perpindahan karir di Kemenag.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-3 max-w-md mx-auto pt-2">
+              <div class="p-3.5 bg-algae-surface/50 border border-algae-surface rounded-2xl text-center">
+                <span class="block text-xl font-extrabold text-algae-dark font-mono">11</span>
+                <span class="text-[11px] text-slate-500 font-semibold">Unit Modul</span>
+              </div>
+              <div class="p-3.5 bg-algae-surface/50 border border-algae-surface rounded-2xl text-center">
+                <span class="block text-xl font-extrabold text-algae-base font-mono">387k+</span>
+                <span class="text-[11px] text-slate-500 font-semibold">Pegawai ASN</span>
+              </div>
+              <div class="p-3.5 bg-algae-surface/50 border border-algae-surface rounded-2xl text-center">
+                <span class="block text-xl font-extrabold text-algae-deep font-mono">±30m</span>
+                <span class="text-[11px] text-slate-500 font-semibold">Estimasi Waktu</span>
+              </div>
+            </div>
+
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <button type="button" data-action="start" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-algae-dark hover:bg-algae-deep text-white font-extrabold text-sm shadow-xl shadow-algae-dark/25 hover:shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-2.5">
+                <span>Mulai Pembelajaran</span>
+                ${renderSvg("play", "w-4 h-4 text-algae-light")}
+              </button>
+              <button type="button" id="coverAudioBtn" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl border-2 border-algae-base/50 bg-white hover:bg-algae-light/30 text-algae-deep font-extrabold text-sm transition-all active:scale-95 flex items-center justify-center gap-2">
+                ${renderSvg("volume2", "w-4 h-4 text-algae-dark")}
+                <span id="coverAudioBtnLabel">Dengarkan Pengantar</span>
+              </button>
+            </div>
+
+            <div class="pt-2 text-xs text-slate-400">
+              Materi resmi Pusbangkom MKMB • Rujukan: <a href="https://pta.kemenag.go.id" target="_blank" rel="noopener" class="text-algae-dark font-bold underline hover:text-algae-base">pta.kemenag.go.id</a>
+            </div>
+
+          </div>
+        </div>
+      `,
+
+      // UNIT 1: LEARNING MAP
+      map: () => {
+        const cards = UNITS.filter(u => u.id > 1).map(u => {
+          const done = isDone(u.id);
+          const accessible = canAccess(u.id);
+          return `
+            <button type="button" 
+                    data-jump="${u.id}" 
+                    ${accessible ? "" : "disabled"}
+                    class="group relative text-left p-4 rounded-3xl border transition-all duration-500 ${
+                      done 
+                        ? "bg-algae-light/20 border-algae-base/40 hover:border-algae-dark shadow-sm" 
+                        : accessible 
+                          ? "bg-white hover:bg-algae-canvas border-algae-surface hover:border-algae-base shadow-algae-soft" 
+                          : "bg-algae-surface/40 border-algae-surface opacity-40 cursor-not-allowed"
+                    }">
+              <div class="flex items-start justify-between gap-3 mb-2.5">
+                <span class="w-7 h-7 rounded-xl font-mono text-xs font-bold flex items-center justify-center ${done ? "bg-algae-base text-white" : "bg-algae-dark text-white"}">
+                  ${done ? "✓" : String(u.id).padStart(2, "0")}
+                </span>
+                <div class="p-2 rounded-xl ${done ? "bg-algae-base/20 text-algae-dark" : "bg-algae-surface text-slate-600"} group-hover:scale-110 transition-transform">
+                  ${renderSvg(u.icon, "w-4 h-4")}
+                </div>
+              </div>
+              <h4 class="text-xs sm:text-sm font-extrabold text-algae-deep group-hover:text-algae-dark mb-1">${u.title}</h4>
+              <span class="inline-block text-[10px] font-bold px-2 py-0.5 rounded-full ${done ? "bg-algae-base text-white" : accessible ? "bg-algae-surface text-slate-600" : "bg-slate-200 text-slate-400"}">
+                ${done ? "Tuntas" : accessible ? "Siap Dibuka" : "Terkunci"}
+              </span>
+            </button>
+          `;
+        }).join("");
+
+        return `
+          <div class="animate-fade-enter flex flex-col flex-1">
+            ${renderHeaderPill(1, "Struktur Modul")}
+            <div class="mb-6">
+              <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">Peta Alur Pembelajaran</h2>
+              <p class="text-sm text-slate-600 mt-1">Selesaikan unit secara berurutan untuk membuka evaluasi akhir dan sertifikat kelulusan.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mb-6">
+              ${cards}
+            </div>
+
+            ${renderStageFooter({ nextLabel: "Buka Unit 02" })}
+          </div>
+        `;
+      },
+
+      // UNIT 2: SATKER & PEGAWAI
+      skala: () => `
+        <div class="animate-fade-enter flex flex-col flex-1">
+          ${renderHeaderPill(2, "Slide 2 Pusbangkom")}
+          <div class="mb-6">
+            <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">Satuan Kerja & Pegawai ASN Kemenag</h2>
+            <p class="text-sm text-slate-600 mt-1">Kementerian Agama memiliki bentang kelembagaan dan jumlah ASN terbesar di Indonesia.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div class="relative overflow-hidden bg-gradient-to-br from-algae-dark to-algae-deep rounded-3xl p-6 text-white shadow-algae-card">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-algae-light">Satuan Kerja Lembaga</span>
+                ${renderSvg("building", "w-6 h-6 text-algae-light")}
+              </div>
+              <div class="text-4xl sm:text-5xl font-extrabold font-mono tracking-tight my-2 counter" data-target="10562">0</div>
+              <p class="text-xs text-emerald-100/80">Pusat, Kanwil Provinsi, Kankemenag Kab/Kota, Balai Diklat, KUA, Madrasah, dan PTKN se-Indonesia.</p>
+            </div>
+
+            <div class="relative overflow-hidden bg-gradient-to-br from-algae-base to-algae-dark rounded-3xl p-6 text-white shadow-algae-card">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-emerald-100">Total Pegawai ASN</span>
+                ${renderSvg("users", "w-6 h-6 text-algae-light")}
+              </div>
+              <div class="text-4xl sm:text-5xl font-extrabold font-mono tracking-tight my-2 counter" data-target="387404">0</div>
+              <p class="text-xs text-emerald-100/80">Kombinasi kekuatan SDM aparatur sipil negara di seluruh unit kerja.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+            <div class="p-5 rounded-3xl bg-algae-surface/50 border border-algae-surface flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-algae-dark text-white flex items-center justify-center font-extrabold text-sm font-mono shadow-sm">PNS</div>
+              <div>
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Pegawai Negeri Sipil</span>
+                <h4 class="text-2xl font-extrabold text-algae-deep font-mono">248.019</h4>
+                <span class="text-xs font-semibold text-algae-dark">64% dari total aparatur</span>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-3xl bg-algae-light/30 border border-algae-base/30 flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-algae-base text-white flex items-center justify-center font-extrabold text-sm font-mono shadow-sm">PPPK</div>
+              <div>
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Perjanjian Kerja</span>
+                <h4 class="text-2xl font-extrabold text-algae-deep font-mono">139.385</h4>
+                <span class="text-xs font-semibold text-algae-dark">36% dari total aparatur</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mandatory Interaction: Micro Quiz -->
+          <div class="bg-white border-2 border-algae-surface rounded-3xl p-5 mb-4 shadow-sm">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-[10px] font-extrabold uppercase tracking-wider text-algae-dark px-2.5 py-1 rounded-full bg-algae-light/40 border border-algae-base/40">Aktivitas Wajib</span>
+              <span class="text-xs font-bold text-slate-700">Jawab kuis: Berapa total keseluruhan ASN Kementerian Agama?</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5" id="microQuizUnit2">
+              <button type="button" data-idx="0" class="p-3 bg-algae-surface/60 hover:bg-algae-surface border border-slate-200 rounded-2xl text-xs font-bold text-slate-700 text-left transition-all">
+                248.019 Pegawai
+              </button>
+              <button type="button" data-idx="1" class="p-3 bg-algae-surface/60 hover:bg-algae-surface border border-slate-200 rounded-2xl text-xs font-bold text-slate-700 text-left transition-all">
+                387.404 Pegawai
+              </button>
+              <button type="button" data-idx="2" class="p-3 bg-algae-surface/60 hover:bg-algae-surface border border-slate-200 rounded-2xl text-xs font-bold text-slate-700 text-left transition-all">
+                139.385 Pegawai
+              </button>
+            </div>
+            <div id="feedbackUnit2" class="text-xs mt-3 hidden font-bold"></div>
+          </div>
+
+          ${renderStageFooter({ nextLabel: "Lanjut ke PNS vs PPPK" })}
+        </div>
+      `,
+
+      // UNIT 3: PNS VS PPPK
+      pnspppk: () => `
+        <div class="animate-fade-enter flex flex-col flex-1">
+          ${renderHeaderPill(3, "Slide 3 & 4 Pusbangkom")}
+          <div class="mb-6">
+            <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">Jenis Pegawai: PNS vs PPPK</h2>
+            <p class="text-sm text-slate-600 mt-1">Dua jalur pengabdian ASN dengan kepastian hukum dan karakteristik kepegawaian nasional.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div class="p-5 rounded-3xl bg-algae-surface/40 border border-algae-surface flex flex-col justify-between">
+              <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-algae-dark text-white text-xs font-extrabold mb-3">
+                  <span>Pegawai Negeri Sipil (PNS)</span>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Warga Negara Indonesia yang memenuhi syarat tertentu, diangkat sebagai Pegawai ASN <strong>secara tetap</strong> oleh Pejabat Pembina Kepegawaian (PPK) untuk menduduki jabatan pemerintahan.
+                </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-slate-200 flex items-center gap-2 text-xs font-bold text-algae-dark">
+                ${renderSvg("checkCircle", "w-4 h-4 text-algae-base")}
+                <span>Status: Pegawai Tetap Nasional</span>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-3xl bg-algae-light/25 border border-algae-base/40 flex flex-col justify-between">
+              <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-algae-base text-white text-xs font-extrabold mb-3">
+                  <span>Perjanjian Kerja (PPPK)</span>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  WNI yang memenuhi syarat tertentu, diangkat berdasarkan <strong>perjanjian kerja jangka waktu tertentu</strong> dalam rangka melaksanakan tugas pemerintahan dan/atau menduduki jabatan pemerintahan.
+                </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-algae-base/30 flex items-center gap-2 text-xs font-bold text-algae-dark">
+                ${renderSvg("clock", "w-4 h-4 text-algae-base")}
+                <span>Status: Perjanjian Kerja Sesuai Kebutuhan</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mandatory Tab Explorer -->
+          <div class="bg-white border border-algae-surface rounded-3xl overflow-hidden shadow-sm mb-6">
+            <div class="p-4 bg-algae-surface/60 border-b border-algae-surface flex flex-wrap items-center justify-between gap-3">
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] font-extrabold uppercase tracking-wider text-algae-dark px-2 py-0.5 rounded-full bg-algae-light/50">Aktivitas</span>
+                <h4 class="text-xs font-extrabold uppercase tracking-wider text-algae-deep">Eksplorasi Dimensi Komparasi</h4>
+              </div>
+              <div class="flex items-center gap-1.5 p-1 bg-algae-surface rounded-xl text-xs font-bold" id="tabContainerU3">
+                <button type="button" data-tab="all" class="px-3 py-1 rounded-lg bg-white text-algae-dark shadow-sm transition-all">Semua Aspek</button>
+                <button type="button" data-tab="pengadaan" class="px-3 py-1 rounded-lg text-slate-600 hover:text-algae-dark transition-all">Usia Pengadaan</button>
+                <button type="button" data-tab="kompetensi" class="px-3 py-1 rounded-lg text-slate-600 hover:text-algae-dark transition-all">Kompetensi & Gaji</button>
+              </div>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs" id="compareTable">
+                <thead class="bg-algae-surface/40 text-slate-600 uppercase font-extrabold text-[10px] tracking-wider border-b border-algae-surface">
+                  <tr>
+                    <th class="p-3.5 w-1/4">Dimensi</th>
+                    <th class="p-3.5 w-3/8 text-algae-dark">PNS</th>
+                    <th class="p-3.5 w-3/8 text-algae-base">PPPK</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-algae-surface text-slate-700 font-medium">
+                  <tr data-group="umum" class="hover:bg-algae-canvas transition-colors">
+                    <td class="p-3.5 font-bold text-slate-900 bg-algae-surface/20">Status Hubungan Kerja</td>
+                    <td class="p-3.5">Pegawai Tetap Pemerintah</td>
+                    <td class="p-3.5">Perjanjian Kerja sesuai kebutuhan instansi & UU</td>
+                  </tr>
+                  <tr data-group="umum" class="hover:bg-algae-canvas transition-colors">
+                    <td class="p-3.5 font-bold text-slate-900 bg-algae-surface/20">Nomor Induk Pegawai</td>
+                    <td class="p-3.5">Memiliki NIP Nasional</td>
+                    <td class="p-3.5">Memiliki NIP Nasional</td>
+                  </tr>
+                  <tr data-group="umum" class="hover:bg-algae-canvas transition-colors">
+                    <td class="p-3.5 font-bold text-slate-900 bg-algae-surface/20">Tugas Pokok</td>
+                    <td class="p-3.5">Menduduki & melaksanakan tugas pemerintahan</td>
+                    <td class="p-3.5">Menduduki & melaksanakan tugas pemerintahan</td>
+                  </tr>
+                  <tr data-group="pengadaan" class="hover:bg-algae-canvas transition-colors">
+                    <td class="p-3.5 font-bold text-slate-900 bg-algae-surface/20">Rentang Usia Pengadaan</td>
+                    <td class="p-3.5 font-bold text-algae-dark">18 s.d. 35 Tahun</td>
+                    <td class="p-3.5 font-bold text-algae-base">20 Tahun s.d. 1 Tahun sebelum Batas Usia Pensiun</td>
+                  </tr>
+                  <tr data-group="kompetensi" class="hover:bg-algae-canvas transition-colors">
+                    <td class="p-3.5 font-bold text-slate-900 bg-algae-surface/20">Pengembangan Kompetensi</td>
+                    <td class="p-3.5">Sesuai rencana pembinaan karir ASN</td>
+                    <td class="p-3.5">Diberikan kesempatan setiap tahun sesuai kebutuhan</td>
+                  </tr>
+                  <tr data-group="kompetensi" class="hover:bg-algae-canvas transition-colors">
+                    <td class="p-3.5 font-bold text-slate-900 bg-algae-surface/20">Gaji & Tunjangan</td>
+                    <td class="p-3.5">Berdasarkan peraturan perundang-undangan</td>
+                    <td class="p-3.5">Berdasarkan peraturan perundang-undangan</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          ${renderStageFooter({ nextLabel: "Lanjut: Definisi Jabatan" })}
+        </div>
+      `,
+
+      // UNIT 4: APA ITU JABATAN? (FTTWH)
+      jabatan: () => `
+        <div class="animate-fade-enter flex flex-col flex-1">
+          ${renderHeaderPill(4, "Slide 5 Pusbangkom")}
+          <div class="mb-6">
+            <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">Apa itu Jabatan?</h2>
+            <p class="text-sm text-slate-600 mt-1">Jabatan merupakan kedudukan strategis yang mencakup 5 dimensi mandat akuntabilitas.</p>
+          </div>
+
+          <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-algae-dark via-algae-deep to-algae-dark text-white shadow-algae-card mb-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-algae-light block">Definisi Resmi ASN</span>
+              <span class="text-xs font-bold text-algae-light/80" id="kwCounterLabel">Ketuk 5 Kata Kunci (0/5)</span>
+            </div>
+            <blockquote class="text-base sm:text-lg font-semibold leading-relaxed">
+              “Kedudukan yang menunjukkan 
+              <button type="button" data-kw="fungsi" class="kw-btn px-2.5 py-0.5 rounded-lg bg-algae-light text-algae-deep hover:bg-white font-extrabold transition-all">Fungsi</button>, 
+              <button type="button" data-kw="tugas" class="kw-btn px-2.5 py-0.5 rounded-lg bg-algae-light text-algae-deep hover:bg-white font-extrabold transition-all">Tugas</button>, 
+              <button type="button" data-kw="tanggungjawab" class="kw-btn px-2.5 py-0.5 rounded-lg bg-algae-light text-algae-deep hover:bg-white font-extrabold transition-all">Tanggung Jawab</button>, 
+              <button type="button" data-kw="wewenang" class="kw-btn px-2.5 py-0.5 rounded-lg bg-algae-light text-algae-deep hover:bg-white font-extrabold transition-all">Wewenang</button>, dan 
+              <button type="button" data-kw="hak" class="kw-btn px-2.5 py-0.5 rounded-lg bg-algae-light text-algae-deep hover:bg-white font-extrabold transition-all">Hak</button> 
+              seorang Pegawai ASN dalam suatu satuan organisasi.”
+            </blockquote>
+          </div>
+
+          <div id="kwExplainerCard" class="p-5 rounded-3xl bg-algae-light/30 border border-algae-base/40 mb-6 transition-all">
+            <div class="flex items-center gap-3.5">
+              <div class="w-10 h-10 rounded-2xl bg-algae-dark text-algae-light flex items-center justify-center font-mono font-bold text-xs shrink-0" id="kwBadge">FTTWH</div>
+              <div>
+                <h4 class="text-sm font-extrabold text-algae-deep" id="kwTitle">Eksplorasi Dimensi Jabatan</h4>
+                <p class="text-xs text-slate-700 mt-0.5" id="kwDesc">Klik ke-5 kata kunci tombol di atas untuk membuka penjelasan dan membuka gembok unit.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-algae-surface/50 border border-algae-surface flex items-center justify-between gap-3 mb-4">
+            <div class="flex items-center gap-2.5 text-xs font-bold text-algae-dark">
+              ${renderSvg("shield", "w-4 h-4 text-algae-base")}
+              <span>Jembatan Keledai: <strong>F - T - T - W - H</strong></span>
+            </div>
+            <span class="text-xs text-slate-500 font-medium">5 Elemen Akuntabilitas Jabatan</span>
+          </div>
+
+          ${renderStageFooter({ nextLabel: "Lanjut: Klasifikasi Jabatan" })}
+        </div>
+      `,
+
+      // UNIT 5: JENIS JABATAN
+      jenis: () => `
+        <div class="animate-fade-enter flex flex-col flex-1">
+          ${renderHeaderPill(5, "Slide 6–8 Pusbangkom")}
+          <div class="mb-6">
+            <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">Klasifikasi Jabatan ASN</h2>
+            <p class="text-sm text-slate-600 mt-1">Jabatan terbagi atas dua rumpun utama: Manajerial dan Non-Manajerial.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div class="p-5 rounded-3xl bg-algae-surface/40 border-2 border-algae-dark/20 hover:border-algae-dark transition-all space-y-4">
+              <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+                <div class="flex items-center gap-2.5">
+                  <div class="p-1.5 rounded-xl bg-algae-dark text-white">${renderSvg("crown", "w-4 h-4")}</div>
+                  <h3 class="text-base font-extrabold text-algae-deep">Jabatan Manajerial</h3>
+                </div>
+                <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-algae-dark text-white">Memimpin Bawahan</span>
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Memimpin unit organisasi, mengarahkan kebijakan, serta mengelola dan mendayagunakan SDM aparatur secara berjenjang.
+              </p>
+
+              <div class="space-y-2.5 pt-1">
+                <div class="p-3 bg-white rounded-2xl border border-slate-200 shadow-sm">
+                  <div class="flex items-center justify-between text-xs font-bold text-algae-dark mb-0.5">
+                    <span>1. JPT (Tinggi)</span>
+                    <span class="text-[10px] text-slate-500 font-normal">Utama • Madya • Pratama</span>
+                  </div>
+                  <p class="text-[11px] text-slate-600">Arah kebijakan strategis makro & kepemimpinan kementerian.</p>
+                </div>
+
+                <div class="p-3 bg-white rounded-2xl border border-slate-200 shadow-sm">
+                  <div class="flex items-center justify-between text-xs font-bold text-algae-dark mb-0.5">
+                    <span>2. Administrator (Menengah)</span>
+                    <span class="text-[10px] text-slate-500 font-normal">Tingkat Menengah</span>
+                  </div>
+                  <p class="text-[11px] text-slate-600">Memimpin & mengoordinasikan pelaksanaan strategi & pelayanan.</p>
+                </div>
+
+                <div class="p-3 bg-white rounded-2xl border border-slate-200 shadow-sm">
+                  <div class="flex items-center justify-between text-xs font-bold text-algae-dark mb-0.5">
+                    <span>3. Pengawas (Dasar)</span>
+                    <span class="text-[10px] text-slate-500 font-normal">Tingkat Dasar</span>
+                  </div>
+                  <p class="text-[11px] text-slate-600">Mengendalikan operasional harian pelaksanaan kegiatan pelayanan.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-3xl bg-algae-light/20 border-2 border-algae-base/40 hover:border-algae-base transition-all space-y-4">
+              <div class="flex items-center justify-between pb-3 border-b border-algae-base/30">
+                <div class="flex items-center gap-2.5">
+                  <div class="p-1.5 rounded-xl bg-algae-base text-white">${renderSvg("layers", "w-4 h-4")}</div>
+                  <h3 class="text-base font-extrabold text-algae-deep">Non-Manajerial</h3>
+                </div>
+                <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-algae-base text-white">Spesialisasi Teknis</span>
+              </div>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Mengutamakan kompetensi teknis profesional mandiri sesuai keahlian, tanpa tanggung jawab mengelola bawahan langsung.
+              </p>
+
+              <div class="space-y-2.5 pt-1">
+                <div class="p-3 bg-white rounded-2xl border border-algae-base/30 shadow-sm">
+                  <div class="flex items-center justify-between text-xs font-bold text-algae-dark mb-0.5">
+                    <span>1. Jabatan Fungsional (JF)</span>
+                    <span class="text-[10px] font-extrabold text-algae-base">86% ASN Kemenag</span>
+                  </div>
+                  <p class="text-[11px] text-slate-600">Pelayanan & tugas berbasis keahlian spesifik (Guru, Dosen, Penyuluh, dll).</p>
+                </div>
+
+                <div class="p-3 bg-white rounded-2xl border border-slate-200 shadow-sm">
+                  <div class="flex items-center justify-between text-xs font-bold text-slate-800 mb-0.5">
+                    <span>2. Jabatan Pelaksana</span>
+                    <span class="text-[10px] text-slate-500 font-normal">11% ASN Kemenag</span>
+                  </div>
+                  <p class="text-[11px] text-slate-600">Pelaksanaan tugas pelayanan publik dan administrasi rutin.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mandatory Quick Check -->
+          <div class="bg-white border-2 border-algae-surface rounded-3xl p-5 mb-4 shadow-sm">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-[10px] font-extrabold uppercase tracking-wider text-algae-dark px-2.5 py-1 rounded-full bg-algae-light/40 border border-algae-base/40">Aktivitas Wajib</span>
+              <span class="text-xs font-bold text-slate-700">“Guru” dan “Pranata Komputer” termasuk kelompok jabatan...</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5" id="microQuizUnit5">
+              <button type="button" data-idx="0" class="p-3 bg-algae-surface/60 hover:bg-algae-surface border border-slate-200 rounded-2xl text-xs font-bold text-slate-700 text-left transition-all">
+                Manajerial
+              </button>
+              <button type="button" data-idx="1" class="p-3 bg-algae-surface/60 hover:bg-algae-surface border border-slate-200 rounded-2xl text-xs font-bold text-slate-700 text-left transition-all">
+                Non-Manajerial (Fungsional)
+              </button>
+              <button type="button" data-idx="2" class="p-3 bg-algae-surface/60 hover:bg-algae-surface border border-slate-200 rounded-2xl text-xs font-bold text-slate-700 text-left transition-all">
+                JPT Utama
+              </button>
+            </div>
+            <div id="feedbackUnit5" class="text-xs mt-3 hidden font-bold"></div>
+          </div>
+
+          ${renderStageFooter({ nextLabel: "Lanjut: Profil ASN & 55 JF" })}
+        </div>
+      `,
+
+      // UNIT 6: PROFIL ASN & 55 JF
+      profil: () => `
+        <div class="animate-fade-enter flex flex-col flex-1">
+          ${renderHeaderPill(6, "Slide 9 & 10 Pusbangkom")}
+          <div class="mb-6">
+            <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">Profil Komposisi & 55 Jabatan Fungsional</h2>
+            <p class="text-sm text-slate-600 mt-1">Struktur ASN Kemenag berciri khas fungsional dengan 55 varian jabatan profesi.</p>
+          </div>
+
+          <div class="bg-algae-canvas border border-algae-surface rounded-3xl p-6 mb-6">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-algae-dark mb-4">Diagram Komposisi Rumpun Jabatan Kemenag</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+              <div class="md:col-span-5 flex justify-center relative">
+                <svg class="w-48 h-48 transform -rotate-90" viewBox="0 0 160 160">
+                  <circle cx="80" cy="80" r="60" fill="none" stroke="#E9EBED" stroke-width="22" />
+                  <circle id="donutFungsional" cx="80" cy="80" r="60" fill="none" stroke="#13714C" stroke-width="22" 
+                          stroke-dasharray="324.2 377" stroke-dashoffset="377" class="smooth-chart-fill hover:opacity-85 cursor-pointer" />
+                  <circle id="donutPelaksana" cx="80" cy="80" r="60" fill="none" stroke="#3AB67D" stroke-width="22" 
+                          stroke-dasharray="41.5 377" stroke-dashoffset="377" class="smooth-chart-fill hover:opacity-85 cursor-pointer" />
+                  <circle id="donutManajerial" cx="80" cy="80" r="60" fill="none" stroke="#A2E494" stroke-width="22" 
+                          stroke-dasharray="11.3 377" stroke-dashoffset="377" class="smooth-chart-fill hover:opacity-85 cursor-pointer" />
+                </svg>
+                <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center">
+                  <span class="text-3xl font-extrabold text-algae-deep font-mono" id="donutCenterPct">86%</span>
+                  <span class="text-[10px] uppercase font-bold text-slate-500" id="donutCenterLabel">Fungsional</span>
+                </div>
+              </div>
+
+              <div class="md:col-span-7 space-y-2.5">
+                <div class="p-3.5 bg-white rounded-2xl border border-algae-surface flex items-center justify-between hover:border-algae-dark transition-all cursor-pointer chart-legend" data-target="86%" data-label="Fungsional">
+                  <div class="flex items-center gap-3">
+                    <span class="w-3.5 h-3.5 rounded-lg bg-algae-dark shrink-0"></span>
+                    <div>
+                      <h4 class="text-xs font-bold text-slate-800">Jabatan Fungsional (JF)</h4>
+                      <span class="text-[11px] text-slate-500">223.090 Pegawai</span>
+                    </div>
+                  </div>
+                  <span class="text-sm font-extrabold text-algae-dark font-mono">86%</span>
+                </div>
+
+                <div class="p-3.5 bg-white rounded-2xl border border-algae-surface flex items-center justify-between hover:border-algae-base transition-all cursor-pointer chart-legend" data-target="11%" data-label="Pelaksana">
+                  <div class="flex items-center gap-3">
+                    <span class="w-3.5 h-3.5 rounded-lg bg-algae-base shrink-0"></span>
+                    <div>
+                      <h4 class="text-xs font-bold text-slate-800">Jabatan Pelaksana</h4>
+                      <span class="text-[11px] text-slate-500">29.985 Pegawai</span>
+                    </div>
+                  </div>
+                  <span class="text-sm font-extrabold text-algae-base font-mono">11%</span>
+                </div>
+
+                <div class="p-3.5 bg-white rounded-2xl border border-algae-surface flex items-center justify-between hover:border-algae-light transition-all cursor-pointer chart-legend" data-target="3%" data-label="Manajerial">
+                  <div class="flex items-center gap-3">
+                    <span class="w-3.5 h-3.5 rounded-lg bg-algae-light shrink-0"></span>
+                    <div>
+                      <h4 class="text-xs font-bold text-slate-800">Jabatan Manajerial</h4>
+                      <span class="text-[11px] text-slate-500">6.917 Pegawai (JPT, Adm, Pengawas)</span>
+                    </div>
+                  </div>
+                  <span class="text-sm font-extrabold text-algae-deep font-mono">3%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border border-algae-surface rounded-3xl p-6 mb-6 shadow-sm">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4 pb-2 border-b border-algae-surface">
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-algae-deep">Top Jabatan Fungsional Terbanyak</h3>
+                <span class="text-xs text-slate-500">Distribusi profesi JF di lingkungan Kementerian Agama</span>
+              </div>
+              <button type="button" id="sortPct" class="px-3 py-1 rounded-xl text-xs font-bold bg-algae-surface hover:bg-slate-200 text-slate-700 transition-all flex items-center gap-1.5">
+                <span>Urutkan: Tertinggi</span>
+              </button>
+            </div>
+
+            <div class="space-y-3" id="topJFContainer"></div>
+          </div>
+
+          <!-- Mandatory Interaction: Pin 1 JF or search -->
+          <div class="bg-algae-light/20 border border-algae-base/40 rounded-3xl p-6 mb-4">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="text-[10px] font-extrabold uppercase tracking-wider text-algae-dark px-2 py-0.5 rounded-full bg-algae-light/50">Aktivitas</span>
+                  <h3 class="text-xs font-extrabold uppercase tracking-wider text-algae-deep">Pilih / Tandai 1 Jabatan Anda</h3>
+                </div>
+                <p class="text-xs text-slate-600 mt-1">Cari nama jabatan dan klik salah satu untuk menandai (bookmark).</p>
+              </div>
+              <span id="jfResultCount" class="text-xs font-bold px-3 py-1 rounded-full bg-white text-algae-dark border border-algae-base/40 font-mono">
+                55 Jabatan
+              </span>
+            </div>
+
+            <div class="relative mb-4">
+              <input type="text" id="jfSearchInput" placeholder="Cari nama jabatan (contoh: guru, komputer, hukum, analis)..." class="w-full px-4 py-3 rounded-2xl bg-white border border-slate-300 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-algae-base pr-10 shadow-sm" />
+              <div class="absolute right-3.5 top-3.5 text-slate-400">
+                ${renderSvg("search", "w-4 h-4")}
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2 max-h-56 overflow-y-auto p-1" id="jfChipsGrid"></div>
+          </div>
+
+          ${renderStageFooter({ nextLabel: "Lanjut: Usia Pensiun" })}
+        </div>
+      `,
+
+      // UNIT 7: BATAS USIA PENSIUN
+      pensiun: () => `
+        <div class="animate-fade-enter flex flex-col flex-1">
+          ${renderHeaderPill(7, "Slide 11 Pusbangkom")}
+          <div class="mb-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">Batas Usia Pensiun (BUP) ASN</h2>
+                <p class="text-sm text-slate-600 mt-1">Usia pensiun ditentukan berdasarkan hierarki kepemimpinan dan rumpun jabatan.</p>
+              </div>
+              <span class="text-xs font-bold text-algae-dark px-3 py-1 rounded-full bg-algae-light/40 border border-algae-base/40" id="flipCounterLabel">Balik 4 Kartu (0/4)</span>
+            </div>
+          </div>
+
+          <!-- Mandatory Flip 4 Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div class="flip-card h-52 perspective-1000 cursor-pointer" data-card="1" data-flipped="false">
+              <div class="flip-inner relative w-full h-full duration-700 transform-style-3d transition-transform rounded-3xl shadow-sm border border-algae-surface">
+                <div class="flip-front absolute inset-0 backface-hidden bg-white p-5 rounded-3xl flex flex-col justify-between">
+                  <div>
+                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-algae-dark px-2.5 py-0.5 rounded-full bg-algae-light/40">Manajerial Tinggi</span>
+                    <h4 class="text-sm font-extrabold text-algae-deep mt-2">JPT (Pimpinan Tinggi)</h4>
+                    <p class="text-xs text-slate-500 mt-1">Utama, Madya, dan Pratama</p>
+                  </div>
+                  <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-algae-dark font-bold">
+                    <span>Klik untuk membalik</span>
+                    ${renderSvg("rotate", "w-3.5 h-3.5")}
+                  </div>
+                </div>
+                <div class="flip-back absolute inset-0 backface-hidden rotate-y-180 bg-algae-dark text-white p-5 rounded-3xl flex flex-col items-center justify-center text-center">
+                  <span class="text-4xl font-extrabold text-algae-light font-mono mb-1">60</span>
+                  <span class="text-xs font-bold uppercase tracking-wider text-slate-200">Tahun</span>
+                  <p class="text-[11px] text-emerald-100 mt-2">Pejabat Pimpinan Tinggi</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flip-card h-52 perspective-1000 cursor-pointer" data-card="2" data-flipped="false">
+              <div class="flip-inner relative w-full h-full duration-700 transform-style-3d transition-transform rounded-3xl shadow-sm border border-algae-surface">
+                <div class="flip-front absolute inset-0 backface-hidden bg-white p-5 rounded-3xl flex flex-col justify-between">
+                  <div>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-slate-600 px-2.5 py-0.5 rounded-full bg-algae-surface">Manajerial Menengah/Dasar</span>
+                    <h4 class="text-sm font-extrabold text-algae-deep mt-2">Administrator & Pengawas</h4>
+                    <p class="text-xs text-slate-500 mt-1">Kabag, Kasubbag, Kasi, dll.</p>
+                  </div>
+                  <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-algae-dark font-bold">
+                    <span>Klik untuk membalik</span>
+                    ${renderSvg("rotate", "w-3.5 h-3.5")}
+                  </div>
+                </div>
+                <div class="flip-back absolute inset-0 backface-hidden rotate-y-180 bg-algae-deep text-white p-5 rounded-3xl flex flex-col items-center justify-center text-center">
+                  <span class="text-4xl font-extrabold text-algae-light font-mono mb-1">58</span>
+                  <span class="text-xs font-bold uppercase tracking-wider text-slate-200">Tahun</span>
+                  <p class="text-[11px] text-emerald-100 mt-2">Administrator & Pengawas</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flip-card h-52 perspective-1000 cursor-pointer" data-card="3" data-flipped="false">
+              <div class="flip-inner relative w-full h-full duration-700 transform-style-3d transition-transform rounded-3xl shadow-sm border border-algae-surface">
+                <div class="flip-front absolute inset-0 backface-hidden bg-white p-5 rounded-3xl flex flex-col justify-between">
+                  <div>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-algae-dark px-2.5 py-0.5 rounded-full bg-algae-light/40">Non-Manajerial</span>
+                    <h4 class="text-sm font-extrabold text-algae-deep mt-2">Jabatan Fungsional</h4>
+                    <p class="text-xs text-slate-500 mt-1">Guru, Dosen, Peneliti, dll.</p>
+                  </div>
+                  <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-algae-dark font-bold">
+                    <span>Klik untuk membalik</span>
+                    ${renderSvg("rotate", "w-3.5 h-3.5")}
+                  </div>
+                </div>
+                <div class="flip-back absolute inset-0 backface-hidden rotate-y-180 bg-algae-base text-white p-5 rounded-3xl flex flex-col items-center justify-center text-center">
+                  <span class="text-lg font-bold font-mono text-center leading-tight mb-1">Sesuai Regulasi</span>
+                  <p class="text-[11px] text-emerald-100 mt-2">Mengikuti ketentuan perundang-undangan jenjang JF terkait.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flip-card h-52 perspective-1000 cursor-pointer" data-card="4" data-flipped="false">
+              <div class="flip-inner relative w-full h-full duration-700 transform-style-3d transition-transform rounded-3xl shadow-sm border border-algae-surface">
+                <div class="flip-front absolute inset-0 backface-hidden bg-white p-5 rounded-3xl flex flex-col justify-between">
+                  <div>
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-slate-600 px-2.5 py-0.5 rounded-full bg-algae-surface">Non-Manajerial</span>
+                    <h4 class="text-sm font-extrabold text-algae-deep mt-2">Jabatan Pelaksana</h4>
+                    <p class="text-xs text-slate-500 mt-1">Staf administrasi rutin</p>
+                  </div>
+                  <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-algae-dark font-bold">
+                    <span>Klik untuk membalik</span>
+                    ${renderSvg("rotate", "w-3.5 h-3.5")}
+                  </div>
+                </div>
+                <div class="flip-back absolute inset-0 backface-hidden rotate-y-180 bg-slate-800 text-white p-5 rounded-3xl flex flex-col items-center justify-center text-center">
+                  <span class="text-4xl font-extrabold text-algae-light font-mono mb-1">58</span>
+                  <span class="text-xs font-bold uppercase tracking-wider text-slate-200">Tahun</span>
+                  <p class="text-[11px] text-slate-300 mt-2">Jabatan Pelaksana</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-3xl bg-algae-surface/50 border border-algae-surface mb-4">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-bold text-algae-deep uppercase tracking-wider">Simulasi Timeline Usia Pensiun</span>
+              <span class="text-xs font-mono font-bold text-algae-dark px-3 py-1 bg-white border border-slate-200 rounded-xl" id="sliderAgeLabel">Usia 58 Tahun</span>
+            </div>
+            <input type="range" id="ageSlider" min="50" max="65" value="58" class="w-full accent-algae-dark cursor-pointer" />
+            <div class="flex justify-between text-[10px] text-slate-400 font-mono mt-1">
+              <span>50 th</span>
+              <span>55 th</span>
+              <span class="text-algae-dark font-bold">58 th (Adm/Pengawas/Pelaksana)</span>
+              <span class="text-algae-dark font-bold">60 th (JPT)</span>
+              <span>65 th (Profesor)</span>
+            </div>
+          </div>
+
+          ${renderStageFooter({ nextLabel: "Lanjut: Perpindahan Jabatan" })}
+        </div>
+      `,
+
+      // UNIT 8: PERPINDAHAN JABATAN
+      pindah: () => `
+        <div class="animate-fade-enter flex flex-col flex-1">
+          ${renderHeaderPill(8, "Slide 12 Pusbangkom")}
+          <div class="mb-6">
+            <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">Pola Perpindahan Jabatan ASN</h2>
+            <p class="text-sm text-slate-600 mt-1">Fleksibilitas mobilitas karir aparatur melalui tiga arah perpindahan jabatan.</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="p-5 rounded-3xl bg-algae-surface/40 border border-algae-surface flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-2xl bg-algae-base text-white flex items-center justify-center font-bold text-lg mb-3 shadow-md">→</div>
+                <h3 class="text-sm font-extrabold text-algae-deep mb-1">Perpindahan Horizontal</h3>
+                <span class="text-[11px] font-bold text-algae-base block mb-2">Posisi Setara</span>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Perpindahan ke posisi lain yang <strong>setara</strong>, baik dalam satu rumpun maupun antar rumpun Manajerial / Non-Manajerial.
+                </p>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-3xl bg-algae-surface/40 border border-algae-surface flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-2xl bg-algae-dark text-white flex items-center justify-center font-bold text-lg mb-3 shadow-md">↑</div>
+                <h3 class="text-sm font-extrabold text-algae-deep mb-1">Perpindahan Vertikal</h3>
+                <span class="text-[11px] font-bold text-algae-dark block mb-2">Posisi Lebih Tinggi (1 Kelompok)</span>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Perpindahan ke jenjang yang <strong>lebih tinggi</strong> di dalam <strong>satu kelompok jabatan</strong> yang sama.
+                </p>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-3xl bg-algae-light/25 border border-algae-base/40 flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-2xl bg-algae-deep text-algae-light flex items-center justify-center font-bold text-lg mb-3 shadow-md">↗</div>
+                <h3 class="text-sm font-extrabold text-algae-deep mb-1">Perpindahan Diagonal</h3>
+                <span class="text-[11px] font-bold text-algae-deep block mb-2">Posisi Lebih Tinggi (Antar Kelompok)</span>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Perpindahan ke jenjang yang <strong>lebih tinggi</strong> secara lintas atau <strong>antar kelompok</strong> jabatan berbeda.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mandatory 3 Scenarios -->
+          <div class="bg-white border border-algae-surface rounded-3xl p-5 mb-4 shadow-sm">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-[10px] font-extrabold uppercase tracking-wider text-algae-dark px-2.5 py-1 rounded-full bg-algae-light/40">Aktivitas Wajib</span>
+              <span class="text-xs font-bold text-slate-700">Selesaikan ke-3 skenario perpindahan jabatan berikut:</span>
+            </div>
+
+            <div class="space-y-3" id="scenarioContainer">
+              <div class="p-3.5 bg-algae-surface/50 rounded-2xl border border-algae-surface flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 scenario-item" data-scenario="0">
+                <span class="text-xs font-semibold text-slate-700">1. Staf Tata Usaha berpindah tugas menjadi Staf Keuangan pada kelas jabatan yang sama.</span>
+                <div class="flex items-center gap-1.5 shrink-0">
+                  <button type="button" data-val="H" class="px-3.5 py-1.5 text-xs font-bold rounded-xl bg-white border border-slate-300 hover:bg-algae-dark hover:text-white transition-all">H</button>
+                  <button type="button" data-val="V" class="px-3.5 py-1.5 text-xs font-bold rounded-xl bg-white border border-slate-300 hover:bg-algae-dark hover:text-white transition-all">V</button>
+                  <button type="button" data-val="D" class="px-3.5 py-1.5 text-xs font-bold rounded-xl bg-white border border-slate-300 hover:bg-algae-dark hover:text-white transition-all">D</button>
+                </div>
+              </div>
+
+              <div class="p-3.5 bg-algae-surface/50 rounded-2xl border border-algae-surface flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 scenario-item" data-scenario="1">
+                <span class="text-xs font-semibold text-slate-700">2. Pejabat Pengawas dipromosikan menjadi Administrator dalam rumpun manajerial.</span>
+                <div class="flex items-center gap-1.5 shrink-0">
+                  <button type="button" data-val="H" class="px-3.5 py-1.5 text-xs font-bold rounded-xl bg-white border border-slate-300 hover:bg-algae-dark hover:text-white transition-all">H</button>
+                  <button type="button" data-val="V" class="px-3.5 py-1.5 text-xs font-bold rounded-xl bg-white border border-slate-300 hover:bg-algae-dark hover:text-white transition-all">V</button>
+                  <button type="button" data-val="D" class="px-3.5 py-1.5 text-xs font-bold rounded-xl bg-white border border-slate-300 hover:bg-algae-dark hover:text-white transition-all">D</button>
+                </div>
+              </div>
+
+              <div class="p-3.5 bg-algae-surface/50 rounded-2xl border border-algae-surface flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 scenario-item" data-scenario="2">
+                <span class="text-xs font-semibold text-slate-700">3. Analis Kebijakan Ahli Muda berpindah dan dipromosikan menjadi Kepala Bagian (Administrator).</span>
+                <div class="flex items-center gap-1.5 shrink-0">
+                  <button type="button" data-val="H" class="px-3.5 py-1.5 text-xs font-bold rounded-xl bg-white border border-slate-300 hover:bg-algae-dark hover:text-white transition-all">H</button>
+                  <button type="button" data-val="V" class="px-3.5 py-1.5 text-xs font-bold rounded-xl bg-white border border-slate-300 hover:bg-algae-dark hover:text-white transition-all">V</button>
+                  <button type="button" data-val="D" class="px-3.5 py-1.5 text-xs font-bold rounded-xl bg-white border border-slate-300 hover:bg-algae-dark hover:text-white transition-all">D</button>
+                </div>
+              </div>
+            </div>
+            <div id="scenarioFeedback" class="mt-3 text-xs font-bold hidden"></div>
+          </div>
+
+          ${renderStageFooter({ nextLabel: "Lanjut: Kuis Akhir" })}
+        </div>
+      `,
+
+      // UNIT 9: KUIS AKHIR
+      kuis: () => `
+        <div class="animate-fade-enter flex flex-col flex-1">
+          ${renderHeaderPill(9, "Evaluasi Post-Test")}
+          <div class="mb-4">
+            <h2 class="text-2xl font-extrabold text-algae-deep tracking-tight">Kuis Post-Test Pemahaman</h2>
+            <p class="text-sm text-slate-600 mt-1">8 butir soal evaluasi pemahaman orientasi. Standar kelulusan: <strong>75% (minimal 6 benar)</strong>.</p>
+          </div>
+
+          <div id="quizContainer" class="flex-1 flex flex-col justify-between"></div>
+        </div>
+      `,
+
+      // UNIT 10: PENUTUP & RANGKUMAN
+      penutup: () => `
+        <div class="animate-fade-enter flex flex-col flex-1">
+          ${renderHeaderPill(10, "Pusbangkom MKMB")}
+          
+          <div class="text-center max-w-xl mx-auto space-y-3 mb-6">
+            <div class="inline-flex p-4 bg-algae-light/30 rounded-3xl text-algae-dark ring-8 ring-algae-light/20">
+              ${renderSvg("checkCircle", "w-12 h-12 text-algae-base")}
+            </div>
+            <h2 class="text-3xl font-extrabold text-algae-deep tracking-tight">Selamat! Modul Tuntas</h2>
+            <p class="text-xs sm:text-sm text-slate-600">
+              Anda telah menyelesaikan seluruh materi dan evaluasi Pengenalan Jabatan ASN Kementerian Agama.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
+            <div class="p-4 rounded-3xl bg-algae-surface/40 border border-algae-surface">
+              <span class="w-6 h-6 rounded-xl bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center mb-2">01</span>
+              <h4 class="text-xs font-bold text-algae-deep">387.404 ASN</h4>
+              <p class="text-[11px] text-slate-600 mt-0.5">248k PNS & 139k PPPK di 10.562 satuan kerja.</p>
+            </div>
+
+            <div class="p-4 rounded-3xl bg-algae-surface/40 border border-algae-surface">
+              <span class="w-6 h-6 rounded-xl bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center mb-2">02</span>
+              <h4 class="text-xs font-bold text-algae-deep">Dimensi FTTWH</h4>
+              <p class="text-[11px] text-slate-600 mt-0.5">Fungsi, Tugas, Tanggung Jawab, Wewenang, dan Hak.</p>
+            </div>
+
+            <div class="p-4 rounded-3xl bg-algae-surface/40 border border-algae-surface">
+              <span class="w-6 h-6 rounded-xl bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center mb-2">03</span>
+              <h4 class="text-xs font-bold text-algae-deep">Rumpun Jabatan</h4>
+              <p class="text-[11px] text-slate-600 mt-0.5">Manajerial (JPT, Adm, Pengawas) vs Non-Manajerial.</p>
+            </div>
+
+            <div class="p-4 rounded-3xl bg-algae-surface/40 border border-algae-surface">
+              <span class="w-6 h-6 rounded-xl bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center mb-2">04</span>
+              <h4 class="text-xs font-bold text-algae-deep">Dominasi 86% JF</h4>
+              <p class="text-[11px] text-slate-600 mt-0.5">Kemenag menaungi 55 varian Jabatan Fungsional.</p>
+            </div>
+
+            <div class="p-4 rounded-3xl bg-algae-surface/40 border border-algae-surface">
+              <span class="w-6 h-6 rounded-xl bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center mb-2">05</span>
+              <h4 class="text-xs font-bold text-algae-deep">Usia Pensiun</h4>
+              <p class="text-[11px] text-slate-600 mt-0.5">JPT 60 th, Administrator/Pengawas/Pelaksana 58 th.</p>
+            </div>
+
+            <div class="p-4 rounded-3xl bg-algae-surface/40 border border-algae-surface">
+              <span class="w-6 h-6 rounded-xl bg-algae-dark text-white text-xs font-mono font-bold flex items-center justify-center mb-2">06</span>
+              <h4 class="text-xs font-bold text-algae-deep">Pola Mobilitas</h4>
+              <p class="text-[11px] text-slate-600 mt-0.5">Horizontal (setara), Vertikal, dan Diagonal.</p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center gap-3 pt-2 mb-4">
+            <a href="https://pta.kemenag.go.id" target="_blank" rel="noopener" class="px-6 py-3 rounded-2xl bg-algae-dark hover:bg-algae-deep text-white text-xs font-bold shadow-md transition-all flex items-center gap-2">
+              <span>Buka Portal Resmi PTA Kemenag</span>
+              ${renderSvg("arrowRight", "w-3.5 h-3.5")}
+            </a>
+            <button type="button" data-action="restart" class="px-6 py-3 rounded-2xl border border-slate-300 text-slate-700 hover:bg-algae-surface text-xs font-bold transition-all">
+              Ulangi Seluruh Modul
+            </button>
+          </div>
+
+          ${renderStageFooter({ prev: true, nextLabel: "Kembali ke Cover" })}
+        </div>
+      `
+    };
+
+    /* =========================================================
+       QUIZ ENGINE LOGIC
+       ========================================================= */
+    let quizState = {
+      index: 0,
+      userAnswers: [],
+      score: 0,
+      isFinished: false
+    };
+
+    function resetQuizState() {
+      quizState = {
+        index: 0,
+        userAnswers: [],
+        score: 0,
+        isFinished: false
+      };
+    }
+
+    function renderQuizStage() {
+      const container = document.getElementById("quizContainer");
+      if (!container) return;
+
+      if (quizState.isFinished) {
+        const pct = Math.round((quizState.score / QUIZ_ITEMS.length) * 100);
+        const passed = pct >= 75;
+
+        if (passed) {
+          markDone(9);
+          setTaskCompleted(9);
+          playTone('fanfare');
+          confetti({ particleCount: 90, spread: 70, origin: { y: 0.6 } });
+        } else {
+          playTone('error');
+        }
+
+        container.innerHTML = `
+          <div class="text-center py-6 space-y-4 max-w-md mx-auto my-auto">
+            <div class="w-24 h-24 mx-auto rounded-full ${passed ? "bg-algae-light/30 text-algae-dark border-4 border-algae-base" : "bg-rose-50 text-rose-600 border-4 border-rose-300"} flex items-center justify-center font-extrabold text-3xl font-mono shadow-sm">
+              ${pct}%
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-extrabold text-algae-deep">${passed ? "Selamat, Anda Lulus Evaluasi!" : "Belum Mencapai Nilai Kelulusan"}</h3>
+              <p class="text-xs text-slate-600 mt-1">
+                ${passed 
+                  ? `Skor Anda ${quizState.score} dari ${QUIZ_ITEMS.length} soal benar. Anda telah memenuhi standar kompetensi orientasi.` 
+                  : `Skor Anda ${quizState.score} dari ${QUIZ_ITEMS.length} soal benar. Anda memerlukan minimal 6 jawaban benar (75%) untuk membuka penutup.`}
+              </p>
+            </div>
+
+            <div class="flex items-center justify-center gap-3 pt-2">
+              <button type="button" id="retryQuizBtn" class="px-5 py-2.5 rounded-2xl border border-slate-300 text-slate-700 hover:bg-algae-surface text-xs font-bold transition-all">
+                Ulangi Kuis
+              </button>
+              ${passed ? `
+                <button type="button" data-action="next" class="px-6 py-2.5 rounded-2xl bg-algae-dark text-white text-xs font-bold hover:bg-algae-deep shadow-md transition-all">
+                  Lanjut ke Penutup
+                </button>
+              ` : ""}
+            </div>
+          </div>
+        `;
+
+        const retryBtn = document.getElementById("retryQuizBtn");
+        if (retryBtn) {
+          retryBtn.onclick = () => {
+            playTone('click');
+            resetQuizState();
+            renderQuizStage();
+          };
+        }
+
+        const nextToPenutupBtn = container.querySelector('[data-action="next"]');
+        if (nextToPenutupBtn) {
+          nextToPenutupBtn.onclick = () => {
+            playTone('click');
+            markDone(9);
+            navigateTo(10);
+          };
+        }
+        return;
+      }
+
+      const cur = QUIZ_ITEMS[quizState.index];
+      const isAnswered = quizState.userAnswers[quizState.index] !== undefined;
+      const userSelected = quizState.userAnswers[quizState.index];
+      const userAnsHash = isAnswered ? sha256(`kemenag_asn_2026_mkmb::quiz_${quizState.index}::${userSelected}`) : null;
+      const isUserCorrect = isAnswered && (userAnsHash === cur.hash);
+      const decryptedExplain = isUserCorrect ? decryptHex(cur.encExplain, cur.hash) : "Jawaban kurang tepat. Cermati kembali materi orientasi pada unit sebelumnya sebelum melanjutkan.";
+
+      const dots = QUIZ_ITEMS.map((item, i) => {
+        let cls = "bg-algae-surface text-slate-600";
+        if (i === quizState.index) {
+          cls = "bg-algae-base text-white ring-2 ring-algae-light font-bold";
+        } else if (quizState.userAnswers[i] !== undefined) {
+          const ansHash = sha256(`kemenag_asn_2026_mkmb::quiz_${i}::${quizState.userAnswers[i]}`);
+          cls = (ansHash === item.hash) ? "bg-algae-dark text-white" : "bg-rose-500 text-white";
+        }
+        return `<span class="w-6 h-6 rounded-lg text-[11px] font-mono flex items-center justify-center ${cls}">${i + 1}</span>`;
+      }).join("");
+
+      container.innerHTML = `
+        <div>
+          <div class="flex items-center justify-between pb-3 border-b border-algae-surface mb-4">
+            <span class="text-xs font-extrabold text-algae-deep uppercase tracking-wider">Soal ${quizState.index + 1} dari ${QUIZ_ITEMS.length}</span>
+            <div class="flex items-center gap-1.5">${dots}</div>
+          </div>
+
+          <div class="p-5 rounded-3xl bg-algae-surface/50 border border-algae-surface mb-4">
+            <h3 class="text-sm sm:text-base font-extrabold text-algae-deep leading-snug">${cur.q}</h3>
+          </div>
+
+          <div class="space-y-2.5 mb-4" id="quizOptions">
+            ${cur.options.map((opt, optIdx) => {
+              let optStyle = "bg-white hover:bg-algae-canvas border-slate-200 text-slate-700";
+              const optHash = sha256(`kemenag_asn_2026_mkmb::quiz_${quizState.index}::${optIdx}`);
+              const isThisOptCorrect = (optHash === cur.hash);
+
+              if (isAnswered) {
+                if (isThisOptCorrect) {
+                  optStyle = "bg-algae-light/40 border-algae-base text-algae-deep font-extrabold";
+                } else if (optIdx === userSelected && !isUserCorrect) {
+                  optStyle = "bg-rose-50 border-rose-300 text-rose-800 font-extrabold";
+                } else {
+                  optStyle = "bg-white opacity-40 border-slate-200 text-slate-400";
+                }
+              }
+              return `
+                <button type="button" 
+                        data-opt="${optIdx}" 
+                        ${isAnswered ? "disabled" : ""}
+                        class="w-full text-left p-3.5 rounded-2xl border text-xs sm:text-sm font-medium transition-all flex items-center justify-between ${optStyle}">
+                  <span>${opt}</span>
+                  ${isAnswered && isThisOptCorrect ? `<span class="font-bold text-algae-dark text-xs">✓ Benar</span>` : ""}
+                  ${isAnswered && optIdx === userSelected && !isUserCorrect ? `<span class="font-bold text-rose-600 text-xs">✕ Salah</span>` : ""}
+                </button>
+              `;
+            }).join("")}
+          </div>
+
+          ${isAnswered ? `
+            <div class="p-4 rounded-2xl ${isUserCorrect ? "bg-algae-light/30 border border-algae-base/40 text-algae-deep" : "bg-rose-50 border border-rose-200 text-rose-900"} text-xs leading-relaxed mb-4 font-medium">
+              <strong>Pembahasan:</strong> ${decryptedExplain}
+            </div>
+          ` : ""}
+        </div>
+
+        <div class="pt-4 border-t border-algae-surface flex items-center justify-between">
+          <button type="button" id="prevQuizBtn" ${quizState.index === 0 ? "disabled" : ""} class="px-4 py-2 rounded-2xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-algae-surface disabled:opacity-30 disabled:cursor-not-allowed">
+            ← Soal Sebelumnya
+          </button>
+          
+          ${isAnswered ? `
+            <button type="button" id="nextQuizBtn" class="px-6 py-2.5 rounded-2xl bg-algae-dark text-white text-xs font-bold hover:bg-algae-deep shadow-md transition-all">
+              ${quizState.index === QUIZ_ITEMS.length - 1 ? "Lihat Hasil Kuis" : "Soal Selanjutnya →"}
+            </button>
+          ` : `<span class="text-[11px] text-slate-400 italic">Pilih satu opsi jawaban</span>`}
+        </div>
+      `;
+
+      const options = container.querySelectorAll("[data-opt]");
+      options.forEach(btn => {
+        btn.onclick = () => {
+          const picked = Number(btn.dataset.opt);
+          quizState.userAnswers[quizState.index] = picked;
+          const candidateHash = sha256(`kemenag_asn_2026_mkmb::quiz_${quizState.index}::${picked}`);
+          if (candidateHash === cur.hash) {
+            playTone('success');
+            quizState.score++;
+            showToast("Jawaban Benar!", "success");
+          } else {
+            playTone('error');
+            showToast("Jawaban Kurang Tepat", "error");
+          }
+          renderQuizStage();
+        };
+      });
+
+      const nextBtn = document.getElementById("nextQuizBtn");
+      if (nextBtn) {
+        nextBtn.onclick = () => {
+          playTone('click');
+          if (quizState.index < QUIZ_ITEMS.length - 1) {
+            quizState.index++;
+            renderQuizStage();
+          } else {
+            quizState.isFinished = true;
+            renderQuizStage();
+          }
+        };
+      }
+
+      const prevBtn = document.getElementById("prevQuizBtn");
+      if (prevBtn) {
+        prevBtn.onclick = () => {
+          playTone('click');
+          if (quizState.index > 0) {
+            quizState.index--;
+            renderQuizStage();
+          }
+        };
+      }
+    }
+
+    /* =========================================================
+       STAGE EVENT HANDLERS & ANIMATIONS
+       ========================================================= */
+    function renderStage() {
+      const stage = document.getElementById("stage");
+      const unit = UNITS[state.current];
+      if (!stage || !unit) return;
+
+      const renderer = UNIT_RENDERERS[unit.key];
+      stage.innerHTML = renderer ? renderer() : `<p class="text-sm text-slate-500">Unit belum tersedia.</p>`;
+
+      bindStageEvents(unit.key);
+      updateAudioUI();
+    }
+
+    function bindStageEvents(key) {
+      const stage = document.getElementById("stage");
+
+      // Global Navigation Triggers
+      stage.querySelectorAll('[data-action="start"]').forEach(b => {
+        b.onclick = () => { 
+          playTone('click');
+          markDone(0); 
+          setTaskCompleted(0);
+          state.audioEnabled = true;
+          saveState();
+          updateAudioUI();
+          navigateTo(1); 
+        };
+      });
+
+      // Cover Audio Preview Button
+      const coverAudioBtn = stage.querySelector("#coverAudioBtn");
+      if (coverAudioBtn) {
+        coverAudioBtn.onclick = () => {
+          playTone('click');
+          state.audioEnabled = true;
+          saveState();
+          updateAudioUI();
+          playUnitNarration(0, true);
+          showToast("Memutar narasi pengantar...", "info");
+        };
+      }
+
+      // Stage Header Audio Pill Toggle
+      const stageAudioBtn = stage.querySelector("#stageAudioToggleBtn");
+      if (stageAudioBtn) {
+        stageAudioBtn.onclick = () => {
+          playTone('click');
+          state.audioEnabled = !state.audioEnabled;
+          saveState();
+          updateAudioUI();
+          if (state.audioEnabled) {
+            playUnitNarration(state.current, true);
+            showToast("Audio narasi aktif", "success");
+          } else {
+            if (audioPlayer) audioPlayer.pause();
+            showToast("Audio narasi dimatikan", "info");
+          }
+        };
+      }
+
+      stage.querySelectorAll('[data-action="next"]').forEach(b => {
+        b.onclick = () => {
+          if (state.current === UNITS.length - 1) {
+            playTone('success');
+            markDone(state.current);
+            navigateTo(0);
+            return;
+          }
+          if (isTaskDone(state.current) && unitTimeRemaining <= 0) {
+            playTone('click');
+            markDone(state.current);
+            navigateTo(state.current + 1);
+          }
+        };
+      });
+      stage.querySelectorAll('[data-action="prev"]').forEach(b => {
+        b.onclick = () => {
+          playTone('click');
+          navigateTo(state.current - 1);
+        };
+      });
+      stage.querySelectorAll('[data-action="restart"]').forEach(b => {
+        b.onclick = () => {
+          playTone('click');
+          state = { 
+            current: 0, 
+            done: [0], 
+            tasksDone: { 0: true, 1: true }, 
+            bookmarkedJF: [],
+            u4_kw: [],
+            u7_flips: []
+          };
+          resetQuizState();
+          saveState();
+          navigateTo(0);
+          showToast("Progres diatur ulang", "info");
+        };
+      });
+      stage.querySelectorAll('[data-jump]').forEach(b => {
+        b.onclick = () => {
+          playTone('click');
+          navigateTo(Number(b.dataset.jump));
+        };
+      });
+
+      // UNIT 2: Animated Number Counters + Micro Quiz Task
+      if (key === "skala") {
+        const counters = stage.querySelectorAll(".counter");
+        counters.forEach(c => {
+          const target = Number(c.dataset.target);
+          const duration = 2200;
+          const start = performance.now();
+          function tick(now) {
+            const progress = Math.min(1, (now - start) / duration);
+            const ease = 1 - Math.pow(1 - progress, 3);
+            c.textContent = formatNumber(Math.round(target * ease));
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+
+        const quizBtns = stage.querySelectorAll("#microQuizUnit2 button");
+        const fb = document.getElementById("feedbackUnit2");
+        const expectedU2Hash = "d95dd31a0ea4761e5320ac2f079d5ff1afce204fe5c3a9b08db2b7d9d641c072";
+        quizBtns.forEach(btn => {
+          btn.onclick = () => {
+            const pickedIdx = btn.dataset.idx;
+            const isCorrect = sha256(`kemenag_asn_2026_mkmb::unit_2::${pickedIdx}`) === expectedU2Hash;
+            if (isCorrect) {
+              playTone('success');
+            } else {
+              playTone('error');
+            }
+            quizBtns.forEach(b => {
+              b.disabled = true;
+              const isThisCorrect = sha256(`kemenag_asn_2026_mkmb::unit_2::${b.dataset.idx}`) === expectedU2Hash;
+              if (isThisCorrect) {
+                b.className = "p-3 bg-algae-light/40 border border-algae-base text-algae-deep rounded-2xl text-xs font-extrabold text-left";
+              } else {
+                b.className = "p-3 bg-algae-surface/40 border border-slate-200 text-slate-400 rounded-2xl text-xs text-left";
+              }
+            });
+            fb.classList.remove("hidden");
+            if (isCorrect) {
+              fb.className = "text-xs mt-3 font-bold text-algae-dark";
+              fb.textContent = "✓ Tepat! Total ASN Kemenag adalah 387.404 pegawai.";
+              showToast("Jawaban Tepat!", "success");
+            } else {
+              fb.className = "text-xs mt-3 font-bold text-rose-600";
+              fb.textContent = "✕ Kurang tepat. Total ASN Kemenag adalah 387.404 pegawai.";
+              showToast("Kurang tepat", "error");
+            }
+            setTaskCompleted(2);
+          };
+        });
+      }
+
+      // UNIT 3: Table Filter Tabs Task
+      if (key === "pnspppk") {
+        const tabBtns = stage.querySelectorAll("[data-tab]");
+        const rows = stage.querySelectorAll("#compareTable tbody tr");
+        tabBtns.forEach(btn => {
+          btn.onclick = () => {
+            playTone('click');
+            tabBtns.forEach(b => b.className = "px-3 py-1 rounded-lg text-slate-600 hover:text-algae-dark transition-all");
+            btn.className = "px-3 py-1 rounded-lg bg-white text-algae-dark shadow-sm transition-all";
+            const tab = btn.dataset.tab;
+            rows.forEach(r => {
+              if (tab === "all" || r.dataset.group === tab) {
+                r.classList.remove("hidden");
+              } else {
+                r.classList.add("hidden");
+              }
+            });
+            setTaskCompleted(3);
+          };
+        });
+      }
+
+      // UNIT 4: Keyword Tap Explainer (Must tap all 5)
+      if (key === "jabatan") {
+        const kwData = {
+          fungsi: { title: "Fungsi", desc: "Peran pokok substantif yang dijalankan jabatan dalam struktur organisasi." },
+          tugas: { title: "Tugas", desc: "Rincian aktivitas dan pekerjaan operasional harian yang wajib diselesaikan." },
+          tanggungjawab: { title: "Tanggung Jawab", desc: "Kewajiban moral dan administratif untuk mempertanggungjawabkan hasil kerja." },
+          wewenang: { title: "Wewenang", desc: "Hak formal legal untuk memutuskan tindakan dan mengarahkan sumber daya." },
+          hak: { title: "Hak", desc: "Kepastian hukum atas perlindungan, gaji, tunjangan, penghargaan, dan fasilitas jabatan." }
+        };
+        const titleEl = document.getElementById("kwTitle");
+        const descEl = document.getElementById("kwDesc");
+        const badgeEl = document.getElementById("kwBadge");
+        const counterEl = document.getElementById("kwCounterLabel");
+
+        if (!state.u4_kw) state.u4_kw = [];
+
+        stage.querySelectorAll(".kw-btn").forEach(btn => {
+          btn.onclick = () => {
+            playTone('click');
+            const kw = btn.dataset.kw;
+            const item = kwData[kw];
+            if (item) {
+              titleEl.textContent = item.title;
+              descEl.textContent = item.desc;
+              badgeEl.textContent = item.title.substring(0, 3).toUpperCase();
+              
+              if (!state.u4_kw.includes(kw)) {
+                state.u4_kw.push(kw);
+                saveState();
+              }
+              if (counterEl) {
+                counterEl.textContent = `Ketuk 5 Kata Kunci (${state.u4_kw.length}/5)`;
+              }
+              if (state.u4_kw.length >= 5) {
+                setTaskCompleted(4);
+              }
+            }
+          };
+        });
+      }
+
+      // UNIT 5: Classification Quick Quiz Task
+      if (key === "jenis") {
+        const quizBtns = stage.querySelectorAll("#microQuizUnit5 button");
+        const fb = document.getElementById("feedbackUnit5");
+        const expectedU5Hash = "a5f4802b000f26167fa6dcab10704e0598cbd8a669094c28b69462986c44bd0a";
+        quizBtns.forEach(btn => {
+          btn.onclick = () => {
+            const pickedIdx = btn.dataset.idx;
+            const isCorrect = sha256(`kemenag_asn_2026_mkmb::unit_5::${pickedIdx}`) === expectedU5Hash;
+            if (isCorrect) {
+              playTone('success');
+            } else {
+              playTone('error');
+            }
+            quizBtns.forEach(b => {
+              b.disabled = true;
+              const isThisCorrect = sha256(`kemenag_asn_2026_mkmb::unit_5::${b.dataset.idx}`) === expectedU5Hash;
+              if (isThisCorrect) {
+                b.className = "p-3 bg-algae-light/40 border border-algae-base text-algae-deep rounded-2xl text-xs font-extrabold text-left";
+              } else {
+                b.className = "p-3 bg-algae-surface/40 border border-slate-200 text-slate-400 rounded-2xl text-xs text-left";
+              }
+            });
+            fb.classList.remove("hidden");
+            if (isCorrect) {
+              fb.className = "text-xs mt-3 font-bold text-algae-dark";
+              fb.textContent = "✓ Tepat! Guru dan Pranata Komputer termasuk JF Non-Manajerial.";
+              showToast("Jawaban Tepat!", "success");
+            } else {
+              fb.className = "text-xs mt-3 font-bold text-rose-600";
+              fb.textContent = "✕ Kurang tepat. Keduanya termasuk JF Non-Manajerial.";
+              showToast("Kurang tepat", "error");
+            }
+            setTaskCompleted(5);
+          };
+        });
+      }
+
+      // UNIT 6: Profil ASN & 55 JF Task
+      if (key === "profil") {
+        setTimeout(() => {
+          const dFung = document.getElementById("donutFungsional");
+          const dPel = document.getElementById("donutPelaksana");
+          const dMan = document.getElementById("donutManajerial");
+          if (dFung) dFung.style.strokeDashoffset = "0";
+          if (dPel) dPel.style.strokeDashoffset = "-324.2";
+          if (dMan) dMan.style.strokeDashoffset = "-365.7";
+        }, 100);
+
+        const barContainer = document.getElementById("topJFContainer");
+        const renderBars = (data) => {
+          if (!barContainer) return;
+          barContainer.innerHTML = data.map(item => `
+            <div class="space-y-1">
+              <div class="flex justify-between text-xs font-bold text-slate-700">
+                <span>${item.name} <span class="text-[10px] text-slate-400 font-normal">(${formatNumber(item.count)} orang)</span></span>
+                <span class="font-mono text-algae-dark">${item.pct.toFixed(2).replace('.', ',')}%</span>
+              </div>
+              <div class="h-2.5 bg-algae-surface rounded-full overflow-hidden p-0.5 border border-slate-200">
+                <div class="h-full bg-gradient-to-r from-algae-dark to-algae-base rounded-full smooth-bar-fill" style="width: ${Math.max(4, (item.pct / 70.32) * 100)}%"></div>
+              </div>
+            </div>
+          `).join("");
+        };
+        renderBars(JF_DATA);
+
+        let sorted = false;
+        const sortBtn = document.getElementById("sortPct");
+        if (sortBtn) {
+          sortBtn.onclick = () => {
+            playTone('click');
+            sorted = !sorted;
+            const sortedData = [...JF_DATA].sort((a, b) => sorted ? a.name.localeCompare(b.name) : b.pct - a.pct);
+            sortBtn.querySelector("span").textContent = sorted ? "Urutkan: Alfabet" : "Urutkan: Tertinggi";
+            renderBars(sortedData);
+          };
+        }
+
+        const chipsGrid = document.getElementById("jfChipsGrid");
+        const countLabel = document.getElementById("jfResultCount");
+        const searchInput = document.getElementById("jfSearchInput");
+
+        const renderChips = (query = "") => {
+          if (!chipsGrid) return;
+          const filtered = ALL_55_JF.filter(n => n.toLowerCase().includes(query.toLowerCase()));
+          countLabel.textContent = `${filtered.length} Jabatan`;
+
+          chipsGrid.innerHTML = filtered.map(name => {
+            const isBookmarked = (state.bookmarkedJF || []).includes(name);
+            return `
+              <button type="button" 
+                      data-jf="${name}" 
+                      class="px-3 py-1.5 rounded-2xl text-xs font-semibold transition-all flex items-center gap-1.5 ${
+                        isBookmarked 
+                          ? "bg-algae-dark text-white shadow-sm ring-2 ring-algae-light" 
+                          : "bg-white hover:bg-algae-surface border border-slate-200 text-slate-700"
+                      }">
+                <span>${name}</span>
+                <span class="text-[10px] opacity-75">${isBookmarked ? "★" : "☆"}</span>
+              </button>
+            `;
+          }).join("");
+
+          chipsGrid.querySelectorAll("[data-jf]").forEach(btn => {
+            btn.onclick = () => {
+              playTone('click');
+              const jfName = btn.dataset.jf;
+              if (!state.bookmarkedJF) state.bookmarkedJF = [];
+              if (state.bookmarkedJF.includes(jfName)) {
+                state.bookmarkedJF = state.bookmarkedJF.filter(x => x !== jfName);
+                showToast(`Hapus tanda: ${jfName}`, "info");
+              } else {
+                state.bookmarkedJF.push(jfName);
+                showToast(`Ditandai: ${jfName}`, "success");
+              }
+              saveState();
+              renderChips(searchInput ? searchInput.value : "");
+              setTaskCompleted(6);
+            };
+          });
+        };
+        renderChips();
+
+        if (searchInput) {
+          searchInput.oninput = (e) => {
+            renderChips(e.target.value.trim());
+            if (e.target.value.trim().length > 0) {
+              setTaskCompleted(6);
+            }
+          };
+        }
+      }
+
+      // UNIT 7: Flip Cards (Must flip all 4)
+      if (key === "pensiun") {
+        if (!state.u7_flips) state.u7_flips = [];
+        const flipLabel = document.getElementById("flipCounterLabel");
+
+        stage.querySelectorAll(".flip-card").forEach(card => {
+          card.onclick = () => {
+            playTone('click');
+            const inner = card.querySelector(".flip-inner");
+            const cardId = card.dataset.card;
+            const isFlipped = card.dataset.flipped === "true";
+            if (isFlipped) {
+              inner.classList.remove("rotate-y-180");
+              card.dataset.flipped = "false";
+            } else {
+              inner.classList.add("rotate-y-180");
+              card.dataset.flipped = "true";
+              if (!state.u7_flips.includes(cardId)) {
+                state.u7_flips.push(cardId);
+                saveState();
+              }
+              if (flipLabel) {
+                flipLabel.textContent = `Balik 4 Kartu (${state.u7_flips.length}/4)`;
+              }
+              if (state.u7_flips.length >= 4) {
+                setTaskCompleted(7);
+              }
+            }
+          };
+        });
+
+        const slider = document.getElementById("ageSlider");
+        const ageLabel = document.getElementById("sliderAgeLabel");
+        if (slider && ageLabel) {
+          slider.oninput = (e) => {
+            ageLabel.textContent = `Usia ${e.target.value} Tahun`;
+          };
+        }
+      }
+
+      // UNIT 8: Scenario Matcher (Must complete 3 scenarios)
+      if (key === "pindah") {
+        const scenarioItems = stage.querySelectorAll(".scenario-item");
+        const scenarioFb = document.getElementById("scenarioFeedback");
+        let answeredCount = 0;
+        const SCENARIO_HASHES = {
+          "0": "7060679b48effd47d93ef5e263df148134e2bcd3bc5289be206ea786ba6fc2d0",
+          "1": "bc3c623a05b5cc3494208107136633f6a633d40dca0e51cdabaea85ffbdf20f2",
+          "2": "197e8dc79b0bb44a23a0fb4609498eaedac1bca706bcc658a7f4270d96f25847"
+        };
+
+        scenarioItems.forEach(item => {
+          const sId = item.dataset.scenario;
+          const expectedHash = SCENARIO_HASHES[sId];
+          item.querySelectorAll("button").forEach(btn => {
+            btn.onclick = () => {
+              const val = btn.dataset.val;
+              const isCorrect = sha256(`kemenag_asn_2026_mkmb::unit_8_${sId}::${val}`) === expectedHash;
+              if (isCorrect) {
+                playTone('success');
+              } else {
+                playTone('error');
+              }
+              item.querySelectorAll("button").forEach(b => {
+                b.disabled = true;
+                b.className = "px-3.5 py-1.5 text-xs font-bold rounded-xl border text-slate-400 bg-algae-surface/50";
+              });
+              if (isCorrect) {
+                btn.className = "px-3.5 py-1.5 text-xs font-bold rounded-xl bg-algae-dark text-white shadow-sm";
+                item.classList.add("border-algae-base", "bg-algae-light/20");
+                showToast("Pilihan Tepat!", "success");
+              } else {
+                btn.className = "px-3.5 py-1.5 text-xs font-bold rounded-xl bg-rose-600 text-white";
+                item.classList.add("border-rose-300", "bg-rose-50/50");
+                showToast("Pilihan Kurang Tepat", "error");
+              }
+
+              answeredCount++;
+              if (answeredCount >= 3) {
+                if (scenarioFb) {
+                  scenarioFb.classList.remove("hidden");
+                  scenarioFb.className = "mt-3 text-xs font-bold text-algae-dark p-3 rounded-2xl bg-algae-light/30 border border-algae-base/40";
+                  scenarioFb.textContent = "✓ Selesai! Anda telah menyelesaikan seluruh skenario mobilitas karir.";
+                }
+                setTaskCompleted(8);
+              }
+            };
+          });
+        });
+      }
+
+      // UNIT 9: Kuis Evaluasi
+      if (key === "kuis") {
+        renderQuizStage();
+      }
+    }
+
+    /* =========================================================
+       GLOBAL KEYBOARD & UI LISTENERS
+       ========================================================= */
+    document.addEventListener("keydown", (e) => {
+      if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+      if (e.key === "ArrowRight") {
+        if (state.current < UNITS.length - 1 && isTaskDone(state.current) && unitTimeRemaining <= 0) {
+          markDone(state.current);
+          navigateTo(state.current + 1);
+        }
+      } else if (e.key === "ArrowLeft") {
+        if (state.current > 0) {
+          navigateTo(state.current - 1);
+        }
+      }
+    });
+
+    const mobileToggle = document.getElementById("mobileNavToggle");
+    const closeDrawer = document.getElementById("closeDrawer");
+    const mobileDrawer = document.getElementById("mobileDrawer");
+
+    if (mobileToggle && mobileDrawer) {
+      mobileToggle.onclick = () => mobileDrawer.classList.remove("hidden");
+    }
+    if (closeDrawer && mobileDrawer) {
+      closeDrawer.onclick = () => mobileDrawer.classList.add("hidden");
+    }
+
+    /* =========================================================
+       TACTILE SOUND SYNTHESIZER (Web Audio API)
+       ========================================================= */
+    let audioCtx = null;
+    function playTone(type) {
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === "suspended") {
+          audioCtx.resume();
+        }
+        const now = audioCtx.currentTime;
+        if (type === 'click') {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(650, now);
+          osc.frequency.exponentialRampToValueAtTime(320, now + 0.04);
+          gain.gain.setValueAtTime(0.06, now);
+          gain.gain.linearRampToValueAtTime(0.001, now + 0.04);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.04);
+        } else if (type === 'success') {
+          [523.25, 659.25, 783.99].forEach((freq, i) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(freq, now + i * 0.07);
+            gain.gain.setValueAtTime(0.09, now + i * 0.07);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.07 + 0.22);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now + i * 0.07);
+            osc.stop(now + i * 0.07 + 0.22);
+          });
+        } else if (type === 'error') {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(190, now);
+          osc.frequency.linearRampToValueAtTime(130, now + 0.14);
+          gain.gain.setValueAtTime(0.08, now);
+          gain.gain.linearRampToValueAtTime(0.001, now + 0.14);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.14);
+        } else if (type === 'fanfare') {
+          [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, now + i * 0.09);
+            gain.gain.setValueAtTime(0.12, now + i * 0.09);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.09 + 0.35);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now + i * 0.09);
+            osc.stop(now + i * 0.09 + 0.35);
+          });
+        }
+      } catch (e) {
+        // Fallback gracefully if Web Audio is restricted by browser policy
+      }
+    }
+
+    /* =========================================================
+       AUDIO NARRATION SYSTEM
+       ========================================================= */
+    const audioPlayer = document.getElementById("narratorAudio");
+    let isAudioPlaying = false;
+
+    function initAudioSystem() {
+      if (!audioPlayer) return;
+
+      audioPlayer.onplay = () => {
+        isAudioPlaying = true;
+        updateAudioUI();
+      };
+
+      audioPlayer.onpause = () => {
+        isAudioPlaying = false;
+        updateAudioUI();
+      };
+
+      audioPlayer.onended = () => {
+        isAudioPlaying = false;
+        updateAudioUI();
+      };
+
+      audioPlayer.onerror = () => {
+        isAudioPlaying = false;
+        updateAudioUI();
+      };
+
+      const toggleBtn = document.getElementById("toggleAudioBtn");
+      const replayBtn = document.getElementById("replayAudioBtn");
+
+      if (toggleBtn) {
+        toggleBtn.onclick = () => {
+          state.audioEnabled = !state.audioEnabled;
+          saveState();
+          updateAudioUI();
+
+          if (state.audioEnabled) {
+            playUnitNarration(state.current, true);
+            showToast("Audio narasi aktif", "success");
+          } else {
+            audioPlayer.pause();
+            showToast("Audio narasi dimatikan", "info");
+          }
+        };
+      }
+
+      if (replayBtn) {
+        replayBtn.onclick = () => {
+          playUnitNarration(state.current, true);
+          showToast("Memutar ulang narasi...", "info");
+        };
+      }
+
+      updateAudioUI();
+    }
+
+    function playUnitNarration(unitId, forcePlay = false) {
+      if (!audioPlayer) return;
+      audioPlayer.pause();
+
+      const audioSrc = `audio/unit_${unitId}.mp3`;
+      audioPlayer.src = audioSrc;
+
+      if (state.audioEnabled || forcePlay) {
+        audioPlayer.currentTime = 0;
+        const playPromise = audioPlayer.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(err => {
+            console.log("Autoplay dicegah browser sebelum interaksi pengguna:", err);
+            isAudioPlaying = false;
+            updateAudioUI();
+          });
+        }
+      }
+    }
+
+    function updateAudioUI() {
+      const iconContainer = document.getElementById("audioIconContainer");
+      const statusText = document.getElementById("audioStatusText");
+      const replayBtn = document.getElementById("replayAudioBtn");
+      const toggleBtn = document.getElementById("toggleAudioBtn");
+
+      // Sticky Header Controls
+      if (iconContainer) {
+        if (state.audioEnabled) {
+          iconContainer.innerHTML = renderSvg("volume2", `w-4 h-4 text-algae-dark ${isAudioPlaying ? 'animate-bounce' : ''}`);
+        } else {
+          iconContainer.innerHTML = renderSvg("volumeX", "w-4 h-4 text-slate-400");
+        }
+      }
+
+      if (statusText) {
+        if (state.audioEnabled) {
+          statusText.textContent = isAudioPlaying ? "Narasi: Memutar..." : "Narasi: Aktif";
+          statusText.className = "hidden sm:inline text-[11px] font-extrabold text-algae-dark";
+        } else {
+          statusText.textContent = "Narasi: Nonaktif";
+          statusText.className = "hidden sm:inline text-[11px] font-extrabold text-slate-400";
+        }
+      }
+
+      if (toggleBtn) {
+        if (state.audioEnabled) {
+          toggleBtn.className = "flex items-center gap-2 px-3 py-1.5 rounded-xl bg-algae-light/40 border border-algae-base text-algae-deep transition-all text-xs font-bold shadow-sm";
+        } else {
+          toggleBtn.className = "flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white hover:bg-algae-surface border border-slate-200 text-slate-700 transition-all text-xs font-bold shadow-sm";
+        }
+      }
+
+      if (replayBtn) {
+        if (state.audioEnabled) {
+          replayBtn.classList.remove("hidden");
+        } else {
+          replayBtn.classList.add("hidden");
+        }
+      }
+
+      // Stage Card Audio Pill
+      const stageDot = document.getElementById("stageAudioDot");
+      const stageText = document.getElementById("stageAudioText");
+      const stageBtn = document.getElementById("stageAudioToggleBtn");
+      if (stageBtn && stageDot && stageText) {
+        if (state.audioEnabled) {
+          if (isAudioPlaying) {
+            stageBtn.className = "inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full bg-algae-light/50 text-algae-deep border border-algae-base shadow-sm animate-pulse";
+            stageDot.className = "w-2 h-2 rounded-full bg-algae-base animate-ping";
+            stageText.textContent = "Memutar Narasi";
+          } else {
+            stageBtn.className = "inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full bg-algae-surface/80 text-algae-dark border border-slate-200 hover:bg-algae-light/30 shadow-sm";
+            stageDot.className = "w-2 h-2 rounded-full bg-algae-base";
+            stageText.textContent = "Putar Narasi";
+          }
+        } else {
+          stageBtn.className = "inline-flex items-center gap-1.5 text-[11px] font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-400 border border-slate-200 hover:text-slate-600 shadow-sm";
+          stageDot.className = "w-2 h-2 rounded-full bg-slate-300";
+          stageText.textContent = "Narasi Mati";
+        }
+      }
+
+      // Cover Audio Button text
+      const coverBtnLabel = document.getElementById("coverAudioBtnLabel");
+      if (coverBtnLabel) {
+        coverBtnLabel.textContent = (state.audioEnabled && isAudioPlaying) ? "Sedang Memutar..." : "Dengarkan Pengantar";
+      }
+    }
+
+    /* =========================================================
+       ANTI-CHEAT & INTEGRITY GUARDS
+       ========================================================= */
+    document.addEventListener("contextmenu", (e) => {
+      if (e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA") {
+        e.preventDefault();
+        showToast("Integritas Ujian: Klik kanan dinonaktifkan.", "info");
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      // Prevent F12, Ctrl+Shift+I/J/C, Ctrl+U
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "i" || e.key === "J" || e.key === "j" || e.key === "C" || e.key === "c")) ||
+        (e.ctrlKey && (e.key === "u" || e.key === "U"))
+      ) {
+        e.preventDefault();
+        showToast("Integritas Ujian: Akses inspeksi dibatasi.", "info");
+      }
+    });
+
+    /* =========================================================
+       INITIALIZATION
+       ========================================================= */
+    renderNavigation();
+    renderStage();
+    updateProgressBar();
+    initUnitGateTimer(state.current);
+    initAudioSystem();
+  })();
+  </script>
+</body>
+</html>

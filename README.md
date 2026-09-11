@@ -8,11 +8,27 @@ Dokumentasi ini dibuat untuk memudahkan pemilik website (**Abdullah Syamsidar**)
 
 ```text
 portfolio-syamsidar/
-├── index.html       # Berkas utama (HTML + Tailwind CSS + Lucide Icons + Javascript)
-└── README.md        # Panduan ini
+├── index.html                  # Berkas utama portofolio
+├── profile.jpg                 # Foto profil resmi
+├── README.md                   # Panduan ini
+└── modules/                    # Modul E-Learning Interaktif Mandiri
+    ├── manajemen-kinerja/      # Modul 16 Unit: Pengenalan Manajemen Kinerja Pegawai ASN (MOOC P3K)
+    │   ├── index.html
+    │   └── audio/              # File audio narasi TTS (unit_0.mp3 s.d. unit_15.mp3)
+    ├── tugas-fungsi-asn/       # Modul 12 Unit: Penerapan Tugas & Fungsi ASN (Orientasi BerAKHLAK)
+    │   ├── index.html
+    │   └── audio/              # File audio narasi TTS (unit_0.mp3 s.d. unit_11.mp3)
+    └── pengenalan-jabatan/     # Modul 11 Unit: Pengenalan Jabatan ASN Kemenag
+        ├── index.html
+        └── audio/              # File audio narasi TTS (unit_0.mp3 s.d. unit_10.mp3)
 ```
 
-Website ini bersifat **standalone single-page**. Artinya, seluruh gaya tampilan (CSS), ikon, dan logika interaktif (JavaScript) bekerja secara mandiri tanpa memerlukan proses *build* atau instalasi Node.js/npm. Anda cukup mengklik dua kali file `index.html` untuk melihatnya di browser!
+Website dan seluruh modul di dalamnya bersifat **standalone & offline-ready**. Setiap modul e-learning di dalam folder `modules/` memiliki struktur aplikasi web mandiri lengkap dengan:
+- Audio narasi teks-ke-suara (TTS) terpasang di folder `audio/`.
+- Efek suara interaktif berbasis Web Audio API (tanpa dependensi file eksternal).
+- Gate timer 10 detik membaca dan pos tugas interaktif (*task checkpoints*).
+- Kuis evaluasi berbasis enkripsi kriptografi SHA-256 (*anti-tamper & anti-cheat*).
+- Lembar ikrar komitmen digital yang dapat ditandatangani dan disalin peserta.
 
 ---
 
@@ -23,16 +39,33 @@ Di dalam file `index.html`, setiap bagian telah ditandai dengan komentar panduan
 | No | Bagian Halaman | Estimasi Baris | Yang Dapat Diubah |
 |---|---|---|---|
 | 1 | **Konfigurasi Tema** | Baris ~45 | Palet warna (`brand`, `accent`) & font |
-| 2 | **Header / Navigasi** | Baris ~120 | Logo inisial, teks nama, dan menu navigasi |
+| 2 | **Header / Navigasi** | Baris ~120 | Logo inisial/ikon, teks nama, dan menu navigasi |
 | 3 | **Hero Section** | Baris ~190 | Status badge, judul utama, bio singkat, 4 sorotan |
 | 4 | **Tentang Saya (About)** | Baris ~300 | Avatar, profil ringkas, cerita latar belakang, nilai tambah |
 | 5 | **Keahlian (Skills)** | Baris ~410 | Kategori kompetensi, persentase penguasaan, badge tools |
-| 6 | **Proyek (Projects)** | Baris ~540 | Kartu karya, kategori filter, tautan studi kasus |
-| 7 | **Pengalaman (Experience)** | Baris ~710 | Linimasa magang, peran organisasi, uraian pencapaian |
-| 8 | **Sertifikasi (Credentials)** | Baris ~810 | Nama sertifikat, nomor registrasi/lisensi, penerbit |
-| 9 | **Kontak (Contact)** | Baris ~920 | Alamat surel, nomor WhatsApp (+pesan otomatis), GitHub, domisili |
-| 10 | **Modal Studi Kasus** | Baris ~1030 | Rincian masalah, solusi yang dirancang, dampak/prestasi |
-| 11 | **JavaScript Controllers** | Baris ~1220 | Fungsi dark mode, filter, popup modal, dan salin email |
+| 6 | **Proyek (Projects)** | Baris ~570 | Kartu karya, kategori filter, tautan modul live demo |
+| 7 | **Pengalaman (Experience)** | Baris ~780 | Linimasa magang, peran organisasi, uraian pencapaian |
+| 8 | **Sertifikasi (Credentials)** | Baris ~880 | Nama sertifikat, nomor registrasi/lisensi, penerbit |
+| 9 | **Kontak (Contact)** | Baris ~990 | Alamat surel, nomor WhatsApp (+pesan otomatis), GitHub, domisili |
+| 10 | **Modal Studi Kasus** | Baris ~1100 | Rincian masalah, solusi yang dirancang, tombol buka live demo |
+| 11 | **JavaScript Controllers** | Baris ~1450 | Fungsi dark mode, filter, popup modal, dan salin email |
+
+---
+
+## 🚀 Menjalankan & Membuka Modul Interaktif
+
+1. **Secara Lokal (Offline):**
+   - Buka file `index.html` di browser (Chrome, Edge, Firefox).
+   - Masuk ke bagian **Proyek** > klik **"Lihat Studi Kasus & Demo"** pada proyek modul yang diinginkan.
+   - Klik tombol **"Buka Modul Interaktif (Live Demo)"**. Modul akan terbuka di tab baru dan audio narasi serta seluruh interaksinya dapat langsung dimainkan tanpa butuh koneksi internet!
+
+2. **Secara Online (GitHub Pages / Hosting Web):**
+   - Cukup unggah seluruh isi folder `portfolio-syamsidar/` (termasuk folder `modules/`) ke repositori GitHub.
+   - Aktifkan GitHub Pages pada branch utama.
+   - Seluruh modul akan otomatis dapat diakses publik dengan URL:
+     - `https://username.github.io/modules/manajemen-kinerja/`
+     - `https://username.github.io/modules/tugas-fungsi-asn/`
+     - `https://username.github.io/modules/pengenalan-jabatan/`
 
 ---
 
@@ -41,7 +74,7 @@ Di dalam file `index.html`, setiap bagian telah ditandai dengan komentar panduan
 ### 1. Mengubah Data Pribadi & Kontak
 Buka `index.html`, lalu cari (Ctrl+F) kata kunci:
 - **Email**: Ganti `abdullahsyamsidar@gmail.com`
-- **Nomor WhatsApp**: Ganti `6289639301997` pada tautan `https://wa.me/6289639301997?text=...` (Pastikan gunakan kode negara `62` tanpa tanda `+` atau spasi).
+- **Nomor WhatsApp**: Ganti `6289639301997` pada tautan `https://wa.me/6289639301997?text=...` (Gunakan kode negara `62` tanpa tanda `+` atau spasi).
 - **Akun GitHub**: Ganti `NotSyam`.
 
 ### 2. Menambah Proyek Baru
@@ -55,19 +88,3 @@ Untuk menambahkan proyek baru:
    ```
 5. Masuk ke bagian `<!-- 10. MODAL POP-UP RINCIAN STUDI KASUS -->`.
 6. Salin salah satu blok modal dan ubah ID-nya menjadi `id="modal-proyek-baru"`.
-
-### 3. Mengganti Ikon
-Website ini menggunakan kumpulan ikon resmi dari **Lucide Icons** (<https://lucide.dev/icons>):
-- Cari nama ikon di situs Lucide (misal: `award`, `layers`, `mail`, `external-link`).
-- Ganti atribut `data-lucide="nama-ikon"`, contoh: `<i data-lucide="book-open"></i>`.
-
----
-
-## 🌐 Cara Publikasi Gratis ke Internet
-
-Portofolio ini sangat cocok di-hosting secara gratis menggunakan **GitHub Pages**:
-1. Buat repositori baru di GitHub (misal: `portofolio` atau `username.github.io`).
-2. Unggah file `index.html`.
-3. Masuk ke tab **Settings** repositori > **Pages**.
-4. Pada opsi *Build and deployment*, pilih branch **main** / root folder `/`.
-5. Klik **Save**. Dalam 1-2 menit, portofolio Anda sudah tayang secara publik di internet!

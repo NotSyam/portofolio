@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abdullah Syamsidar | Portofolio Desain Pembelajaran & Multimedia</title>
   <meta name="description" content="Portofolio resmi Abdullah Syamsidar - Desainer Pembelajaran (Instructional Designer), Pengembang Media Edukasi Digital, dan Praktisi AI untuk Pendidikan." />
+  <meta name="author" content="Abdullah Syamsidar" />
+  <meta name="theme-color" content="#0d9488" />
+  <link rel="canonical" href="https://portofolio.notsyam.my.id/" />
+
+  <!-- Favicon (SVG Icon Edukasi) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d9488' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z'/%3E%3Cpath d='m9 9.5 2 2 4-4'/%3E%3C/svg%3E" />
+
+  <!-- Open Graph & Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://portofolio.notsyam.my.id/" />
+  <meta property="og:title" content="Abdullah Syamsidar | Portofolio Desain Pembelajaran & Multimedia" />
+  <meta property="og:description" content="Portofolio resmi Abdullah Syamsidar - Desainer Pembelajaran (Instructional Designer), Pengembang Media Edukasi Digital, dan Praktisi AI untuk Pendidikan." />
+  <meta property="og:image" content="./profile.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Abdullah Syamsidar | Portofolio Desain Pembelajaran & Multimedia" />
+  <meta name="twitter:description" content="Desainer Pembelajaran (Instructional Designer), Pengembang Media Edukasi Digital, dan Praktisi AI untuk Pendidikan." />
+  <meta name="twitter:image" content="./profile.jpg" />
 
   <!--
   ================================================================================
@@ -123,13 +140,13 @@
 
         <!-- Menu Navigasi Desktop -->
         <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600 dark:text-slate-300">
-          <a href="#home" class="nav-link hover:text-brand-600 dark:hover:text-brand-400 transition-colors py-1">Beranda</a>
-          <a href="#about" class="nav-link hover:text-brand-600 dark:hover:text-brand-400 transition-colors py-1">Tentang</a>
-          <a href="#skills" class="nav-link hover:text-brand-600 dark:hover:text-brand-400 transition-colors py-1">Keahlian</a>
-          <a href="#projects" class="nav-link hover:text-brand-600 dark:hover:text-brand-400 transition-colors py-1">Proyek</a>
-          <a href="#experience" class="nav-link hover:text-brand-600 dark:hover:text-brand-400 transition-colors py-1">Pengalaman</a>
-          <a href="#certifications" class="nav-link hover:text-brand-600 dark:hover:text-brand-400 transition-colors py-1">Sertifikasi</a>
-          <a href="#contact" class="nav-link hover:text-brand-600 dark:hover:text-brand-400 transition-colors py-1">Kontak</a>
+          <a href="#home" class="nav-link border-b-2 border-transparent hover:text-brand-600 dark:hover:text-brand-400 transition-all py-1">Beranda</a>
+          <a href="#about" class="nav-link border-b-2 border-transparent hover:text-brand-600 dark:hover:text-brand-400 transition-all py-1">Tentang</a>
+          <a href="#skills" class="nav-link border-b-2 border-transparent hover:text-brand-600 dark:hover:text-brand-400 transition-all py-1">Keahlian</a>
+          <a href="#projects" class="nav-link border-b-2 border-transparent hover:text-brand-600 dark:hover:text-brand-400 transition-all py-1">Proyek</a>
+          <a href="#experience" class="nav-link border-b-2 border-transparent hover:text-brand-600 dark:hover:text-brand-400 transition-all py-1">Pengalaman</a>
+          <a href="#certifications" class="nav-link border-b-2 border-transparent hover:text-brand-600 dark:hover:text-brand-400 transition-all py-1">Sertifikasi</a>
+          <a href="#contact" class="nav-link border-b-2 border-transparent hover:text-brand-600 dark:hover:text-brand-400 transition-all py-1">Kontak</a>
         </nav>
 
         <!-- Aksi Cepat Sisi Kanan (Toggle Mode Gelap & Tombol Hubungi) -->
@@ -147,8 +164,8 @@
           </a>
 
           <!-- Tombol Menu Mobile -->
-          <button id="mobile-menu-btn" type="button" aria-label="Buka navigasi seluler" class="md:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
-            <i data-lucide="menu" class="w-5 h-5"></i>
+          <button id="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka navigasi seluler" class="md:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            <i data-lucide="menu" id="mobile-menu-icon" class="w-5 h-5"></i>
           </button>
         </div>
       </div>
@@ -252,7 +269,7 @@
             <div class="relative rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl">
               <!-- Foto Profil Utama -->
               <div class="relative w-full aspect-[4/4.5] overflow-hidden bg-slate-100 dark:bg-slate-800">
-                <img src="./profile.jpg" alt="Foto Profil Abdullah Syamsidar" onerror="this.onerror=null; this.src='https://dl.dropboxusercontent.com/scl/fi/n5ajdbbb25btwunje26cw/Profil.jpg?rlkey=58crlvl98n5cwgndyj7tuoaxv&st=6pznmucz&dl=1';" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" />
+                <img src="./profile.jpg" alt="Foto Profil Abdullah Syamsidar" loading="eager" fetchpriority="high" onerror="this.onerror=null; this.src='https://dl.dropboxusercontent.com/scl/fi/n5ajdbbb25btwunje26cw/Profil.jpg?rlkey=58crlvl98n5cwgndyj7tuoaxv&st=6pznmucz&dl=1';" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" />
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent flex flex-col justify-end p-5 text-white">
                   <span class="text-xs font-semibold uppercase tracking-wider text-teal-300">Teknologi Pendidikan</span>
                   <h3 class="text-xl font-bold text-white leading-tight mt-0.5">Abdullah Syamsidar</h3>
@@ -381,7 +398,7 @@
                   <span class="font-medium text-brand-600">Terampil</span>
                 </div>
                 <div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                  <div class="bg-brand-500 h-full rounded-full w-[90%]"></div>
+                  <div class="skill-bar-fill bg-brand-500 h-full rounded-full w-[90%] transition-all duration-1000 ease-out" data-target="90%"></div>
                 </div>
               </div>
 
@@ -391,7 +408,7 @@
                   <span class="font-medium text-brand-600">Terampil</span>
                 </div>
                 <div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                  <div class="bg-brand-500 h-full rounded-full w-[88%]"></div>
+                  <div class="skill-bar-fill bg-brand-500 h-full rounded-full w-[88%] transition-all duration-1000 ease-out" data-target="88%"></div>
                 </div>
               </div>
 
@@ -401,7 +418,7 @@
                   <span class="font-medium text-brand-600">Unggulan</span>
                 </div>
                 <div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                  <div class="bg-brand-500 h-full rounded-full w-[94%]"></div>
+                  <div class="skill-bar-fill bg-brand-500 h-full rounded-full w-[94%] transition-all duration-1000 ease-out" data-target="94%"></div>
                 </div>
               </div>
             </div>
@@ -430,7 +447,7 @@
                   <span class="font-medium text-accent-600">Sertifikasi BNSP</span>
                 </div>
                 <div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                  <div class="bg-accent-500 h-full rounded-full w-[92%]"></div>
+                  <div class="skill-bar-fill bg-accent-500 h-full rounded-full w-[92%] transition-all duration-1000 ease-out" data-target="92%"></div>
                 </div>
               </div>
 
@@ -440,7 +457,7 @@
                   <span class="font-medium text-accent-600">Terampil</span>
                 </div>
                 <div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                  <div class="bg-accent-500 h-full rounded-full w-[86%]"></div>
+                  <div class="skill-bar-fill bg-accent-500 h-full rounded-full w-[86%] transition-all duration-1000 ease-out" data-target="86%"></div>
                 </div>
               </div>
 
@@ -450,7 +467,7 @@
                   <span class="font-medium text-accent-600">Terampil</span>
                 </div>
                 <div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                  <div class="bg-accent-500 h-full rounded-full w-[90%]"></div>
+                  <div class="skill-bar-fill bg-accent-500 h-full rounded-full w-[90%] transition-all duration-1000 ease-out" data-target="90%"></div>
                 </div>
               </div>
             </div>
@@ -479,7 +496,7 @@
                   <span class="font-medium text-teal-600">Google Certified</span>
                 </div>
                 <div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                  <div class="bg-teal-500 h-full rounded-full w-[95%]"></div>
+                  <div class="skill-bar-fill bg-teal-500 h-full rounded-full w-[95%] transition-all duration-1000 ease-out" data-target="95%"></div>
                 </div>
               </div>
 
@@ -489,7 +506,7 @@
                   <span class="font-medium text-teal-600">Terampil</span>
                 </div>
                 <div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                  <div class="bg-teal-500 h-full rounded-full w-[88%]"></div>
+                  <div class="skill-bar-fill bg-teal-500 h-full rounded-full w-[88%] transition-all duration-1000 ease-out" data-target="88%"></div>
                 </div>
               </div>
 
@@ -499,7 +516,7 @@
                   <span class="font-medium text-teal-600">Menengah</span>
                 </div>
                 <div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                  <div class="bg-teal-500 h-full rounded-full w-[82%]"></div>
+                  <div class="skill-bar-fill bg-teal-500 h-full rounded-full w-[82%] transition-all duration-1000 ease-out" data-target="82%"></div>
                 </div>
               </div>
             </div>
@@ -528,7 +545,7 @@
                   <span class="font-medium text-indigo-600">Model CIPP</span>
                 </div>
                 <div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                  <div class="bg-indigo-500 h-full rounded-full w-[88%]"></div>
+                  <div class="skill-bar-fill bg-indigo-500 h-full rounded-full w-[88%] transition-all duration-1000 ease-out" data-target="88%"></div>
                 </div>
               </div>
 
@@ -538,7 +555,7 @@
                   <span class="font-medium text-indigo-600">Terampil</span>
                 </div>
                 <div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                  <div class="bg-indigo-500 h-full rounded-full w-[86%]"></div>
+                  <div class="skill-bar-fill bg-indigo-500 h-full rounded-full w-[86%] transition-all duration-1000 ease-out" data-target="86%"></div>
                 </div>
               </div>
 
@@ -548,7 +565,7 @@
                   <span class="font-medium text-indigo-600">Ketua Angkatan</span>
                 </div>
                 <div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                  <div class="bg-indigo-500 h-full rounded-full w-[92%]"></div>
+                  <div class="skill-bar-fill bg-indigo-500 h-full rounded-full w-[92%] transition-all duration-1000 ease-out" data-target="92%"></div>
                 </div>
               </div>
             </div>
@@ -589,10 +606,22 @@
 
         <!-- Tombol Filter Kategori -->
         <div class="flex flex-wrap gap-2" id="project-filters">
-          <button type="button" class="filter-btn active px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-brand-600 text-white shadow-sm" data-filter="all">Semua Proyek</button>
-          <button type="button" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750" data-filter="prestasi">Prestasi / Skripsi</button>
-          <button type="button" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750" data-filter="diklat">Pelatihan & E-Learning</button>
-          <button type="button" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750" data-filter="riset">Evaluasi & Riset</button>
+          <button type="button" class="filter-btn active px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-brand-600 text-white shadow-sm flex items-center gap-1.5 transition-all" data-filter="all">
+            <span>Semua Proyek</span>
+            <span class="filter-badge px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-white/25 text-white">9</span>
+          </button>
+          <button type="button" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750 flex items-center gap-1.5 transition-all" data-filter="prestasi">
+            <span>Prestasi / Skripsi</span>
+            <span class="filter-badge px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300">1</span>
+          </button>
+          <button type="button" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750 flex items-center gap-1.5 transition-all" data-filter="diklat">
+            <span>Pelatihan & E-Learning</span>
+            <span class="filter-badge px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300">6</span>
+          </button>
+          <button type="button" class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-750 flex items-center gap-1.5 transition-all" data-filter="riset">
+            <span>Evaluasi & Riset</span>
+            <span class="filter-badge px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300">2</span>
+          </button>
         </div>
       </div>
 
@@ -1238,22 +1267,39 @@
   <!-- ========================================================================== -->
   <!-- 09. FOOTER & TOMBOL KEMBALI KE ATAS                                        -->
   <!-- ========================================================================== -->
-  <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8 text-center text-xs text-slate-500 dark:text-slate-400 transition-colors">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p>© 2026 Abdullah Syamsidar. Portofolio Teknologi Pendidikan & Desain Pembelajaran.</p>
-      
-      <div class="flex items-center gap-4">
-        <a href="#home" class="inline-flex items-center gap-1.5 text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors font-medium">
-          <span>Kembali ke Atas</span>
+  <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8 text-xs text-slate-500 dark:text-slate-400 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+        <p>© 2026 Abdullah Syamsidar. Hak Cipta Dilindungi.</p>
+        <span class="hidden sm:inline text-slate-300 dark:text-slate-700">•</span>
+        <span class="text-slate-400">Teknologi Pendidikan & Desain Multimedia</span>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-slate-600 dark:text-slate-300">
+        <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Tentang</a>
+        <a href="#skills" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Keahlian</a>
+        <a href="#projects" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Proyek</a>
+        <a href="./modules/index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1">
+          <span>Learning Hub</span>
+          <i data-lucide="sparkles" class="w-3 h-3 text-emerald-500"></i>
+        </a>
+        <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Kontak</a>
+        <a href="#home" class="inline-flex items-center gap-1 text-brand-600 dark:text-brand-400 font-semibold hover:underline ml-2">
+          <span>Ke Atas</span>
           <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
         </a>
       </div>
     </div>
   </footer>
 
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" type="button" aria-label="Kembali ke atas" class="fixed bottom-6 right-6 z-40 p-3 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white shadow-lg shadow-brand-600/30 hover:scale-105 active:scale-95 transition-all duration-300 opacity-0 pointer-events-none translate-y-4 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900" title="Kembali ke atas">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
+
   <!-- Toast Notifikasi (Untuk feedback salin email) -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-xl flex items-center gap-2.5 text-xs font-semibold">
-    <i data-lucide="check" class="w-4 h-4 text-emerald-400 dark:text-emerald-600"></i>
+  <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900/95 text-white dark:bg-white/95 dark:text-slate-900 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 text-xs font-semibold backdrop-blur-md border border-slate-700/30 dark:border-slate-200/30">
+    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 dark:text-emerald-600 shrink-0"></i>
     <span id="toast-message">Alamat email berhasil disalin!</span>
   </div>
 
@@ -1782,11 +1828,12 @@
   <!-- ========================================================================== -->
   <script>
     // Inisialisasi ikon Lucide
-    document.addEventListener('DOMContentLoaded', () => {
+    function initIcons() {
       if (window.lucide) {
         lucide.createIcons();
       }
-    });
+    }
+    document.addEventListener('DOMContentLoaded', initIcons);
 
     /* --------------------------------------------------------------------------
        1. PENGATURAN TEMA TERANG / GELAP (DARK MODE)
@@ -1798,9 +1845,11 @@
       if (isDark) {
         document.documentElement.classList.add('dark');
         localStorage.setItem('portfolio-theme', 'dark');
+        if (themeToggleBtn) themeToggleBtn.setAttribute('aria-label', 'Ganti ke mode tampilan terang');
       } else {
         document.documentElement.classList.remove('dark');
         localStorage.setItem('portfolio-theme', 'light');
+        if (themeToggleBtn) themeToggleBtn.setAttribute('aria-label', 'Ganti ke mode tampilan gelap');
       }
     }
 
@@ -1820,27 +1869,141 @@
     }
 
     /* --------------------------------------------------------------------------
-       2. NAVIGASI MOBILE DROPDOWN
-       Membuka & menutup menu saat tombol burger diklik, otomatis menutup saat link diklik.
+       2. NAVIGASI MOBILE DROPDOWN DENGAN ARIA & ANIMASI IKON
        -------------------------------------------------------------------------- */
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
+    function toggleMobileMenu(forceClose = false) {
+      if (!mobileBtn || !mobileMenu) return;
+      const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+      const willOpen = forceClose ? false : !isExpanded;
+
+      mobileBtn.setAttribute('aria-expanded', String(willOpen));
+      if (willOpen) {
+        mobileMenu.classList.remove('hidden');
+        mobileBtn.innerHTML = '<i data-lucide="x" class="w-5 h-5"></i>';
+      } else {
+        mobileMenu.classList.add('hidden');
+        mobileBtn.innerHTML = '<i data-lucide="menu" class="w-5 h-5"></i>';
+      }
+      initIcons();
+    }
+
     if (mobileBtn && mobileMenu) {
-      mobileBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
+      mobileBtn.addEventListener('click', () => toggleMobileMenu());
 
       document.querySelectorAll('.mobile-nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.add('hidden');
-        });
+        link.addEventListener('click', () => toggleMobileMenu(true));
+      });
+
+      // Tutup mobile menu saat klik di luar area
+      document.addEventListener('click', (e) => {
+        if (!mobileBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+          toggleMobileMenu(true);
+        }
       });
     }
 
     /* --------------------------------------------------------------------------
-       3. FILTER PROYEK BERDASARKAN KATEGORI
-       Menyaring kartu proyek berdasarkan atribut data-category.
+       3. SCROLLSPY & HEADER ELEVATION
+       Highlight menu navigasi aktif sesuai posisi scroll & tambah bayangan header.
+       -------------------------------------------------------------------------- */
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
+    const headerElem = document.querySelector('header');
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    function onScrollHandler() {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+      // 1. Header Elevation
+      if (headerElem) {
+        if (scrollY > 20) {
+          headerElem.classList.add('shadow-md', 'shadow-slate-900/5', 'dark:shadow-black/25');
+        } else {
+          headerElem.classList.remove('shadow-md', 'shadow-slate-900/5', 'dark:shadow-black/25');
+        }
+      }
+
+      // 2. Floating Back To Top Button
+      if (backToTopBtn) {
+        if (scrollY > 400) {
+          backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+          backToTopBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        } else {
+          backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+          backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        }
+      }
+
+      // 3. ScrollSpy
+      const headerOffset = 110;
+      let currentSectionId = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - headerOffset;
+        const height = section.offsetHeight;
+        if (scrollY >= top && scrollY < top + height) {
+          currentSectionId = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === `#${currentSectionId}`) {
+          link.classList.add('text-brand-600', 'dark:text-brand-400', 'font-bold', '!border-brand-600', 'dark:!border-brand-400');
+          link.classList.remove('text-slate-600', 'dark:text-slate-300');
+        } else {
+          link.classList.remove('text-brand-600', 'dark:text-brand-400', 'font-bold', '!border-brand-600', 'dark:!border-brand-400');
+          link.classList.add('text-slate-600', 'dark:text-slate-300');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', onScrollHandler, { passive: true });
+    onScrollHandler(); // Jalankan sekali saat inisialisasi
+
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    /* --------------------------------------------------------------------------
+       4. ANIMASI PROGRESS BAR KEAHLIAN (INTERSECTION OBSERVER)
+       -------------------------------------------------------------------------- */
+    const skillBars = document.querySelectorAll('.skill-bar-fill');
+    const skillsSection = document.getElementById('skills');
+
+    // Inisialisasi awal ke width 0 untuk animasi halus
+    skillBars.forEach(bar => {
+      bar.style.width = '0%';
+    });
+
+    if (skillsSection && skillBars.length > 0 && 'IntersectionObserver' in window) {
+      const skillsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            skillBars.forEach(bar => {
+              const target = bar.getAttribute('data-target');
+              if (target) bar.style.width = target;
+            });
+            skillsObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      skillsObserver.observe(skillsSection);
+    } else {
+      // Fallback langsung isi jika browser lama
+      skillBars.forEach(bar => {
+        const target = bar.getAttribute('data-target');
+        if (target) bar.style.width = target;
+      });
+    }
+
+    /* --------------------------------------------------------------------------
+       5. FILTER PROYEK BERDASARKAN KATEGORI DENGAN SMOOTH FADE & BADGE
        -------------------------------------------------------------------------- */
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
@@ -1849,35 +2012,70 @@
       btn.addEventListener('click', () => {
         // Reset styling semua tombol filter
         filterButtons.forEach(b => {
-          b.classList.remove('active', 'bg-brand-600', 'text-white');
-          b.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
+          b.classList.remove('active', 'bg-brand-600', 'text-white', 'shadow-sm');
+          b.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'border-slate-200', 'dark:border-slate-700');
+          const badge = b.querySelector('.filter-badge');
+          if (badge) {
+            badge.classList.remove('bg-white/25', 'text-white');
+            badge.classList.add('bg-slate-100', 'dark:bg-slate-700', 'text-slate-500', 'dark:text-slate-300');
+          }
         });
 
         // Aktifkan tombol yang diklik
-        btn.classList.add('active', 'bg-brand-600', 'text-white');
-        btn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
+        btn.classList.add('active', 'bg-brand-600', 'text-white', 'shadow-sm');
+        btn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300', 'border', 'border-slate-200', 'dark:border-slate-700');
+        const activeBadge = btn.querySelector('.filter-badge');
+        if (activeBadge) {
+          activeBadge.classList.add('bg-white/25', 'text-white');
+          activeBadge.classList.remove('bg-slate-100', 'dark:bg-slate-700', 'text-slate-500', 'dark:text-slate-300');
+        }
 
         const filterValue = btn.getAttribute('data-filter');
 
         projectCards.forEach(card => {
           const cardCategories = card.getAttribute('data-category') || '';
-          if (filterValue === 'all' || cardCategories.includes(filterValue)) {
+          const isMatch = filterValue === 'all' || cardCategories.includes(filterValue);
+
+          if (isMatch) {
             card.style.display = 'flex';
+            requestAnimationFrame(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'scale(1)';
+            });
           } else {
-            card.style.display = 'none';
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.96)';
+            setTimeout(() => {
+              if (card.style.opacity === '0') {
+                card.style.display = 'none';
+              }
+            }, 200);
           }
         });
       });
     });
 
+    // Inisialisasi transisi halus pada kartu proyek
+    projectCards.forEach(card => {
+      card.style.transition = 'opacity 0.25s ease-out, transform 0.25s ease-out';
+    });
+
     /* --------------------------------------------------------------------------
-       4. PENGELOLA MODAL STUDI KASUS (Buka / Tutup / Tombol ESC / Klik Luar)
+       6. PENGELOLA MODAL STUDI KASUS (Buka / Tutup / Tombol ESC / Klik Luar)
        -------------------------------------------------------------------------- */
+    let lastActiveElement = null;
+
     function openModal(modalId) {
+      lastActiveElement = document.activeElement;
       const modal = document.getElementById(modalId);
       if (modal) {
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden'; // Kunci scroll halaman utama
+        initIcons();
+
+        // Aksesibilitas: Fokuskan ke tombol tutup
+        const closeBtn = modal.querySelector('button[aria-label="Tutup jendela"]');
+        if (closeBtn) closeBtn.focus();
       }
     }
 
@@ -1886,6 +2084,9 @@
       if (modal) {
         modal.classList.add('hidden');
         document.body.style.overflow = ''; // Kembalikan scroll
+        if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
+          lastActiveElement.focus();
+        }
       }
     }
 
@@ -1894,6 +2095,9 @@
       if (event.target.classList.contains('modal')) {
         event.target.classList.add('hidden');
         document.body.style.overflow = '';
+        if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
+          lastActiveElement.focus();
+        }
       }
     });
 
@@ -1906,20 +2110,50 @@
           }
         });
         document.body.style.overflow = '';
+        if (lastActiveElement && typeof lastActiveElement.focus === 'function') {
+          lastActiveElement.focus();
+        }
       }
     });
 
     /* --------------------------------------------------------------------------
-       5. FITUR SALIN ALAMAT EMAIL KE CLIPBOARD DENGAN TOAST NOTIFIKASI
+       7. FITUR SALIN ALAMAT EMAIL KE CLIPBOARD DENGAN FALLBACK & TOAST
        -------------------------------------------------------------------------- */
     function copyEmailToClipboard(email) {
-      navigator.clipboard.writeText(email).then(() => {
-        showToast(`Email ${email} berhasil disalin!`);
-      }).catch(() => {
-        showToast('Gagal menyalin email.');
-      });
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(email).then(() => {
+          showToast(`Email ${email} berhasil disalin!`);
+        }).catch(() => {
+          fallbackCopyText(email);
+        });
+      } else {
+        fallbackCopyText(email);
+      }
     }
 
+    function fallbackCopyText(text) {
+      try {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        textArea.style.top = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        const successful = document.execCommand('copy');
+        document.body.removeChild(textArea);
+        if (successful) {
+          showToast(`Email ${text} berhasil disalin!`);
+        } else {
+          showToast('Silakan salin manual: ' + text);
+        }
+      } catch (err) {
+        showToast('Silakan salin manual: ' + text);
+      }
+    }
+
+    let toastTimer = null;
     function showToast(message) {
       const toast = document.getElementById('toast');
       const toastMsg = document.getElementById('toast-message');
@@ -1928,7 +2162,8 @@
         toast.classList.remove('translate-y-20', 'opacity-0');
         toast.classList.add('translate-y-0', 'opacity-100');
 
-        setTimeout(() => {
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
           toast.classList.add('translate-y-20', 'opacity-0');
           toast.classList.remove('translate-y-0', 'opacity-100');
         }, 3000);
